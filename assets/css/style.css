@@ -1,0 +1,42 @@
+.form-group-create{
+    margin: auto;
+    width: 80%;
+    border: solid 2px gray;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
+.form-group-create-sm{
+    margin: auto;
+    width: 50%;
+    border: solid 2px gray;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+.form-group-create-sm h3{
+margin-bottom: 2em;
+}
+
+.form-group-forms{
+    margin: auto;
+    width: 80%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.center-button{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3em;
+}
+
+.errormsg{
+    color: red;
+}
+
+.successmsg{
+    color: green;
+}

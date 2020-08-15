@@ -1,0 +1,20 @@
+DELETE FROM main_pap;
+DELETE FROM sub_pap;
+
+CREATE TABLE main_pap (
+    mp_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    mp_code VARCHAR(200),
+    mp_name VARCHAR(200),
+    mp_description VARCHAR(200),
+    mp_remarks VARCHAR(200),
+    PRIMARY KEY (mp_id)
+);
+
+CREATE TABLE sub_pap (
+    sp_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    sp_code VARCHAR(200),
+    sp_name VARCHAR(200),
+    sp_description VARCHAR(200),
+    sp_remarks VARCHAR(200),
+    PRIMARY KEY (sp_id)
+);
