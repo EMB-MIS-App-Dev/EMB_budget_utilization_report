@@ -73,9 +73,11 @@
             $this->form_validation->set_rules('sp_name', 'Name',
                     'required');
 
+            $data['main_pap'] = $this->budget_allocation_model->view_main_pap();
+
             if($this->form_validation->run() === FALSE){
                 $this->load->view('templates/header');
-                $this->load->view('settings/sub_pap/create-pap');
+                $this->load->view('settings/sub_pap/create-pap', $data);
                 $this->load->view('templates/footer');
             }else{
                 $this->budget_allocation_model->add_sub_pap();
@@ -106,6 +108,7 @@
         }
         // ------------------------END SUB PAP------------------------
 
+        // ------------------------ALLOTMENT------------------------
         public function allotment(){
             
             $this->load->view('templates/header');
@@ -113,52 +116,26 @@
             $this->load->view('templates/footer');
         }
 
-        public function saa(){
-            
-            $this->load->view('templates/header');
-            $this->load->view('saa');
-            $this->load->view('templates/footer');
-        }
-
-        public function saa_create(){
-            
-            $this->form_validation->set_rules('region', 'Region',
-                    'required');
-            $this->form_validation->set_rules('month', 'Month',
-                    'required');
-            $this->form_validation->set_rules('year', 'Year',
-                    'required');
-            $this->form_validation->set_rules('SAA_name', 'SAA',
-                    'required');
-            
-            if($this->form_validation->run() === FALSE){
-                $this->load->view('templates/header');
-                $this->load->view('saa/create');
-                $this->load->view('templates/footer');
-            }else{
-                $this->budget_allocation_model->saa_create();
-                $this->session->set_flashdata('successmsg', 'SAA successfully created!');
-                redirect('saa');
-            }
-        }
-
         public function allotment_create(){
             $this->form_validation->set_rules('region', 'Region',
                     'required');
             $this->form_validation->set_rules('year', 'Year',
                     'required');
-            
+
+            $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap();
+
             if($this->form_validation->run() === FALSE){
                 $this->load->view('templates/header');
-                $this->load->view('allotment/create');
+                $this->load->view('allotment/create', $data);
                 $this->load->view('templates/footer');
             }else{
-                $this->budget_allocation_model->allotment_create();
+                $this->budget_allocation_model->add_allotment();
                 $this->session->set_flashdata('successmsg', 'Allotment successfully created!');
-                redirect('allotment');
+                redirect('allotment/create', $data);
             }
-          
-        }    
+           
+        }
+        // ------------------------END ALLOTMENT------------------------
         
     }
 ?>

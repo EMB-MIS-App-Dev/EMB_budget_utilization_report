@@ -4,6 +4,12 @@
         <?php echo validation_errors(); ?>
 </div>
 
+<div class='successmsg'>
+    <?php if($this->session->flashdata('successmsg')): ?> 
+        <p><?php echo $this->session->flashdata('successmsg'); ?></p>
+    <?php endif; ?>
+</div>
+
 <form action="<?= base_url('allotment/create'); ?>" method="post" accept-charset="utf-8">
     <div class="form-group">
         <div class="form-group-create">
@@ -59,46 +65,48 @@
                 </div>
             </div>
         </div>
-        <div class="form-group-forms">  
+        <div class="form-group-forms">
+        <input type="hidden" name="type" value="sub_pap">  
             <div class="row">
                 <div class="col-sm-4" >
-                    <p><b>100000100001000 - General Management & Supervision</b></p> 
+                    <p><b>Select PAP: </b></p> 
                 </div> 
                 <div class="col-sm-8">
-                    <input type="number" step="0.01" class="form-control" name="GMS_AMT_TOTAL" readonly>
+                    <select name="sp_id">
+                    <?php foreach($sub_pap as $sp) : ?>
+                        <option value="<?php echo $sp['sp_id']; ?>"><?php echo $sp['sp_code']; ?> - <?php echo $sp['sp_name']; ?></option>
+                    <?php endforeach; ?>
+                    </select>
                 </div>
+               
                 <div class="col-sm-4" >
-                    <p>PS</p> 
-                    <input type="hidden"  name="GMS_PAP_CAT_PS" value="PS_REG">
-                    <input type="hidden"  name="GMS_PAP_PS" value="PS">
+                    <p><b>PS</b></p> 
                 </div> 
                 <div class="col-sm-8">
-                    <input type="number" step="0.01" class="form-control" name="GMS_AMT_PS">
+                    <input type="number" step="0.01" placeholder="0000" class="form-control" name="ps_amount">
                 </div>
+               
                 <div class="col-sm-4" >
-                    <p>MOOE</p> 
-                    <input type="hidden"  name="GMS_PAP_CAT_MOOE" value="MOOE_REG">
-                    <input type="hidden"  name="GMS_PAP_MOOE" value="MOOE">
+                    <p><b>MOOE</b></p> 
                 </div> 
                 <div class="col-sm-8">
-                    <input type="number" step="0.01" class="form-control" name="GMS_AMT_MOOE">
+                    <input type="number" step="0.01" placeholder="0000" class="form-control" name="mooe_amount">
                 </div>
+
                 <div class="col-sm-4" >
-                    <p>CO</p> 
-                    <input type="hidden"  name="GMS_PAP_CAT_CO" value="CO_REG">
-                    <input type="hidden"  name="GMS_PAP_CO" value="CO">
+                    <p><b>CO</b></p> 
                 </div> 
                 <div class="col-sm-8">
-                    <input type="number" step="0.01" class="form-control" name="GMS_AMT_CO">
+                    <input type="number" step="0.01" placeholder="0000" class="form-control" name="co_amount">
                 </div>
+
                 <div class="col-sm-4" >
-                    <p>RLIP</p> 
-                    <input type="hidden"  name="GMS_PAP_CAT_RLIP" value="RLIP_REG">
-                    <input type="hidden"  name="GMS_PAP_RLIP" value="RLIP">
+                    <p><b>RLIP</b></p> 
                 </div> 
                 <div class="col-sm-8">
-                    <input type="number" step="0.01" class="form-control" name="GMS_AMT_RLIP">
+                    <input type="number" step="0.01" placeholder="0000" class="form-control" name="rlip_amount">
                 </div>
+               
             </div>
         </div>
         

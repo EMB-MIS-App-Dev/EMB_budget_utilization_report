@@ -9,6 +9,17 @@
            
             <div class="row">
                 <div class="col-sm-4" >
+                    <p><b>Select PAP: </b></p> 
+                </div> 
+                <div class="col-sm-8">
+                    <select name="sp_mp_id">
+                    <?php foreach($main_pap as $mp) : ?>
+                        <option value="<?php echo $mp['mp_id']; ?>"><?php echo $mp['mp_code']; ?> - <?php echo $mp['mp_name']; ?></option>
+                    <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <div class="col-sm-4" >
                     <p><b>Code: </b></p> 
                 </div> 
                 <div class="col-sm-8">

@@ -47,7 +47,11 @@ class Budget_allocation_model extends CI_Model{
 
     // ---------------------------------- SUB PAP TABLE ----------------------------------
     public function view_sub_pap(){
-        $query = $this->db_budget->get('sub_pap');
+        $this->db_budget->select('*');
+        $this->db_budget->from('sub_pap');
+        $this->db_budget->join('main_pap', 'sub_pap.sp_mp_id = main_pap.mp_id');
+
+        $query = $this->db_budget->get();
         return $query->result_array();
     }
 
@@ -56,6 +60,7 @@ class Budget_allocation_model extends CI_Model{
             'sp_code' => $this->input->post('sp_code'),
             'sp_name' => $this->input->post('sp_name'),
             'sp_description' => $this->input->post('sp_description'),
+            'sp_mp_id' => $this->input->post('sp_mp_id'),
         );
 
         return $this->db_budget->insert('sub_pap', $data);
@@ -84,70 +89,55 @@ class Budget_allocation_model extends CI_Model{
     }
     // ---------------------------------- END SUB PAP TABLE ----------------------------------
 
-    public function allotment_create(){
-
-         // ---------------------------------- allotment TABLE ----------------------------------
-
-        $allotment = array(
+    // ---------------------------------- ALLOTMENT TABLE ----------------------------------
+    public function add_allotment(){
+        $ps = array(
             'region' => $this->input->post('region'),
             'year' => $this->input->post('year'),
-            'status' => '0'
+            'amount' => $this->input->post('ps_amount'),
+            'type' => $this->input->post('type'),
+            'mp_id' => $this->input->post('mp_id'),
+            'sp_id' => $this->input->post('sp_id'),
         );
 
-        $this->db_budget->insert('allotment', $allotment);
-        $allotment_id = $this->db_budget->insert_id();
+        $this->db_budget->insert('allotment', $ps);
 
-        $gms_allotment_ps = array(
-            'GMS_PAP_CAT' => $this->input->post('GMS_PAP_CAT_PS'),
-            'GMS_PAP' => $this->input->post('GMS_PAP_PS'),
-            'GMS_AMT' => $this->input->post('GMS_AMT_PS'),
-            'GMS_ALLOTMENT_id' => $allotment_id,
+        $mooe = array(
+            'region' => $this->input->post('region'),
+            'year' => $this->input->post('year'),
+            'amount' => $this->input->post('mooe_amount'),
+            'type' => $this->input->post('type'),
+            'mp_id' => $this->input->post('mp_id'),
+            'sp_id' => $this->input->post('sp_id'),
         );
-        $this->db_budget->insert('gms_allotment', $gms_allotment_ps);
 
-        $gms_allotment_mooe = array(
-            'GMS_PAP_CAT' => $this->input->post('GMS_PAP_CAT_MOOE'),
-            'GMS_PAP' => $this->input->post('GMS_PAP_MOOE'),
-            'GMS_AMT' => $this->input->post('GMS_AMT_MOOE'),
-            'GMS_ALLOTMENT_id' => $allotment_id,
-        );
-        $this->db_budget->insert('gms_allotment', $gms_allotment_mooe);
+        $this->db_budget->insert('allotment', $mooe);
 
-        $gms_allotment_co = array(
-            'GMS_PAP_CAT' => $this->input->post('GMS_PAP_CAT_CO'),
-            'GMS_PAP' => $this->input->post('GMS_PAP_CO'),
-            'GMS_AMT' => $this->input->post('GMS_AMT_CO'),
-            'GMS_ALLOTMENT_id' => $allotment_id,
+        $co = array(
+            'region' => $this->input->post('region'),
+            'year' => $this->input->post('year'),
+            'amount' => $this->input->post('co_amount'),
+            'type' => $this->input->post('type'),
+            'mp_id' => $this->input->post('mp_id'),
+            'sp_id' => $this->input->post('sp_id'),
         );
-        $this->db_budget->insert('gms_allotment', $gms_allotment_co);
 
-        $gms_allotment_rlip = array(
-            'GMS_PAP_CAT' => $this->input->post('GMS_PAP_CAT_RLIP'),
-            'GMS_PAP' => $this->input->post('GMS_PAP_RLIP'),
-            'GMS_AMT' => $this->input->post('GMS_AMT_RLIP'),
-            'GMS_ALLOTMENT_id' => $allotment_id,
+        $this->db_budget->insert('allotment', $co);
+
+        $rlip = array(
+            'region' => $this->input->post('region'),
+            'year' => $this->input->post('year'),
+            'amount' => $this->input->post('rlip_amount'),
+            'type' => $this->input->post('type'),
+            'mp_id' => $this->input->post('mp_id'),
+            'sp_id' => $this->input->post('sp_id'),
         );
-        $this->db_budget->insert('gms_allotment', $gms_allotment_rlip);
+
+        $this->db_budget->insert('allotment', $rlip);
 
         return true;
-      
     }
-
-    public function saa_create(){
-
-        // ---------------------------------- any TABLE ----------------------------------
-        
-        $pap = $this->input->post('table_name');
-        $table_insert = tolower($pap);
-        $query_allocation = $this->db_budget->get_where('allotment', array('region' => $this->input->post('region'), 'year' => $this->input->post('year')));
-        
-        $allotment_saa = array(
-            $pap.'_PAP_CAT' => $this->input->post('PAP_CAT'),
-            $pap.'_PAP' => $this->input->post('SAA_name'),
-            $pap.'_AMT' => $this->input->post('SAA_amount'),
-            $pap.'_ALLOTMENT_id' => $allotment_id,
-        );
-        return $this->db_budget->insert($table_insert, $allotment_saa);
-    }
+    // ---------------------------------- END ALLOTMENT TABLE ----------------------------------
+   
 }
 ?>

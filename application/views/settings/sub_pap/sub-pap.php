@@ -11,6 +11,7 @@
 <table id="myTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
     <thead>
     <tr>
+        <th scope="col">Main</th>
         <th scope="col">Code</th>
         <th scope="col">Name</th>
         <th scope="col">Action</th>
@@ -19,6 +20,7 @@
     <tbody>           
             <?php foreach($sub_pap as $sp) : ?>
                 <tr class="table-active"> 
+                    <td><?php echo $sp['mp_code']; ?> - <?php echo $sp['mp_name']; ?></td>
                     <td><?php echo $sp['sp_code']; ?></td>
                     <td><?php echo $sp['sp_name']; ?></td>
                     <td>

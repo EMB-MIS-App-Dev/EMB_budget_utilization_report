@@ -5,18 +5,10 @@ $route['default_controller'] = 'budgetcontroller';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-//saa
+//ALLOTMENT
 $route['allotment'] = 'budgetcontroller/allotment';
-
-//allotment create
 $route['allotment/create'] = 'budgetcontroller/allotment_create';
-
-//saa
-$route['saa'] = 'budgetcontroller/saa';
-
-//saa create
-$route['saa/create'] = 'budgetcontroller/saa_create';
-
+//END ALLOTMENT
 
 //MAIN PAP
 $route['mp'] = 'budgetcontroller/main_pap_viewall';
