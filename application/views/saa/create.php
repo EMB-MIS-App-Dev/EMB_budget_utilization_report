@@ -20,30 +20,16 @@
                 </div> 
                 <div class="col-sm-8">
                 <!-- IF USER IS ADMIN -->
-                    <select name='region' class="browser-default custom-select">
-                        <option value=''>SELECT REGION</option>
-                        <option value='NCR'>NCR</option>
-                        <option value='1'>Region 1</option>
-                        <option value='CAR'>CAR</option>
-                        <option value='2'>Region 2</option>
-                        <option value='3'>Region 3</option>
-                        <option value='4A'>Region 4A</option>
-                        <option value='4B'>Region 4B</option>
-                        <option value='5'>Region 5</option>
-                        <option value='6'>Region 6</option>
-                        <option value='7'>Region 7</option>
-                        <option value='8'>Region 8</option>
-                        <option value='9'>Region 9</option>
-                        <option value='10'>Region 10</option>
-                        <option value='11'>Region 11</option>
-                        <option value='12'>Region 12</option>
-                        <option value='13'>Region 13</option>
-                    </select>
+                <select name="regionYear">
+                <?php foreach($allotment as $all) : ?>
+                    <option value="<?php echo $all['region']; ?>">Region <?php echo $all['region']; ?> - for year <?php echo $all['year']; ?></option>
+                <?php endforeach; ?>
+                </select>
                 <!-- END IF USER IS ADMIN -->
                 </div>
 
                 <div class="col-sm-4" >
-                    <p><b>for: </b></p> 
+                    <p><b>Month: </b></p> 
                 </div> 
                 <div class="col-sm-8">
                 <select name="month">
@@ -62,17 +48,6 @@
                     <option value="12">December</option>
                 </select>
 
-                
-                    <select name="year">
-                        <option>Select Year</option>
-                        <?php
-                            $year_today = date("Y");
-                            $year_plus =$year_today + 5;
-                            for ($x = $year_today; $x <= $year_plus; $x++) {
-                                echo "<option value=". $x .">". $x ."</option>";
-                            }
-                        ?>
-                    </select>
                 </div>
             </div>
         </div>
@@ -90,19 +65,10 @@
                 </select>
                 </div> 
                 <div class="col-sm-3">
-                <select name="table_name" style="width: 150px">
-                    <option value="GMS">100000100001000 - General Management & Supervision</option>
-                    <option value="HRD">100000100002000 - Human Resourse and Development</option>
-                    <option value="APB">C100000100003000 - Admin. Of Personnel BenefitsO</option>
-                    <option value="PPF">200000100001000 - Planning & Policy Formulation and Mgt. Info. System</option>
-                    <option value="LS">200000100002000 - Legal services and provision of secretariat services to the EMB</option>
-                    <option value="PRLS">310100100001000 - Pollution research and laboratory services</option>
-                    <option value="EEI">310100100002000 - Environmental Education and Information</option>
-                    <option value="EIA">310100100003000 - Environmental Impact Assessments</option>
-                    <option value="ICAR">310200100002000 - Implementation of Clean Air Regulation</option>
-                    <option value="ICWR">310200100002000 - Implementation of Clean Water Regulation </option>
-                    <option value="IESW">310200100003000 - Implementation of Ecological Solid Waste Management Regulations</option>
-                    <option value="ITSH">310200100004000 - Implementation of Toxic Subtances and Hazardous Waste Management Regulations </option>
+                <select name="sp_id">
+                <?php foreach($sub_pap as $sp) : ?>
+                    <option value="<?php echo $sp['sp_id']; ?>"><?php echo $sp['sp_code']; ?> - <?php echo $sp['sp_name']; ?></option>
+                <?php endforeach; ?>
                 </select>
                 </div>                 
             </div>

@@ -10,6 +10,11 @@ $route['allotment'] = 'budgetcontroller/allotment';
 $route['allotment/create'] = 'budgetcontroller/allotment_create';
 //END ALLOTMENT
 
+//SAA
+$route['saa'] = 'budgetcontroller/saa';
+$route['saa/create'] = 'budgetcontroller/saa_create';
+//END SAA
+
 //MAIN PAP
 $route['mp'] = 'budgetcontroller/main_pap_viewall';
 $route['mp/create'] = 'budgetcontroller/main_pap_create';

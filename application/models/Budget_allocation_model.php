@@ -90,12 +90,16 @@ class Budget_allocation_model extends CI_Model{
     // ---------------------------------- END SUB PAP TABLE ----------------------------------
 
     // ---------------------------------- ALLOTMENT TABLE ----------------------------------
+    public function view_allotment(){
+        $query = $this->db_budget->query("SELECT * FROM allotment GROUP BY region, year");
+        return $query->result_array();
+    }
     public function add_allotment(){
         $ps = array(
             'region' => $this->input->post('region'),
             'year' => $this->input->post('year'),
             'amount' => $this->input->post('ps_amount'),
-            'type' => $this->input->post('type'),
+            'type' => 'ps',
             'mp_id' => $this->input->post('mp_id'),
             'sp_id' => $this->input->post('sp_id'),
         );
@@ -106,7 +110,7 @@ class Budget_allocation_model extends CI_Model{
             'region' => $this->input->post('region'),
             'year' => $this->input->post('year'),
             'amount' => $this->input->post('mooe_amount'),
-            'type' => $this->input->post('type'),
+            'type' => 'mooe',
             'mp_id' => $this->input->post('mp_id'),
             'sp_id' => $this->input->post('sp_id'),
         );
@@ -117,7 +121,7 @@ class Budget_allocation_model extends CI_Model{
             'region' => $this->input->post('region'),
             'year' => $this->input->post('year'),
             'amount' => $this->input->post('co_amount'),
-            'type' => $this->input->post('type'),
+            'type' => 'co',
             'mp_id' => $this->input->post('mp_id'),
             'sp_id' => $this->input->post('sp_id'),
         );
@@ -128,7 +132,7 @@ class Budget_allocation_model extends CI_Model{
             'region' => $this->input->post('region'),
             'year' => $this->input->post('year'),
             'amount' => $this->input->post('rlip_amount'),
-            'type' => $this->input->post('type'),
+            'type' => 'rlip',
             'mp_id' => $this->input->post('mp_id'),
             'sp_id' => $this->input->post('sp_id'),
         );

@@ -1,5 +1,10 @@
 <?php
     class Budgetcontroller extends CI_Controller{
+        public function __construct(){
+            //$this->load->database();
+            parent::__construct();
+            $this->db_budget = $this->load->database('bud_db', TRUE);
+        }
         
         public function index(){
             
@@ -110,17 +115,20 @@
 
         // ------------------------ALLOTMENT------------------------
         public function allotment(){
-            
+            $data['allotments'] = $this->budget_allocation_model->view_allotment();
+
+            // echo json_encode($data['allotments']);
             $this->load->view('templates/header');
-            $this->load->view('allotment');
+            $this->load->view('allotment/allotment',  $data);
             $this->load->view('templates/footer');
         }
 
         public function allotment_create(){
-            $this->form_validation->set_rules('region', 'Region',
-                    'required');
+            $this->form_validation->set_rules('region', 'Region', 'callback_exists_check');
+
             $this->form_validation->set_rules('year', 'Year',
                     'required');
+
 
             $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap();
 
@@ -135,7 +143,48 @@
             }
            
         }
+
+        public function exists_check(){   
+            $region = $this->input->post('region');// get fiest name
+            $year = $this->input->post('year');// get last name
+            $this->db_budget->select('*');
+            $this->db_budget->from('allotment');
+            $this->db_budget->where('region', $region);
+            $this->db_budget->where('year', $year);
+            $query = $this->db_budget->get();
+            $num = $query->num_rows();
+            if ($num > 0) {
+                $this->form_validation->set_message('exists_check', 'Budget for this year already exists.');
+                return FALSE;
+            } else {
+                return TRUE;
+            }
+            
+            return FALSE;
+        }
         // ------------------------END ALLOTMENT------------------------
+
+        // ------------------------SAA------------------------
+        public function saa(){
+          
+
+            // echo json_encode($data['saa']);
+            $this->load->view('templates/header');
+            $this->load->view('saa/saa');
+            $this->load->view('templates/footer');
+        }
+
+        public function saa_create(){
+            $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap();
+
+            $data['allotment'] = $this->budget_allocation_model->view_allotment();
+
+            // echo json_encode($data['saa']);
+            $this->load->view('templates/header');
+            $this->load->view('saa/create', $data);
+            $this->load->view('templates/footer');
+        }
+        // ------------------------END SAA------------------------
         
     }
 ?>

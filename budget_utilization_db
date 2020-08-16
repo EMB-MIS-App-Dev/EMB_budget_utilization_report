@@ -36,3 +36,17 @@ CREATE TABLE allotment (
     FOREIGN KEY (mp_id) REFERENCES main_pap(mp_id),
     FOREIGN KEY (sp_id) REFERENCES sub_pap(sp_id)
 );
+
+CREATE TABLE saa (
+    saa_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    saa_name VARCHAR(200),
+    saa_description VARCHAR(200),
+    saa_month VARCHAR(200),
+    saa_aount VARCHAR(200),
+    saa_remarks VARCHAR(200),
+    saa_sp_id INTEGER(20),
+    saa_allotment_id INTEGER(20),
+    PRIMARY KEY (saa_id),
+    FOREIGN KEY (saa_sp_id) REFERENCES sub_pap(sp_id),
+    FOREIGN KEY (saa_allotment_id) REFERENCES allotment(id)
+);

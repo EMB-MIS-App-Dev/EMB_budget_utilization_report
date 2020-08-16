@@ -65,8 +65,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-group-forms">
-        <input type="hidden" name="type" value="sub_pap">  
+        <div class="form-group-forms"> 
             <div class="row">
                 <div class="col-sm-4" >
                     <p><b>Select PAP: </b></p> 
