@@ -137,7 +137,9 @@
                 $this->load->view('allotment/create', $data);
                 $this->load->view('templates/footer');
             }else{
-                $this->budget_allocation_model->add_allotment();
+                $data['allotments'] =  $this->budget_allocation_model->add_allotment();
+
+                //echo json_encode($data['allotments']);
                 $this->session->set_flashdata('successmsg', 'Allotment successfully created!');
                 redirect('allotment/create', $data);
             }
@@ -163,9 +165,9 @@
             return FALSE;
         }
 
-        public function allotment_class(){
+        public function allotment_class($id){
             
-           $data['allotment_class'] = $this->budget_allocation_model->view_allotment_class();
+           $data['allotment_class'] = $this->budget_allocation_model->view_allotment_class($id);
 
             //echo json_encode($data['allotment_class']);
             $this->load->view('templates/header');
@@ -173,49 +175,8 @@
             $this->load->view('templates/footer');
         }
 
-        public function allotment_class_saa($id){
-            
-                echo ('test');
-            //echo json_encode($data['allotment_class']);
-            //  $this->load->view('templates/header');
-            //  $this->load->view('allotment/class/allotment-class', $data);
-            //  $this->load->view('templates/footer');
-         }
         // ------------------------END ALLOTMENT------------------------
 
-        // ------------------------SAA------------------------
-        public function saa(){
-            $data['saa'] = $this->budget_allocation_model->view_saa();
-            // echo json_encode($data['saa']);
-            $this->load->view('templates/header');
-            $this->load->view('saa/saa', $data);
-            $this->load->view('templates/footer');
-        }
-
-        public function saa_create(){
-            $this->form_validation->set_rules('month', 'Month',
-                    'required');
-            $this->form_validation->set_rules('SAA_name', 'SAA Name',
-                    'required');
-            $this->form_validation->set_rules('SAA_amount', 'SAA Amount',
-                    'required');
-
-            if($this->form_validation->run() === FALSE){
-
-                $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap();
-
-                $data['allotment'] = $this->budget_allocation_model->view_allotment();
-
-                $this->load->view('templates/header');
-                $this->load->view('saa/create', $data);
-                $this->load->view('templates/footer');
-            }else{
-                $this->budget_allocation_model->add_saa();
-                $this->session->set_flashdata('successmsg', 'SAA successfully created!');
-                redirect('saa');
-            }
-        }
-        // ------------------------END SAA------------------------
-        
+       
     }
 ?>

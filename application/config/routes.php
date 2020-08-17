@@ -9,13 +9,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['allotment'] = 'budgetcontroller/allotment';
 $route['allotment/create'] = 'budgetcontroller/allotment_create';
 $route['allotment/class/(:num)'] = 'budgetcontroller/allotment_class/$1';
-$route['allotment/class/saa/(:num)'] = 'budgetcontroller/allotment_class_saa/$1';
 //END ALLOTMENT
-
-//SAA
-$route['saa'] = 'budgetcontroller/saa';
-$route['saa/create'] = 'budgetcontroller/saa_create';
-//END SAA
 
 //MAIN PAP
 $route['mp'] = 'budgetcontroller/main_pap_viewall';

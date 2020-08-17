@@ -67,45 +67,39 @@
         </div>
         <div class="form-group-forms"> 
             <div class="row">
-                <div class="col-sm-4" >
-                    <p><b>Select PAP: </b></p> 
-                </div> 
-                <div class="col-sm-8">
-                    <select name="sp_id">
-                    <?php foreach($sub_pap as $sp) : ?>
-                        <option value="<?php echo $sp['sp_id']; ?>"><?php echo $sp['sp_code']; ?> - <?php echo $sp['sp_name']; ?></option>
-                    <?php endforeach; ?>
-                    </select>
-                </div>
-               
-                <div class="col-sm-4" >
-                    <p><b>PS</b></p> 
-                </div> 
-                <div class="col-sm-8">
-                    <input type="number" step="0.01" placeholder="0000" class="form-control" name="ps_amount">
-                </div>
-               
-                <div class="col-sm-4" >
-                    <p><b>MOOE</b></p> 
-                </div> 
-                <div class="col-sm-8">
-                    <input type="number" step="0.01" placeholder="0000" class="form-control" name="mooe_amount">
-                </div>
 
-                <div class="col-sm-4" >
-                    <p><b>CO</b></p> 
-                </div> 
-                <div class="col-sm-8">
-                    <input type="number" step="0.01" placeholder="0000" class="form-control" name="co_amount">
-                </div>
+                <?php foreach($sub_pap as $sp) : ?>
 
-                <div class="col-sm-4" >
-                    <p><b>RLIP</b></p> 
-                </div> 
-                <div class="col-sm-8">
-                    <input type="number" step="0.01" placeholder="0000" class="form-control" name="rlip_amount">
-                </div>
-               
+                    <div class="col-sm-12">
+                        <input type="hidden" name="sp_id" value="<?php echo $sp['sp_id']; ?>">
+                        
+                        <h5><?php echo $sp['sp_code']; ?> - <?php echo $sp['sp_name']; ?></h5>
+                    </div>
+                    <?php
+                        
+                        $sp_code =  $sp['sp_code'];
+                        $sp_id =  $sp['sp_id'];
+
+                        for ($i = 1; $i <= 4; $i++) {
+                            $cl_name = array("N/A","ps", "mooe", "co", "rlip");
+                            //echo "<input type='text' name='count_$i'>";
+
+                            
+                            echo"
+                            <input type='hidden' name='sp_id' value='$sp_id'>
+                            <div class='col-sm-4' >
+                                <p><b>$cl_name[$i]</b></p> 
+                            </div> 
+                            <div class='col-sm-8'>
+                                <input type='number' step='0.01' placeholder='0000' class='form-control' name='$sp_code-$cl_name[$i]-amount-$i'>
+                            </div>
+                            ";
+                        }
+                        
+                    ?>
+                    
+                <?php endforeach; ?>
+
             </div>
         </div>
         

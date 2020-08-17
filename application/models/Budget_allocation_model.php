@@ -96,6 +96,7 @@ class Budget_allocation_model extends CI_Model{
     }
 
     public function add_allotment(){
+
         $allotment = array(
             'region' => $this->input->post('region'),
             'year' => $this->input->post('year'),
@@ -104,75 +105,49 @@ class Budget_allocation_model extends CI_Model{
         $this->db_budget->insert('allotment', $allotment);
         $allotment_id = $this->db_budget->insert_id();
 
-        $ps = array(
-            'cl_name' => 'ps',
-            'cl_amount' => $this->input->post('ps_amount'),
-            'cl_sp_id' => $this->input->post('sp_id'),
-            'cl_allotment_id' => $allotment_id
-        );
+        $this->db_budget->select('*');
+        $this->db_budget->from('sub_pap');
+        $this->db_budget->join('main_pap', 'sub_pap.sp_mp_id = main_pap.mp_id');
+        $query = $this->db_budget->get();
 
-        $this->db_budget->insert('class', $ps);
+        $sp_count = $query->num_rows();
 
-        $mooe = array(
-            'cl_name' => 'mooe',
-            'cl_amount' => $this->input->post('mooe_amount'),
-            'cl_sp_id' => $this->input->post('sp_id'),
-            'cl_allotment_id' => $allotment_id
-        );
+        foreach ($query->result_array() as $row) {
+            $sp_code = $row['sp_code'];
+            $sp_id = $row['sp_id'];
 
-        $this->db_budget->insert('class', $mooe);
+            for ($i = 1; $i <= 4; $i++) {
+                $cl_name = array("N/A","ps", "mooe", "co", "rlip");
+                $count = $sp_code.'-'.$cl_name[$i].'-amount-'.$i;
+                
+                $data = array(
+                    
+                    'cl_name' =>  $cl_name[$i],
+                    'cl_amount' => $this->input->post($count),
+                    'cl_sp_id' =>  $sp_id,
+                    'cl_allotment_id' =>  $allotment_id,
+                    // 'cl_amount' => $count,
+                );
 
-        $co = array(
-            'cl_name' => 'co',
-            'cl_amount' => $this->input->post('co_amount'),
-            'cl_sp_id' => $this->input->post('sp_id'),
-            'cl_allotment_id' => $allotment_id
-        );
-
-        $this->db_budget->insert('class', $co);
-
-        $rlip = array(
-            'cl_name' => 'rlip',
-            'cl_amount' => $this->input->post('rlip_amount'),
-            'cl_sp_id' => $this->input->post('sp_id'),
-            'cl_allotment_id' => $allotment_id
-        );
-
-        $this->db_budget->insert('class', $rlip);
-
-        return true;
+                $this->db_budget->insert('class', $data);
+            };
+        };
+        return true;            
+        
     }
 
-    public function view_allotment_class(){
-        $query = $this->db_budget->query('SELECT * FROM `allotment` 
-                                            INNER JOIN class ON class.cl_allotment_id = allotment.id
-                                            INNER JOIN sub_pap ON sub_pap.sp_id = class.cl_sp_id
-                                            INNER JOIN main_pap ON main_pap.mp_id = sub_pap.sp_mp_id');
+    public function view_allotment_class($id){
+        $this->db_budget->select('*');
+        $this->db_budget->from('allotment');
+        $this->db_budget->join('class', 'class.cl_allotment_id = allotment.id');
+        $this->db_budget->join('sub_pap', 'sub_pap.sp_id = class.cl_sp_id');
+        $this->db_budget->join('main_pap', 'main_pap.mp_id = sub_pap.sp_mp_id');
+        $this->db_budget->where('cl_allotment_id', $id);
+        $query = $this->db_budget->get();
+
         return $query->result_array();
     }
+
     // ---------------------------------- END ALLOTMENT TABLE ----------------------------------
-
-    // ---------------------------------- SAA TABLE ----------------------------------
-    public function view_saa(){
-        $query = $this->db_budget->query('SELECT * FROM `saa` 
-        INNER JOIN allotment ON saa.sa_allotment_id = allotment.id
-        INNER JOIN class ON saa.sa_cl_id = class.cl_id');
-        return $query->result_array();
-    }
-
-    public function add_saa(){
-
-        $data = array(
-            'sa_name' => $this->input->post('SAA_name'),
-            'sa_month' => $this->input->post('month'),
-            'sa_amount' => $this->input->post('SAA_amount'),
-            'sa_cl_id' => $this->input->post('cl_id'),
-            'sa_allotment_id' => $this->input->post('allotment_id'),
-        );
-
-        $this->db_budget->insert('saa', $data);
-    }
-    // ---------------------------------- SAA TABLE ----------------------------------
-   
 }
 ?>

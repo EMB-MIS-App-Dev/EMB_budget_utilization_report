@@ -45,9 +45,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="nav-item d-none d-sm-inline-block">
         <a href="<?php echo base_url(); ?>allotment" class="nav-link">Allotment</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo base_url(); ?>saa" class="nav-link">SAA Settings</a>
-      </li>
     </ul>
   </nav>
   <!-- /.navbar -->
