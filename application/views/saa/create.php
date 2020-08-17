@@ -20,9 +20,9 @@
                 </div> 
                 <div class="col-sm-8">
                 <!-- IF USER IS ADMIN -->
-                <select name="regionYear">
+                <select name="allotment_id">
                 <?php foreach($allotment as $all) : ?>
-                    <option value="<?php echo $all['region']; ?>">Region <?php echo $all['region']; ?> - for year <?php echo $all['year']; ?></option>
+                    <option value="<?php echo $all['id']; ?>">Region <?php echo $all['region']; ?> - for year <?php echo $all['year']; ?></option>
                 <?php endforeach; ?>
                 </select>
                 <!-- END IF USER IS ADMIN -->
@@ -57,19 +57,19 @@
                     <p><b>Select PAP:</b></p> 
                 </div> 
                 <div class="col-sm-2">
-                <select name="PAP_CAT">
-                    <option value="PS">PS</option>
-                    <option value="MOOE">MOOE</option>
-                    <option value="CO">CO</option>
-                    <option value="RLIP">RLIP</option>
-                </select>
+                    <select name="cl_id">
+                        <option value="ps">PS</option>
+                        <option value="mooe">MOOE</option>
+                        <option value="co">CO</option>
+                        <option value="rlip">RLIP</option>
+                    </select>
                 </div> 
                 <div class="col-sm-3">
-                <select name="sp_id">
-                <?php foreach($sub_pap as $sp) : ?>
-                    <option value="<?php echo $sp['sp_id']; ?>"><?php echo $sp['sp_code']; ?> - <?php echo $sp['sp_name']; ?></option>
-                <?php endforeach; ?>
-                </select>
+                    <select name="sp_id">
+                    <?php foreach($sub_pap as $sp) : ?>
+                        <option value="<?php echo $sp['sp_id']; ?>"><?php echo $sp['sp_code']; ?> - <?php echo $sp['sp_name']; ?></option>
+                    <?php endforeach; ?>
+                    </select>
                 </div>                 
             </div>
             <div class="row">

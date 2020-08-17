@@ -26,7 +26,7 @@
                     <td><?php echo $allotment['year']; ?></td>
                     <td><?php echo $allotment['status']; ?></td>
                     <td>
-                        <a class="btn btn-info" href="allotment/edit/<?php echo $allotment['id'] ?>">Edit</a>
+                        <a class="btn btn-info" href="allotment/class/<?php echo $allotment['id'] ?>">Edit</a>
                         <a class="btn btn-danger" onclick="return confirm('Press OK to confirm delete PAP?')" href="allotment/delete/<?php echo $allotment['id'] ?>">Delete</a>
                     </td>
             </tr>   

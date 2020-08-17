@@ -8,6 +8,8 @@ $route['translate_uri_dashes'] = FALSE;
 //ALLOTMENT
 $route['allotment'] = 'budgetcontroller/allotment';
 $route['allotment/create'] = 'budgetcontroller/allotment_create';
+$route['allotment/class/(:num)'] = 'budgetcontroller/allotment_class/$1';
+$route['allotment/class/saa/(:num)'] = 'budgetcontroller/allotment_class_saa/$1';
 //END ALLOTMENT
 
 //SAA

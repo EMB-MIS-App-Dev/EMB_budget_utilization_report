@@ -1,6 +1,8 @@
 DELETE FROM main_pap;
 DELETE FROM sub_pap;
 DELETE FROM allotment;
+DELETE FROM class;
+DELETE FROM saa;
 
 CREATE TABLE main_pap (
     mp_id INTEGER(20) AUTO_INCREMENT NOT NULL,
@@ -26,27 +28,32 @@ CREATE TABLE allotment (
     id INTEGER(20) AUTO_INCREMENT NOT NULL,
     region VARCHAR(200),
     year VARCHAR(200),
-    amount VARCHAR(200),
-    type VARCHAR(200),
     remarks VARCHAR(200),
     status VARCHAR(200),
-    mp_id INTEGER(20),
-    sp_id INTEGER(20),
-    PRIMARY KEY (id),
-    FOREIGN KEY (mp_id) REFERENCES main_pap(mp_id),
-    FOREIGN KEY (sp_id) REFERENCES sub_pap(sp_id)
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE class (
+    cl_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    cl_name VARCHAR(200),
+    cl_amount VARCHAR(200),
+    cl_remarks VARCHAR(200),
+    cl_sp_id INTEGER(20),
+    cl_allotment_id INTEGER(20),
+    PRIMARY KEY (cl_id),
+    FOREIGN KEY (cl_sp_id) REFERENCES sub_pap(sp_id),
+    FOREIGN KEY (cl_allotment_id) REFERENCES allotment(id)
 );
 
 CREATE TABLE saa (
-    saa_id INTEGER(20) AUTO_INCREMENT NOT NULL,
-    saa_name VARCHAR(200),
-    saa_description VARCHAR(200),
-    saa_month VARCHAR(200),
-    saa_aount VARCHAR(200),
-    saa_remarks VARCHAR(200),
-    saa_sp_id INTEGER(20),
-    saa_allotment_id INTEGER(20),
-    PRIMARY KEY (saa_id),
-    FOREIGN KEY (saa_sp_id) REFERENCES sub_pap(sp_id),
-    FOREIGN KEY (saa_allotment_id) REFERENCES allotment(id)
+    sa_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    sa_name VARCHAR(200),
+    sa_description VARCHAR(200),
+    sa_month VARCHAR(200),
+    sa_amount VARCHAR(200),
+    sa_remarks VARCHAR(200),
+    sa_cl_id INTEGER(20),
+    sa_allotment_id INTEGER(20),
+    PRIMARY KEY (sa_id),
+    FOREIGN KEY (sa_allotment_id) REFERENCES allotment(id)
 );
