@@ -202,6 +202,10 @@
         }
         // ------------------------END ALLOTMENT------------------------
 
-       
+        public function allotment_class_saa_create(){
+            $this->load->view('templates/header');
+            $this->load->view('allotment/class/saa/create');
+            $this->load->view('templates/footer');
+        }
     }
 ?>

@@ -6,7 +6,7 @@
         <?php endif; ?>
     </div>
     <div>
-        <a class="btn btn-primary create-btn" href="allotment/create">Create</a>
+        <a class="btn btn-info create-btn" href="allotment/create">Create</a>
     </div>
 
     <table id="myTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
@@ -36,7 +36,7 @@
                     
                     ?></td>
                     <td>
-                        <a class="btn btn-info" href="allotment/class/<?php echo $allotment['id'] ?>">Edit</a>
+                        <a class="btn btn-primary" href="allotment/class/<?php echo $allotment['id'] ?>">Edit</a>
                         <a class="btn btn-danger" onclick="return confirm('Press OK to confirm delete PAP?')" href="allotment/delete/<?php echo $allotment['id'] ?>">Delete</a>
                     </td>
             </tr>   

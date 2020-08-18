@@ -15,7 +15,7 @@ $route['allotment/class/update'] = 'budgetcontroller/allotment_class_update';
 
 //SAA
 $route['allotment/class/saa/(:num)'] = 'budgetcontroller/allotment_class_saa/$1';
-
+$route['allotment/class/saa/create/(:num)'] = 'budgetcontroller/allotment_class_saa_create/$1';
 //END ALLOTMENT
 
 //MAIN PAP

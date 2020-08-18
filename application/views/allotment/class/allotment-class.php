@@ -7,7 +7,7 @@
     </div>
 
     <div>
-        <a class="btn btn-primary create-btn" href="<?php echo base_url(); ?>allotment">Back</a>
+        <a class="btn btn-info create-btn" href="<?php echo base_url(); ?>allotment">Back</a>
     </div>
     <div class="form-group-create">
         <?php foreach($allotment_class as $acs) : 
@@ -68,7 +68,7 @@
                             <input type="number" step="0.01" class="form-control" name="cl-amount-<?php echo $cl_id ?>" value="<?php echo $ac['cl_amount']; ?>">
                         </td>
                         <td>
-                            <a class="btn btn-success" href="saa/<?php echo $ac['cl_id'] ?>">Add SAA</a>
+                            <a class="btn btn-primary" href="saa/<?php echo $ac['cl_id'] ?>">Add SAA</a>
                         </td>
                 </tr>   
                 <?php endforeach; ?>

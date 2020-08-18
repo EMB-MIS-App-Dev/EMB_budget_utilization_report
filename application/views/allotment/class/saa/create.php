@@ -19,13 +19,6 @@
                     <p><b>For REGION: </b></p> 
                 </div> 
                 <div class="col-sm-8">
-                <!-- IF USER IS ADMIN -->
-                <select name="allotment_id">
-                <?php foreach($allotment as $all) : ?>
-                    <option value="<?php echo $all['id']; ?>">Region <?php echo $all['region']; ?> - for year <?php echo $all['year']; ?></option>
-                <?php endforeach; ?>
-                </select>
-                <!-- END IF USER IS ADMIN -->
                 </div>
 
                 <div class="col-sm-4" >
