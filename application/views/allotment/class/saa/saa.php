@@ -6,33 +6,31 @@
         <?php endif; ?>
     </div>
 
+    <?php 
+        foreach($allotment_class as $ac) : 
+            $all_class_id = $ac['cl_allotment_id'];
+            $region = $ac['region'].' - '.$ac['year'];
+            $sp_name = $ac['sp_code'].' - '.$ac['sp_name'];
+        endforeach;
+     ?>
+
     <div>
-        <a class="btn btn-primary create-btn" href="<?php echo base_url(); ?>allotment">Back</a>
+        <a class="btn btn-primary create-btn" href="<?php echo base_url(); ?>allotment/class/<?php echo $all_class_id; ?>">Back</a>
     </div>
     <div class="form-group-create">
-        <?php foreach($allotment_class as $acs) : 
-           $region =  $acs['region']; 
-           $year =  $acs['year']; 
-           $fs =  $acs['fund_source']; 
-        endforeach; ?> 
+       
         <div class="row">
             <div class="col-sm-12">
             <h3>Department of Environment and Natural Resources</h3>
             <p>Programs/Activities/Projects (P/A/P)/Major Final Output (MFO)</p> 
 
             <!-- IF USER IS ADMIN -->
-            <h5><b>MONTHLY FINANCIAL PROGRAM</b></h5>
+            <h5><b>SAA Funding</b></h5>
             <h3>ALLOTMENT</h3>
-            
-            <h2>Region: <?php echo $region; ?></h2>
+            <h5><?php echo $region; ?></h5>
+            <p><?php echo $sp_name; ?></p>
             </div>
 
-            <div class="col-sm-6">
-                Year: <b><?php echo $year; ?> </b>
-            </div>
-            <div class="col-sm-6">
-                Fund Source: <b><?php echo $fs; ?> </b>
-            </div>
         </div>
     </div>
     
@@ -43,15 +41,15 @@
         <div class="col-sm-4" >
             <thead>
                 <tr>
-                    <th scope="col">MFO</th>
                     <th scope="col">PAP</th>
-                    <th scope="col">Class</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Month</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody> 
-                <?php foreach($allotment_class as $ac) : ?>
+                <?php foreach($saa as $sa) : ?>
                     <div class="col-sm-12">
                         <input type="hidden" name="allotment_id" value="<?php echo $ac['cl_allotment_id']; ?>">
                     </div>
@@ -69,6 +67,7 @@
                         </td>
                         <td>
                             <a class="btn btn-success" href="saa/<?php echo $ac['cl_id'] ?>">Add SAA</a>
+                            <a class="btn btn-danger" onclick="return confirm('Press OK to confirm delete PAP?')" href="allotment/delete/<?php echo $ac['id'] ?>">Delete</a>
                         </td>
                 </tr>   
                 <?php endforeach; ?>
@@ -78,7 +77,7 @@
 
         
         <div class="center-button">
-            <button type="submit" class="btn btn-success" onclick="return confirm('Press OK to confirm changes?')">Save all changes</button>
+            <button type="submit" class="btn btn-success" onclick="return confirm('Press OK to confirm changes?')">Save new SAA Funding</button>
         </div>
     </form>
    

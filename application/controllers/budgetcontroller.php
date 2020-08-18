@@ -167,6 +167,8 @@
             return FALSE;
         }
 
+
+        //CLASS
         public function allotment_class($id){
             
            $data['allotment_class'] = $this->budget_allocation_model->view_allotment_class($id);
@@ -178,13 +180,26 @@
         }
 
         public function allotment_class_update(){
-
             $data['allotment_id'] = $this->budget_allocation_model->update_allotment_class();
 
             $this->session->set_flashdata('successmsg', 'PAP successfully updated!');
-            redirect('allotment');
+
+            $url = $_SERVER['HTTP_REFERER'];
+            redirect($url);
         }
 
+
+        //SAA
+        public function allotment_class_saa($id){
+            
+            $data['saa'] = $this->budget_allocation_model->view_saa($id);
+            $data['allotment_class'] = $this->budget_allocation_model->view_one_allotment_class($id);
+
+            // echo json_encode($data['allotment_class']);
+            $this->load->view('templates/header');
+            $this->load->view('allotment/class/saa/saa',  $data);
+            $this->load->view('templates/footer');
+        }
         // ------------------------END ALLOTMENT------------------------
 
        
