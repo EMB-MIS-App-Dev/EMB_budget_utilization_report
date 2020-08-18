@@ -50,6 +50,7 @@ class Budget_allocation_model extends CI_Model{
         $this->db_budget->select('*');
         $this->db_budget->from('sub_pap');
         $this->db_budget->join('main_pap', 'sub_pap.sp_mp_id = main_pap.mp_id');
+        $this->db_budget->order_by('sp_code ASC');
 
         $query = $this->db_budget->get();
         return $query->result_array();
@@ -110,8 +111,9 @@ class Budget_allocation_model extends CI_Model{
         $this->db_budget->select('*');
         $this->db_budget->from('sub_pap');
         $this->db_budget->join('main_pap', 'sub_pap.sp_mp_id = main_pap.mp_id');
-        $query = $this->db_budget->get();
+        $this->db_budget->order_by('sp_code ASC');
 
+        $query = $this->db_budget->get();
         $sp_count = $query->num_rows();
 
         foreach ($query->result_array() as $row) {

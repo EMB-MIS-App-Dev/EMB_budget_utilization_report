@@ -147,12 +147,14 @@
         }
 
         public function exists_check(){   
-            $region = $this->input->post('region');// get fiest name
-            $year = $this->input->post('year');// get last name
+            $region = $this->input->post('region');// get region
+            $year = $this->input->post('year');// get year
+            $sf = $this->input->post('fund_source');// source_fund
             $this->db_budget->select('*');
             $this->db_budget->from('allotment');
             $this->db_budget->where('region', $region);
             $this->db_budget->where('year', $year);
+            $this->db_budget->where('fund_source', $sf);
             $query = $this->db_budget->get();
             $num = $query->num_rows();
             if ($num > 0) {
