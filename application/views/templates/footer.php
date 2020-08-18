@@ -38,6 +38,34 @@
         } );
    </script>
 
+    <!-- DataTable SHOW ALL -->
+    <script>
+        
+        $(document).ready(function() {
+            // Setup - add a text input to each footer cell
+            $('#myTableAll thead tr').clone(true).appendTo( '#myTableAll thead' );
+            $('#myTableAll thead tr:eq(1) th').each( function (i) {
+                var title = $(this).text();
+                $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+        
+                $( 'input', this ).on( 'keyup change', function () {
+                    if ( table.column(i).search() !== this.value ) {
+                        table
+                            .column(i)
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );
+        
+            var table = $('#myTableAll').DataTable( {
+                orderCellsTop: true,
+                fixedHeader: true,
+                lengthMenu: [[-1], ["All"]]
+            } );
+        } );
+    </script>
+
     
     <!-- Bootstrap 4 -->
     <script src="<?php echo base_url()."assets/"; ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

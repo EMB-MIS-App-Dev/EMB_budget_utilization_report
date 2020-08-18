@@ -141,15 +141,53 @@ class Budget_allocation_model extends CI_Model{
     }
 
     public function view_allotment_class($id){
-        $this->db_budget->select('*');
-        $this->db_budget->from('allotment');
-        $this->db_budget->join('class', 'class.cl_allotment_id = allotment.id');
-        $this->db_budget->join('sub_pap', 'sub_pap.sp_id = class.cl_sp_id');
-        $this->db_budget->join('main_pap', 'main_pap.mp_id = sub_pap.sp_mp_id');
-        $this->db_budget->where('cl_allotment_id', $id);
-        $query = $this->db_budget->get();
+        // $this->db_budget->select('*');
+        // $this->db_budget->from('allotment');
+        // $this->db_budget->join('class', 'class.cl_allotment_id = allotment.id');
+        // $this->db_budget->join('sub_pap', 'sub_pap.sp_id = class.cl_sp_id');
+        // $this->db_budget->join('main_pap', 'main_pap.mp_id = sub_pap.sp_mp_id');
+        // $this->db_budget->order_by('sp_code ASC');
+        // $this->db_budget->where('cl_allotment_id', $id);
+        // $query = $this->db_budget->get();
+        $query = $this->db_budget->query('SELECT * FROM allotment
+                                        INNER JOIN class ON class.cl_allotment_id = allotment.id
+                                        INNER JOIN sub_pap ON sub_pap.sp_id = class.cl_sp_id
+                                        INNER JOIN main_pap ON main_pap.mp_id = sub_pap.sp_mp_id
+                                        where class.cl_allotment_id = '.$id.'
+                                        ORDER BY sub_pap.sp_code ASC, FIELD(class.cl_name, "ps","mooe","co","rlip"), class.cl_id');
 
         return $query->result_array();
+    }
+
+    public function update_allotment_class(){
+        $id = $this->input->post('allotment_id');
+
+        $this->db_budget->select('*');
+        $this->db_budget->from('class');
+        $this->db_budget->where('cl_allotment_id', $id);
+        $query = $this->db_budget->get();
+        
+        foreach ($query->result_array() as $row) {
+            $cl_id = $row['cl_id'];
+            $cl_amount = 'cl-amount-'.$cl_id;
+
+            $data = array(
+                'cl_amount' => $this->input->post($cl_amount),
+            );
+    
+
+           
+            $this->db_budget->where('cl_id', $cl_id);
+            $this->db_budget->update('class', $data);
+        }
+
+        // $data = array(
+        //     'region' => $id,
+        // );
+        // $this->db_budget->insert('allotment', $data);
+
+       
+        return true;
     }
 
     // ---------------------------------- END ALLOTMENT TABLE ----------------------------------

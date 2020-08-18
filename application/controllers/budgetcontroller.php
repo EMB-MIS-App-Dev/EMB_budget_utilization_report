@@ -177,6 +177,14 @@
             $this->load->view('templates/footer');
         }
 
+        public function allotment_class_update(){
+
+            $data['allotment_id'] = $this->budget_allocation_model->update_allotment_class();
+
+            $this->session->set_flashdata('successmsg', 'PAP successfully updated!');
+            redirect('allotment');
+        }
+
         // ------------------------END ALLOTMENT------------------------
 
        
