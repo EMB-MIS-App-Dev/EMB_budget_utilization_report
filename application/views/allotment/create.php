@@ -45,7 +45,17 @@
                         <option value='12'>Region 12</option>
                         <option value='13'>Region 13</option>
                     </select>
-                <!-- END IF USER IS ADMIN -->
+                </div>
+
+                <div class="col-sm-4" >
+                    <p><b>Source Fund: </b></p> 
+                </div> 
+                <div class="col-sm-8">
+                    <select name='fund_source' class="browser-default custom-select">
+                        <option value='GAA'>Comprehensive Release</option>
+                        <option value='SARO'>Special Allotment Release Order</option>
+                        
+                    </select>
                 </div>
 
                 <div class="col-sm-4" >
@@ -65,6 +75,10 @@
                 </div>
             </div>
         </div>
+
+        <!-- STATUS -->
+        <input type="hidden" name="status" value="1">
+
         <div class="form-group-forms"> 
             <div class="row">
 

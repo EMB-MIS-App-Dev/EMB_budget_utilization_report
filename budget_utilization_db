@@ -28,7 +28,7 @@ CREATE TABLE allotment (
     id INTEGER(20) AUTO_INCREMENT NOT NULL,
     region VARCHAR(200),
     year VARCHAR(200),
-    remarks VARCHAR(200),
+    fund_source VARCHAR(200),
     status VARCHAR(200),
     PRIMARY KEY (id)
 );

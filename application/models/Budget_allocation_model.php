@@ -100,6 +100,8 @@ class Budget_allocation_model extends CI_Model{
         $allotment = array(
             'region' => $this->input->post('region'),
             'year' => $this->input->post('year'),
+            'status' => $this->input->post('status'),
+            'fund_source' => $this->input->post('fund_source'),
         );
 
         $this->db_budget->insert('allotment', $allotment);

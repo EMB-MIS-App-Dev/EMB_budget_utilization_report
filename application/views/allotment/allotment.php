@@ -15,6 +15,7 @@
             <tr>
                 <th scope="col">Region</th>
                 <th scope="col">Year</th>
+                <th scope="col">Fund Source</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
             </tr>
@@ -24,7 +25,16 @@
                 <tr class="table-active"> 
                     <td><?php echo $allotment['region']; ?></td>
                     <td><?php echo $allotment['year']; ?></td>
-                    <td><?php echo $allotment['status']; ?></td>
+                    <td><?php echo $allotment['fund_source']; ?></td>
+                    <td><?php 
+                    if($allotment['status'] == 1){
+                        echo 'Current'; 
+                    }elseif ($allotment['status'] == 2){
+                        echo 'Continuing'; 
+                    }
+
+                    
+                    ?></td>
                     <td>
                         <a class="btn btn-info" href="allotment/class/<?php echo $allotment['id'] ?>">Edit</a>
                         <a class="btn btn-danger" onclick="return confirm('Press OK to confirm delete PAP?')" href="allotment/delete/<?php echo $allotment['id'] ?>">Delete</a>

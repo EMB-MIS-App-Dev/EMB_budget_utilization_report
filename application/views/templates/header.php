@@ -78,13 +78,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="<?php echo base_url(); ?>mp" class="nav-link" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Main PAP</p>
+                  <p>MFO</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?php echo base_url(); ?>sp" class="nav-link" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Sub PAP</p>
+                  <p>PAP</p>
                 </a>
               </li>
             </ul>

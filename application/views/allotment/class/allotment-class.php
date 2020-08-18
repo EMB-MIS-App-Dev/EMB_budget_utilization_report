@@ -28,7 +28,7 @@
                     <td><?php echo strtoupper($ac['cl_name']); ?></td>
                     <td>
                     <!-- dynamic add field -->
-                        <input type="number" step="0.01" class="form-control" name="cl_amount">
+                        <input type="number" step="0.01" class="form-control" name="cl_amount" value="<?php echo $ac['cl_amount']; ?>">
                     </td>
                     <td>
                         <a class="btn btn-success" href="saa/<?php echo $ac['id'] ?>">Add SAA</a>
