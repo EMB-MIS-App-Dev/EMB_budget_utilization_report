@@ -195,17 +195,46 @@
             $data['saa'] = $this->budget_allocation_model->view_saa($id);
             $data['allotment_class'] = $this->budget_allocation_model->view_one_allotment_class($id);
 
+            //update class total if with saa
+            $this->budget_allocation_model->update_class_with_saa_amount($id);
+
             // echo json_encode($data['allotment_class']);
             $this->load->view('templates/header');
             $this->load->view('allotment/class/saa/saa',  $data);
             $this->load->view('templates/footer');
         }
-        // ------------------------END ALLOTMENT------------------------
 
-        public function allotment_class_saa_create(){
-            $this->load->view('templates/header');
-            $this->load->view('allotment/class/saa/create');
-            $this->load->view('templates/footer');
+        public function allotment_class_saa_create($id){
+            $this->form_validation->set_rules('month', 'Month',
+            'required');
+            $this->form_validation->set_rules('SAA_name', 'SAA Name',
+            'required');
+
+            $this->form_validation->set_rules('SAA_amount', 'SAA Amount',
+            'required');
+
+            $data['allotment_class'] = $this->budget_allocation_model->view_one_allotment_class($id);
+
+            if($this->form_validation->run() === FALSE){
+                $this->load->view('templates/header');
+                $this->load->view('allotment/class/saa/create',  $data);
+                $this->load->view('templates/footer');
+            }else{
+                $this->budget_allocation_model->add_saa();
+                $this->session->set_flashdata('successmsg', 'SAA successfully created!');
+
+                redirect('allotment/class/saa/'.$id);
+            }
         }
+
+        public function allotment_class_saa_delete($id){
+            $this->budget_allocation_model->delete_saa($id);
+            $this->session->set_flashdata('successmsg', 'SAA successfully deleted!');
+            
+            $url = $_SERVER['HTTP_REFERER'];
+            redirect($url);
+        }
+
+           // ------------------------END ALLOTMENT------------------------
     }
 ?>

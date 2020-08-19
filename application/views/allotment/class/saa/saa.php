@@ -10,6 +10,7 @@
         foreach($allotment_class as $ac) : 
             $all_class_id = $ac['cl_allotment_id'];
             $class_id = $ac['cl_id'];
+            $class_name = $ac['cl_name'];
             $region = $ac['region'].' - '.$ac['year'];
             $sp_name = $ac['sp_code'].' - '.$ac['sp_name'];
         endforeach;
@@ -30,20 +31,20 @@
             <h3>ALLOTMENT</h3>
             <h5><?php echo $region; ?></h5>
             <p><?php echo $sp_name; ?></p>
+            <p><b>Class - <?php echo strtoupper($class_name); ?></b></p>
             </div>
 
         </div>
     </div>
     
     <div class="create">
-        <a class="btn btn-success create-btn" href="create/<?php echo $class_id; ?>">New</a>
+        <a class="btn btn-info create-btn" href="create/<?php echo $class_id; ?>">Create</a>
     </div>
     <table id="myTableAll" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
     
     <div class="col-sm-4" >
         <thead>
             <tr>
-                <th scope="col">PAP</th>
                 <th scope="col">Name</th>
                 <th scope="col">Month</th>
                 <th scope="col">Amount</th>
@@ -52,24 +53,15 @@
         </thead>
         <tbody> 
             <?php foreach($saa as $sa) : ?>
-                <div class="col-sm-12">
-                    <input type="hidden" name="allotment_id" value="<?php echo $ac['cl_allotment_id']; ?>">
-                </div>
                 <tr class="table-active"> 
-                    <td><?php echo $ac['mp_code']; ?> - <?php echo $ac['mp_name']; ?></td>
-                    <td><?php echo $ac['sp_code']; ?> - <?php echo $ac['sp_name']; ?></td>
-                    <td><?php echo strtoupper($ac['cl_name']); ?></td>
+                    <td><?php echo $sa['sa_name']; ?></td>
+                    <td><?php 
+                        $month_num = $sa['sa_month'];
+                        echo date("F", mktime(0, 0, 0, $month_num, 10)); 
+                    ?></td>
+                    <td><?php echo $sa['sa_amount']; ?></td>
                     <td>
-                    <!-- dynamic add field -->
-                        <?php 
-                            $cl_id = $ac['cl_id']; 
-                        ?>
-                        <input type="hidden" name="cl_id" value="<?php echo $cl_id; ?>">
-                        <input type="number" step="0.01" class="form-control" name="cl-amount-<?php echo $cl_id ?>" value="<?php echo $ac['cl_amount']; ?>">
-                    </td>
-                    <td>
-                        <a class="btn btn-success" href="saa/<?php echo $ac['cl_id'] ?>">Add SAA</a>
-                        <a class="btn btn-danger" onclick="return confirm('Press OK to confirm delete PAP?')" href="allotment/delete/<?php echo $ac['id'] ?>">Delete</a>
+                        <a class="btn btn-danger" onclick="return confirm('Press OK to confirm delete SAA?')" href="delete/<?php echo $sa['sa_id'] ?>">Delete</a>
                     </td>
             </tr>   
             <?php endforeach; ?>

@@ -197,12 +197,91 @@ class Budget_allocation_model extends CI_Model{
 
     // SAA
     public function view_saa($id){
-        $query = $this->db_budget->query("SELECT * FROM saa
-                                        INNER JOIN class ON class.cl_id = saa.sa_cl_id
-                                        INNER JOIN allotment ON allotment.id = class.cl_allotment_id
-                                        where saa.sa_cl_id = '.$id.'");
+        // $query = $this->db_budget->query("SELECT * FROM saa
+        //                                 INNER JOIN class ON class.cl_id = saa.sa_cl_id
+        //                                 INNER JOIN allotment ON allotment.id = class.cl_allotment_id
+        //                                 where saa.sa_cl_id = '.$id.'");
+
+
+        $this->db_budget->select('*');
+        $this->db_budget->from('saa');
+        $this->db_budget->join('class', 'class.cl_id = saa.sa_cl_id');
+        $this->db_budget->join('allotment', 'allotment.id = class.cl_allotment_id');
+        $this->db_budget->where('saa.sa_cl_id', $id);
+        $query = $this->db_budget->get();
 
         return $query->result_array();
+    }
+
+    public function add_saa(){
+
+        $data = array(
+            'sa_name' => $this->input->post('SAA_name'),
+            'sa_amount' => $this->input->post('SAA_amount'),
+            'sa_month' => $this->input->post('month'),
+            'sa_description' => $this->input->post('SAA_description'),
+            'sa_cl_id' => $this->input->post('cl_id'),
+            'sa_allotment_id' => $this->input->post('all_id'),
+        );
+
+        $this->db_budget->insert('saa', $data);
+        
+        // update class
+        $this->db_budget->select_sum('sa_amount');
+        $this->db_budget->from('saa');
+        $this->db_budget->where('sa_cl_id', $this->input->post('cl_id'));
+        $sum = $this->db_budget->get();
+
+        foreach ($sum->result_array() as $row) {
+            $sum_ttl = $row['sa_amount'];
+        };
+
+
+        $cl_data = array(
+            'cl_remarks' => 'regular',
+            'cl_amount' => $sum_ttl,
+        );
+
+        $this->db_budget->where('cl_id', $this->input->post('cl_id'));
+        $this->db_budget->update('class', $cl_data);
+        //end update class 
+
+        return true;
+    }
+
+    public function delete_saa($id){
+        $this->db_budget->where('sa_id', $id);
+        $this->db_budget->delete('saa');
+        return true;
+    }
+
+    public function update_class_with_saa_amount($id){
+        // update class
+        $this->db_budget->select_sum('sa_amount');
+        $this->db_budget->from('saa');
+        $this->db_budget->where('sa_cl_id', $id);
+        $sum = $this->db_budget->get();
+
+        foreach ($sum->result_array() as $row) {
+            $sum_ttl = $row['sa_amount'];
+        };
+
+        if ($sum_ttl == 0){
+            $cl_data = array(
+                'cl_remarks' => NULL,
+                'cl_amount' => $sum_ttl,
+            );
+        }else{
+            $cl_data = array(
+                'cl_remarks' => 'regular',
+                'cl_amount' => $sum_ttl,
+            );
+        }
+        
+
+        $this->db_budget->where('cl_id', $id);
+        $this->db_budget->update('class', $cl_data);
+        //end update class
     }
 
     // ---------------------------------- END ALLOTMENT TABLE ----------------------------------

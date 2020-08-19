@@ -63,9 +63,16 @@
                         <!-- dynamic add field -->
                             <?php 
                                 $cl_id = $ac['cl_id']; 
+                                $cl_amt = $ac['cl_amount'];
                             ?>
                             <input type="hidden" name="cl_id" value="<?php echo $cl_id; ?>">
-                            <input type="number" step="0.01" class="form-control" name="cl-amount-<?php echo $cl_id ?>" value="<?php echo $ac['cl_amount']; ?>">
+                            <?php if ($ac['cl_remarks'] == 'regular'){
+                                echo" <input type='number' step='0.01' class='form-control' name='cl-amount-$cl_id' value='$cl_amt' readonly>";
+                            }else{
+                                echo" <input type='number' step='0.01' class='form-control' name='cl-amount-$cl_id' value='$cl_amt'>";
+                            }
+                            ?>
+                            
                         </td>
                         <td>
                             <a class="btn btn-primary" href="saa/<?php echo $ac['cl_id'] ?>">Add SAA</a>

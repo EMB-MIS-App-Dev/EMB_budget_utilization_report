@@ -3,28 +3,45 @@
     <div class='errormsg'>
         <?php echo validation_errors(); ?>
     </div>
-    
-    <form action="<?= base_url('saa/create'); ?>" method="post" accept-charset="utf-8">
+    <?php 
+        foreach($allotment_class as $ac) : 
+            $class_id = $ac['cl_id'];
+            $class_name = $ac['cl_name'];
+            $allotment_id = $ac['cl_allotment_id'];
+            $region = $ac['region'].' - '.$ac['year'];
+            $sp_name = $ac['sp_code'].' - '.$ac['sp_name'];
+        endforeach;
+     ?>
+    <div>
+        <a class="btn btn-info create-btn" href="<?php echo base_url(); ?>allotment/class/saa/<?php echo $class_id; ?>">Back</a>
+    </div>
+    <form action="<?php echo base_url(); ?>allotment/class/saa/create/<?php echo $class_id; ?>" method="post" accept-charset="utf-8">
     <div class="form-group">
         <div class="form-group-create">
             <h3>Department of Environment and Natural Resources</h3>
             <p>Programs/Activities/Projects (P/A/P)/Major Final Output (MFO)</p> 
 
             <!-- IF USER IS ADMIN -->
-            <h5><b>SAA Configuration Settings</b></h5>
             <h3>ALLOTMENT</h3>
-            <!-- END IF USER IS ADMIN -->
+            <h5><b>Create New SAA for  <h5><?php echo $region; ?></h5>
+            <p><?php echo $sp_name; ?></p></b></h5>
+            <p><b>Class - <?php echo strtoupper($class_name); ?></b></p>
+            <!-- END IF USER IS ADMIN --> 
+        </div>
+        <div class="form-group-forms">  
             <div class="row">
-                <div class="col-sm-4" >
-                    <p><b>For REGION: </b></p> 
-                </div> 
-                <div class="col-sm-8">
-                </div>
+            <div class="col-sm-12">
+                <input type="hidden" name="cl_id" value="<?php echo $class_id; ?>">
+            </div>
 
-                <div class="col-sm-4" >
+            <div class="col-sm-12">
+                <input type="hidden" name="all_id" value="<?php echo $allotment_id; ?>">
+            </div>
+
+            <div class="col-sm-2" >
                     <p><b>Month: </b></p> 
                 </div> 
-                <div class="col-sm-8">
+                <div class="col-sm-10">
                 <select name="month">
                     <option value=''>Select Month</option>
                     <option value="1">January</option>
@@ -42,28 +59,7 @@
                 </select>
 
                 </div>
-            </div>
-        </div>
-        <div class="form-group-forms">  
-            <div class="row">
-                <div class="col-sm-2" >
-                    <p><b>Select PAP:</b></p> 
-                </div> 
-                <div class="col-sm-2">
-                    <select name="cl_id">
-                        <option value="ps">PS</option>
-                        <option value="mooe">MOOE</option>
-                        <option value="co">CO</option>
-                        <option value="rlip">RLIP</option>
-                    </select>
-                </div> 
-                <div class="col-sm-3">
-                    <select name="sp_id">
-                    <?php foreach($sub_pap as $sp) : ?>
-                        <option value="<?php echo $sp['sp_id']; ?>"><?php echo $sp['sp_code']; ?> - <?php echo $sp['sp_name']; ?></option>
-                    <?php endforeach; ?>
-                    </select>
-                </div>                 
+               
             </div>
             <div class="row">
                 <div class="col-sm-2" >
@@ -78,6 +74,13 @@
                 </div> 
                 <div class="col-sm-4">
                     <input type="number" step="0.01" class="form-control" name="SAA_amount">          
+                </div>
+
+                <div class="col-sm-2" >
+                    <p><b>Description:</b></p> 
+                </div> 
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="SAA_description">          
                 </div>
             </div>
         </div>
