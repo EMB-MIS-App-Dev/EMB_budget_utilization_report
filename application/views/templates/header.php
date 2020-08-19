@@ -43,8 +43,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
+        <a href="<?php echo base_url(); ?>" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
         <a href="<?php echo base_url(); ?>allotment" class="nav-link">Allotment</a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="<?php echo base_url(); ?>region" class="nav-link">Region</a>
+      </li>
+
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -59,7 +66,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="<?php echo base_url(); ?>home" class="nav-link" class="d-block">Budget Utilization Report</a>
+          <a href="<?php echo base_url(); ?>" class="nav-link" class="d-block">Budget Utilization Report</a>
         </div>
       </div>
 

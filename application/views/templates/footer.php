@@ -66,6 +66,24 @@
         } );
     </script>
 
+    <!-- expenditure higher than allotment -->
+    <script>
+    <?php foreach($allotment_class as $ac) : ?>
+    $("#cl-amount-<?php echo $ac['cl_id']; ?>").focusout(function (e) {
+        
+            var from = parseInt($("#cl-allotment-<?php echo $ac['cl_id']; ?>").val());
+            var to = parseInt($("#cl-amount-<?php echo $ac['cl_id']; ?>").val());
+            if(to > from){
+                //alert('Amount must not be higher than allotment! \nPlease check your input!');
+                $("#cl-amount-<?php echo $ac['cl_id']; ?>").focus();
+            }
+            else {
+                //submit form
+            }
+    });
+    <?php endforeach; ?>
+    </script>
+
     
     <!-- Bootstrap 4 -->
     <script src="<?php echo base_url()."assets/"; ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

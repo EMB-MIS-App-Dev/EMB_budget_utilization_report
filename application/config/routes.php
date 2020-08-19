@@ -5,6 +5,7 @@ $route['default_controller'] = 'budgetcontroller';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// ---------------------------------------ALLOTMENT---------------------------------------
 //ALLOTMENT
 $route['allotment'] = 'budgetcontroller/allotment';
 $route['allotment/create'] = 'budgetcontroller/allotment_create';
@@ -34,3 +35,11 @@ $route['sp/edit/(:num)'] = 'budgetcontroller/sub_pap_edit/$1';
 $route['sp/update'] = 'budgetcontroller/sub_pap_update';
 $route['sp/delete/(:num)'] = 'budgetcontroller/sub_pap_delete/$1';
 //END SUB PAP
+// ---------------------------------------END ALLOTMENT---------------------------------------
+
+// ---------------------------------------REGION---------------------------------------
+//ALLOTMENT
+$route['region'] = 'regioncontroller/region';
+$route['region/class/(:num)'] = 'regioncontroller/region_class/$1';
+
+// ---------------------------------------END REGION---------------------------------------
