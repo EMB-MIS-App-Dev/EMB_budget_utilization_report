@@ -34,9 +34,16 @@
             </div>
         </div>
 
-        <div class="col-sm-12" style="margin-top:1em;">
-            <h3>Select Form:</h3>
         
+    </div>
+
+   
+        
+        <div class="row" style="margin-left:5em; margin-right:5em;">
+        <div class="col-sm-4" >
+            <h3>Select Form:</h3>
+        </div>
+        <div class="col-sm-8" >
             <h3><select name='region' class="browser-default custom-select">
                         <option value='1'>Financial Program</option>
                         <option value='2'>Obligation</option>
@@ -44,10 +51,32 @@
 
             </select></h3>
         </div>
-    </div>
+
+            <div class="col-sm-4" >
+                <p><b>Month: </b></p> 
+            </div> 
+            <div class="col-sm-8">
+                <select name="month">
+                    <option value=''>Select Month</option>
+                    <option value="1">January</option>
+                    <option value="2">Febuary</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+
+            </div>
+        </div>
     
-    <!-- <form action="<?= base_url('region/class/update'); ?>" method="post" accept-charset="utf-8"> -->
-    <form>  
+    <form action="<?= base_url('region/class/update'); ?>" method="post" accept-charset="utf-8">
+
         <table id="myTableAll" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
         
         <div class="col-sm-4" >
