@@ -1,3 +1,15 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .form-group-create{
     margin: auto;
     width: 80%;
@@ -6,6 +18,18 @@
     margin-top: 2em;
     margin-bottom: 2em;
     padding: 1em;
+}
+
+.form-group-create-menu{
+    margin: auto;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
+.tab-content{
+    margin-top:2em;
 }
 
 .form-group-create-sm{

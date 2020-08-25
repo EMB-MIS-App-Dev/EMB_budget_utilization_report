@@ -15,7 +15,7 @@
             <tr>
                 <th scope="col">Region</th>
                 <th scope="col">Year</th>
-                <th scope="col">Fund Source</th>
+                <th scope="col">Type</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
             </tr>

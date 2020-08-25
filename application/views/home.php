@@ -7,14 +7,6 @@
                 <a href="<?php echo base_url(); ?>allotment" class="btn btn-primary">Open</a>
             </div>
         </div>
-
-        <div class="col-sm-3 card" style="width: 18rem; margin: 5em;">
-            <div class="card-body">
-                <h5 class="card-title">REGION</h5>
-                <p class="card-text">Programs/Activities/Projects (P/A/P)/Major Final Output (MFO)</p>
-                <a href="<?php echo base_url(); ?>region" class="btn btn-primary">Open</a>
-            </div>
-        </div>
     </div>
     
 </div>

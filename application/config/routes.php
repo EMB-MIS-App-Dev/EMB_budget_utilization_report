@@ -1,23 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$route['default_controller'] = 'budgetcontroller';
+$route['default_controller'] = 'budgetcontroller/allotment';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// ---------------------------------------ALLOTMENT---------------------------------------
 //ALLOTMENT
 $route['allotment'] = 'budgetcontroller/allotment';
 $route['allotment/create'] = 'budgetcontroller/allotment_create';
-
-//CLASS
-$route['allotment/class/(:num)'] = 'budgetcontroller/allotment_class/$1';
-$route['allotment/class/update'] = 'budgetcontroller/allotment_class_update';
-
-//SAA
-$route['allotment/class/saa/(:num)'] = 'budgetcontroller/allotment_class_saa/$1';
-$route['allotment/class/saa/create/(:num)'] = 'budgetcontroller/allotment_class_saa_create/$1';
-$route['allotment/class/saa/delete/(:num)'] = 'budgetcontroller/allotment_class_saa_delete/$1';
 //END ALLOTMENT
 
 //MAIN PAP
@@ -35,11 +25,3 @@ $route['sp/edit/(:num)'] = 'budgetcontroller/sub_pap_edit/$1';
 $route['sp/update'] = 'budgetcontroller/sub_pap_update';
 $route['sp/delete/(:num)'] = 'budgetcontroller/sub_pap_delete/$1';
 //END SUB PAP
-// ---------------------------------------END ALLOTMENT---------------------------------------
-
-// ---------------------------------------REGION---------------------------------------
-//ALLOTMENT
-$route['region'] = 'regioncontroller/region';
-$route['region/class/(:num)'] = 'regioncontroller/region_class/$1';
-
-// ---------------------------------------END REGION---------------------------------------

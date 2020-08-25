@@ -1,17 +1,34 @@
 <?php
     class Budgetcontroller extends CI_Controller{
-        public function __construct(){
-            //$this->load->database();
-            parent::__construct();
-            $this->db_budget = $this->load->database('bud_db', TRUE);
-        }
-        
         public function index(){
-            
+                
             $this->load->view('templates/header');
             $this->load->view('home');
             $this->load->view('templates/footer');
         }
+
+        // ------------------------ALLOTMENT------------------------
+        public function allotment(){
+            $data['allotments'] = $this->budget_allocation_model->view_allotment();
+
+            // echo json_encode($data['allotments']);
+            $this->load->view('templates/header');
+            $this->load->view('allotment/allotment-view',  $data);
+            $this->load->view('templates/footer');
+        }
+
+        public function allotment_create(){
+
+            $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap();
+            $data['main_pap'] = $this->budget_allocation_model->view_main_pap();
+
+            $this->load->view('templates/header');
+            $this->load->view('allotment/create', $data);
+            $this->load->view('templates/footer');
+           
+           
+        }
+        // ------------------------END ALLOTMENT------------------------
 
         // ------------------------MAIN PAP------------------------
         public function main_pap_viewall(){
@@ -112,129 +129,5 @@
             redirect('sp');
         }
         // ------------------------END SUB PAP------------------------
-
-        // ------------------------ALLOTMENT------------------------
-        public function allotment(){
-            $data['allotments'] = $this->budget_allocation_model->view_allotment();
-
-            // echo json_encode($data['allotments']);
-            $this->load->view('templates/header');
-            $this->load->view('allotment/allotment',  $data);
-            $this->load->view('templates/footer');
-        }
-
-        public function allotment_create(){
-            $this->form_validation->set_rules('region', 'Region', 'callback_exists_check');
-
-            $this->form_validation->set_rules('year', 'Year',
-                    'required');
-
-
-            $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap();
-
-            if($this->form_validation->run() === FALSE){
-                $this->load->view('templates/header');
-                $this->load->view('allotment/create', $data);
-                $this->load->view('templates/footer');
-            }else{
-                $data['allotments'] =  $this->budget_allocation_model->add_allotment();
-
-                //echo json_encode($data['allotments']);
-                $this->session->set_flashdata('successmsg', 'Allotment successfully created!');
-                redirect('allotment/create', $data);
-            }
-           
-        }
-
-        public function exists_check(){   
-            $region = $this->input->post('region');// get region
-            $year = $this->input->post('year');// get year
-            $sf = $this->input->post('fund_source');// source_fund
-            $this->db_budget->select('*');
-            $this->db_budget->from('allotment');
-            $this->db_budget->where('region', $region);
-            $this->db_budget->where('year', $year);
-            $this->db_budget->where('fund_source', $sf);
-            $query = $this->db_budget->get();
-            $num = $query->num_rows();
-            if ($num > 0) {
-                $this->form_validation->set_message('exists_check', 'Budget for this year already exists.');
-                return FALSE;
-            } else {
-                return TRUE;
-            }
-            
-            return FALSE;
-        }
-
-
-        //CLASS
-        public function allotment_class($id){
-            
-           $data['allotment_class'] = $this->budget_allocation_model->view_allotment_class($id);
-
-            //echo json_encode($data['allotment_class']);
-            $this->load->view('templates/header');
-            $this->load->view('allotment/class/allotment-class', $data);
-            $this->load->view('templates/footer');
-        }
-
-        public function allotment_class_update(){
-            $data['allotment_id'] = $this->budget_allocation_model->update_allotment_class();
-
-            $this->session->set_flashdata('successmsg', 'PAP successfully updated!');
-
-            $url = $_SERVER['HTTP_REFERER'];
-            redirect($url);
-        }
-
-
-        //SAA
-        public function allotment_class_saa($id){
-            
-            $data['saa'] = $this->budget_allocation_model->view_saa($id);
-            $data['allotment_class'] = $this->budget_allocation_model->view_one_allotment_class($id);
-
-            //update class total if with saa
-            $this->budget_allocation_model->update_class_with_saa_amount($id);
-
-            // echo json_encode($data['allotment_class']);
-            $this->load->view('templates/header');
-            $this->load->view('allotment/class/saa/saa',  $data);
-            $this->load->view('templates/footer');
-        }
-
-        public function allotment_class_saa_create($id){
-            $this->form_validation->set_rules('month', 'Month',
-            'required');
-            $this->form_validation->set_rules('SAA_name', 'SAA Name',
-            'required');
-
-            $this->form_validation->set_rules('SAA_amount', 'SAA Amount',
-            'required');
-
-            $data['allotment_class'] = $this->budget_allocation_model->view_one_allotment_class($id);
-
-            if($this->form_validation->run() === FALSE){
-                $this->load->view('templates/header');
-                $this->load->view('allotment/class/saa/create',  $data);
-                $this->load->view('templates/footer');
-            }else{
-                $this->budget_allocation_model->add_saa();
-                $this->session->set_flashdata('successmsg', 'SAA successfully created!');
-
-                redirect('allotment/class/saa/'.$id);
-            }
-        }
-
-        public function allotment_class_saa_delete($id){
-            $this->budget_allocation_model->delete_saa($id);
-            $this->session->set_flashdata('successmsg', 'SAA successfully deleted!');
-            
-            $url = $_SERVER['HTTP_REFERER'];
-            redirect($url);
-        }
-
-           // ------------------------END ALLOTMENT------------------------
     }
 ?>

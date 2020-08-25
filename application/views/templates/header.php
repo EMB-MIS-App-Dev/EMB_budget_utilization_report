@@ -31,6 +31,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
   <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -47,9 +48,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="<?php echo base_url(); ?>allotment" class="nav-link">Allotment</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo base_url(); ?>region" class="nav-link">Region</a>
       </li>
 
     </ul>
@@ -85,13 +83,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="<?php echo base_url(); ?>mp" class="nav-link" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>MFO</p>
+                  <p>MFO (Major Final Output)</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?php echo base_url(); ?>sp" class="nav-link" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>PAP</p>
+                  <p>PAP (Programs/Activities/Projects)</p>
                 </a>
               </li>
             </ul>
