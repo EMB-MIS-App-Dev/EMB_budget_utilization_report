@@ -516,6 +516,75 @@
                             ?>
                         </div>
 
+                        <!-- SAA -->
+                        <div id="sub_pap_saa_ca">
+                            <?php 
+                                foreach($main_pap as $mp){
+                                    $mp_id = $mp['mp_id'];
+                                    $mp_code = $mp['mp_code'];
+                                    $mp_name = $mp['mp_name'];
+
+                                    echo"
+                                    <div class='col-sm-12'>
+                                        <input type='hidden' name='mp_id_ca' value='$mp_id'>
+                                        <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
+                                    </div>
+                                    ";
+
+
+                                    // MODAL FOR ADD ACTIVITY
+                                    echo"
+                                    <div class='col-sm-12'>
+                                        <a href='' id='add-ca-$mp_id' data-toggle='modal' data-target='#myModalsaa-ca-$mp_id'>Add Activity</a>
+                                        <div id='newActsaa_ca_$mp_id'></div>
+                                    </div>
+
+                                    
+                                    <div class='modal fade' id='myModalsaa-ca-$mp_id' role='dialog'>
+                                        <div class='modal-dialog'>
+                                        
+                                        <!-- Modal content-->
+                                        <div class='modal-content'>
+                                            <div class='modal-header'>
+                                            <h4 class='modal-title'>Add Activity</h4>
+                                            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                            </div>
+                                            <div class='modal-body'>
+                                            <select name='source_ca' id='fund_sourcesaa_ca_$mp_id' class='browser-default custom-select'>
+                                                <option value=''>SELECT</option>
+                                                    ";
+                                                    foreach($sub_pap as $sp){
+                                                        $sp_id = $sp['sp_id'];
+                                                        $sp_code = $sp['sp_code'];
+                                                        $sp_name = $sp['sp_name'];
+                                                        $sp_mp_id = $sp['sp_mp_id'];
+
+                                                        if( $mp_id == $sp_mp_id){
+                                                        echo"
+                                                        
+                                                        <option value='$sp_id'>$sp_code - $sp_name</option>
+                                                        
+                                                        ";
+                                                        };
+                                                    };
+                                                    echo"
+                                                </select>
+                                            </div>
+                                            <div class='modal-footer'>
+                                            <button type='button' class='btn btn-success' onclick='addActsaa_ca_$mp_id()'>Add</button>
+                                            <button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
+                                            </div>
+                                        </div>
+                                        
+                                        </div>
+                                    </div>
+
+                                    ";
+                                    // END MODAL FOR ADD ACTIVITY
+                                };
+                            ?>
+                        </div>
+
 
                     </div>       
                 </div>

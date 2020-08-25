@@ -192,8 +192,25 @@
                   
             };
         <?php endforeach; ?>
+
+        // saa
+        <?php foreach($main_pap as $mp) : ?>
+                function addActsaa_ca_<?php echo $mp['mp_id']; ?>() {
+                    $select_id = $( "#fund_sourcesaa_ca_<?php echo $mp['mp_id']; ?> option:selected" ).val();
+                    $select_name = $( "#fund_sourcesaa_ca_<?php echo $mp['mp_id']; ?> option:selected" ).text();
+
+                    if ($('input[name="newActsaa_ca_'+ $select_id +'_input_jan"]').length){
+                        alert('PAP already exist!');
+                    }else{
+                        var $input = $("<div class='row'><div class='col-sm-12'>"+ $select_name +"</div><div class='col-sm-12' style='overflow-x:auto;'><table><tr><td><input name='newActsaa_ca_"+ $select_id +"_input_jan' placeholder='Jan' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_feb' placeholder='Feb' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_mar' placeholder='Mar' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_apr' placeholder='Apr' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_may' placeholder='May' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_jun' placeholder='Jun' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_jul' placeholder='Jul' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_aug' placeholder='Aug' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_sep' placeholder='Sep' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_oct' placeholder='Oct' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_nov' placeholder='Nov' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_dec' placeholder='Dec' type='number' step='0.01' class='form-control'></td></tr></table></div></div>");
+                        $('#newActsaa_ca_<?php echo $mp['mp_id']; ?>').append($input);
+                    }
+                    
+                    
+                };
+            <?php endforeach; ?>
     </script>
-<!---------------------END CONTINUING APPRPRIATION--------------------->
+<!---------------------END CONTINUING APPRIATION--------------------->
 
     <!-- Bootstrap 4 -->
     <script src="<?php echo base_url()."assets/"; ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
