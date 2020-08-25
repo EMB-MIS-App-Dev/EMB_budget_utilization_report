@@ -11,21 +11,25 @@ input[type=number] {
 }
 
 .form-group-create{
-    margin: auto;
-    width: 80%;
-    border: solid 2px gray;
-    text-align: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
     padding: 1em;
+    padding-bottom: 0px;
+}
+
+.form-group-create p{
+    text-align: center;
+    margin: 0px;
 }
 
 .form-group-create-menu{
     margin: auto;
     width: 100%;
-    margin-top: 2em;
     margin-bottom: 2em;
     padding: 1em;
+}
+
+.form-group-create-menu p{
+    text-align: center;
+    color: green;
 }
 
 .tab-content{

@@ -12,18 +12,15 @@
 
 <div class="form-group">
     <div class="form-group-create">
-        <h3>Department of Environment and Natural Resources</h3>
-        <p>Programs/Activities/Projects (P/A/P)/Major Final Output (MFO)</p> 
-
         <!-- IF USER IS ADMIN -->
-        <h5><b>MONTHLY FINANCIAL PROGRAM</b></h5>
-        <h3>ALLOTMENT</h3>
+        <p><b>MONTHLY FINANCIAL PROGRAM</b></p>
+        <p>ALLOTMENT</p>
         <!-- END IF USER IS ADMIN -->
         <div class="row">
-            <div class="col-sm-4" >
-                <p><b>For REGION: </b></p> 
+            <div class="col-sm-2" >
+                <b>For REGION: </b>
             </div> 
-            <div class="col-sm-8">
+            <div class="col-sm-3">
             <!-- IF USER IS ADMIN -->
                 <select name='region' class="browser-default custom-select">
                     <option value=''>SELECT REGION</option>
@@ -45,11 +42,12 @@
                     <option value='13'>Region 13</option>
                 </select>
             </div>
+            <div class="col-sm-7"></div>
 
-            <div class="col-sm-4" >
-                <p><b>for YEAR: </b></p> 
+            <div class="col-sm-2" >
+                <b>for YEAR: </b>
             </div> 
-            <div class="col-sm-8">
+            <div class="col-sm-3">
                 <select name="year">
                     <option value=''>Select Year</option>
                     <?php
@@ -61,6 +59,7 @@
                     ?>
                 </select>
             </div>
+            <div class="col-sm-7"></div>
         </div>
     </div>
 
@@ -78,11 +77,11 @@
                     <div class="row">
 
                         <div class='col-sm-12'>
-                            <h2 style="text-align: center; margin-bottom: 1em;">Current</h2>
+                            <p>Current</p>
                         </div>
 
                         <div class="col-sm-4" >
-                            <p><b>Type: </b></p> 
+                            Type:
                         </div> 
                         <div class="col-sm-3">
                             <select name='source' class="browser-default custom-select">
@@ -94,7 +93,7 @@
                         <div class="col-sm-5"></div>
 
                         <div class="col-sm-4" >
-                            <p><b>Funding: </b></p> 
+                            Funding:
                         </div> 
                         <div class="col-sm-3">
                             <select name='source' id="source" class="browser-default custom-select">
@@ -107,7 +106,7 @@
                         <div class="col-sm-5" id="saa_no_pad"></div>
 
                         <div class="col-sm-2" id="saa_no_label">
-                            <p><b>SAA No: </b></p> 
+                            SAA No:
                         </div> 
                         <div class="col-sm-3" id="saa_no_value">
                             <input type='text' placeholder='0000' class='form-control' name='SAA_number'>
@@ -115,14 +114,14 @@
 
                         <div class="col-sm-7" id="saa_desc_pad"></div>
                         <div class="col-sm-2" id="saa_desc_label">
-                            <p><b>Description: </b></p> 
+                            Description: 
                         </div> 
                         <div class="col-sm-3" id="saa_desc_value">
                             <input type='text' class='form-control' name='SAA_desc'>
                         </div>
 
                         <div class="col-sm-4" >
-                            <p><b>Allotment Class: </b></p> 
+                            Allotment Class:
                         </div> 
                         <div class="col-sm-3" style="margin-bottom: 2em;">
                             <select name='source' class="browser-default custom-select">
@@ -144,9 +143,9 @@
                                     $mp_name = $mp['mp_name'];
 
                                     echo"
-                                    <div class='col-sm-12' style='margin-top: 4em;'>
+                                    <div class='col-sm-12'>
                                         <input type='hidden' name='mp_id' value='$mp_id'>
-                                        <h5>$mp_code - $mp_name</h5>
+                                        <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
                                     </div>
                                     ";
 
@@ -158,9 +157,9 @@
                                         
                                         if( $mp_id == $sp_mp_id){
                                             echo"
-                                            <div class='col-sm-12' style='margin-top: 2em; margin-bottom: 0px;'>
+                                            <div class='col-sm-12' style='margin-bottom: 0px;'>
                                                 <input type='hidden' name='sp_id' value='$sp_id'>
-                                                <p>$sp_code - $sp_name</p>
+                                                $sp_code - $sp_name
                                             </div>
                                     
                                             <div class='col-sm-12' style='overflow-x:auto;'>
@@ -199,16 +198,16 @@
                                     $mp_name = $mp['mp_name'];
 
                                     echo"
-                                    <div class='col-sm-12' style='margin-top: 2em;'>
+                                    <div class='col-sm-12'>
                                         <input type='hidden' name='mp_id' value='$mp_id'>
-                                        <h5>$mp_code - $mp_name</h5>
+                                        <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
                                     </div>
                                     ";
 
 
                                     // MODAL FOR ADD ACTIVITY
                                     echo"
-                                    <div class='col-sm-12' style='margin-bottom: 2em;'>
+                                    <div class='col-sm-12'>
                                         <a href='' id='add-$mp_id' data-toggle='modal' data-target='#myModal-$mp_id'>Add Activity</a>
                                         <div id='newAct_$mp_id'></div>
                                     </div>
@@ -268,16 +267,16 @@
                                     $mp_name = $mp['mp_name'];
 
                                     echo"
-                                    <div class='col-sm-12' style='margin-top: 2em;'>
+                                    <div class='col-sm-12'>
                                         <input type='hidden' name='mp_id' value='$mp_id'>
-                                        <h5>$mp_code - $mp_name</h5>
+                                        <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
                                     </div>
                                     ";
 
 
                                     // MODAL FOR ADD ACTIVITY
                                     echo"
-                                    <div class='col-sm-12' style='margin-bottom: 2em;'>
+                                    <div class='col-sm-12'>
                                         <a href='' id='add-$mp_id' data-toggle='modal' data-target='#myModalsaa-$mp_id'>Add Activity</a>
                                         <div id='newActsaa_$mp_id'></div>
                                     </div>
@@ -334,22 +333,191 @@
             <!-- TAB CONTINUING -->
             <div role="tabpanel" class="tab-pane fade" id="continuing">
                 <div class="form-group">  
-                    <div class="row">
+                    <div class="row">  
                         <div class='col-sm-12'>
-                            <h2 style="text-align: center; margin-bottom: 1em;">Continuing Appropriation</h2>
-                        </div>
+                            <p>Continuing Appropriation</p>
+                        </div>  
 
                         <div class="col-sm-4" >
-                            <p><b>Type: </b></p> 
+                            Type:
                         </div> 
-                        <div class="col-sm-8">
-                            <select name='source' class="browser-default custom-select">
+                        <div class="col-sm-3">
+                            <select name='source_ca' class="browser-default custom-select">
                                 <option value=''>SELECT</option>
                                 <option value='specificBudget'>Specific Budget</option>
                                 <option value='specialPurposeFund'>Special Purpose Fund</option>
                             </select>
                         </div>
-                    </div>
+                        <div class="col-sm-5"></div>
+
+                        <div class="col-sm-4" >
+                            Funding:
+                        </div> 
+                        <div class="col-sm-3">
+                            <select name='source_ca' id="source_ca" class="browser-default custom-select">
+                                <option value=''>SELECT</option>
+                                <option value='AS'>Agency Specific</option>
+                                <option value='OR'>Other Releases</option>
+                                <option value='SAA'>SAA</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-5" id="saa_no_pad_ca"></div>
+
+                        <div class="col-sm-2" id="saa_no_label_ca">
+                            SAA No:
+                        </div> 
+                        <div class="col-sm-3" id="saa_no_value_ca">
+                            <input type='text' placeholder='0000' class='form-control' name='SAA_number_ca'>
+                        </div>
+
+                        <div class="col-sm-7" id="saa_desc_pad_ca"></div>
+                        <div class="col-sm-2" id="saa_desc_label_ca">
+                            Description: 
+                        </div> 
+                        <div class="col-sm-3" id="saa_desc_value_ca">
+                            <input type='text' class='form-control' name='SAA_desc_ca'>
+                        </div>
+
+                        <div class="col-sm-4" >
+                            Allotment Class:
+                        </div> 
+                        <div class="col-sm-3" style="margin-bottom: 2em;">
+                            <select name='source_ca' class="browser-default custom-select">
+                                <option value=''>SELECT</option>
+                                <option value='PS'>PS</option>
+                                <option value='MOOE'>MOOE</option>
+                                <option value='CO'>CO</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-5"></div>
+
+                        <!-- PAP -->
+                        <!-- Agency Specific -->
+                        <div id="sub_pap_as_ca">
+                            <?php 
+                                foreach($main_pap as $mp){
+                                    $mp_id = $mp['mp_id'];
+                                    $mp_code = $mp['mp_code'];
+                                    $mp_name = $mp['mp_name'];
+
+                                    echo"
+                                    <div class='col-sm-12'>
+                                        <input type='hidden' name='mp_id_ca' value='$mp_id'>
+                                        <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
+                                    </div>
+                                    ";
+
+                                    foreach($sub_pap as $sp){
+                                        $sp_id = $sp['sp_id'];
+                                        $sp_code = $sp['sp_code'];
+                                        $sp_name = $sp['sp_name'];
+                                        $sp_mp_id = $sp['sp_mp_id'];
+                                        
+                                        if( $mp_id == $sp_mp_id){
+                                            echo"
+                                            <div class='col-sm-12' style='margin-bottom: 0px;'>
+                                                <input type='hidden' name='sp_id_ca' value='$sp_id'>
+                                                $sp_code - $sp_name
+                                            </div>
+                                    
+                                            <div class='col-sm-12' style='overflow-x:auto;'>
+                                                <table>
+                                                    <tr>
+                                                        <td><input type='number' step='0.01' placeholder='Jan' class='form-control' name='$sp_id-amount-jan-ca'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Feb' class='form-control' name='$sp_id-amount-feb-ca'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Mar' class='form-control' name='$sp_id-amount-mar-ca'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Apr' class='form-control' name='$sp_id-amount-apr-ca'></td>
+                                                        <td><input type='number' step='0.01' placeholder='May' class='form-control' name='$sp_id-amount-may-ca'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Jun' class='form-control' name='$sp_id-amount-jun-ca'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Jul' class='form-control' name='$sp_id-amount-jul-ca'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Aug' class='form-control' name='$sp_id-amount-aug-ca'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Sep' class='form-control' name='$sp_id-amount-sep-ca'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Oct' class='form-control' name='$sp_id-amount-oct-ca'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Nov' class='form-control' name='$sp_id-amount-nov-ca'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Dec' class='form-control' name='$sp_id-amount-dec-ca'></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            
+                                            ";
+                                        }
+                                        
+                                    };
+                                };
+                            ?>      
+                        </div>
+
+                        <!-- OTHER RELEASES -->
+                        <div id="sub_pap_other_ca">
+                            <?php 
+                                foreach($main_pap as $mp){
+                                    $mp_id = $mp['mp_id'];
+                                    $mp_code = $mp['mp_code'];
+                                    $mp_name = $mp['mp_name'];
+
+                                    echo"
+                                    <div class='col-sm-12'>
+                                        <input type='hidden' name='mp_id_ca' value='$mp_id'>
+                                        <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
+                                    </div>
+                                    ";
+
+
+                                    // MODAL FOR ADD ACTIVITY
+                                    echo"
+                                    <div class='col-sm-12'>
+                                        <a href='' id='add-$mp_id-ca' data-toggle='modal' data-target='#myModal-ca-$mp_id'>Add Activity</a>
+                                        <div id='newAct_ca_$mp_id'></div>
+                                    </div>
+
+                                    
+                                    <div class='modal fade' id='myModal-ca-$mp_id' role='dialog'>
+                                        <div class='modal-dialog'>
+                                        
+                                        <!-- Modal content-->
+                                        <div class='modal-content'>
+                                            <div class='modal-header'>
+                                            <h4 class='modal-title'>Add Activity</h4>
+                                            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                            </div>
+                                            <div class='modal-body'>
+                                            <select name='source_ca' id='fund_source_ca_$mp_id' class='browser-default custom-select'>
+                                                <option value=''>SELECT</option>
+                                                    ";
+                                                    foreach($sub_pap as $sp){
+                                                        $sp_id = $sp['sp_id'];
+                                                        $sp_code = $sp['sp_code'];
+                                                        $sp_name = $sp['sp_name'];
+                                                        $sp_mp_id = $sp['sp_mp_id'];
+
+                                                        if( $mp_id == $sp_mp_id){
+                                                        echo"
+                                                        
+                                                        <option value='$sp_id'>$sp_code - $sp_name</option>
+                                                        
+                                                        ";
+                                                        };
+                                                    };
+                                                    echo"
+                                                </select>
+                                            </div>
+                                            <div class='modal-footer'>
+                                            <button type='button' class='btn btn-success' onclick='addAct_ca_$mp_id()'>Add</button>
+                                            <button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
+                                            </div>
+                                        </div>
+                                        
+                                        </div>
+                                    </div>
+
+                                    ";
+                                    // END MODAL FOR ADD ACTIVITY
+                                };
+                            ?>
+                        </div>
+
+
+                    </div>       
                 </div>
             </div>
 
@@ -358,7 +526,7 @@
                 <div class="form-group">  
                     <div class="row">
                         <div class='col-sm-12'>
-                            <h2 style="text-align: center; margin-bottom: 1em;">Automatic Appropriation</h2>
+                            <p>Automatic Appropriation</p>
                         </div>
 
                         <div class="col-sm-12" >
