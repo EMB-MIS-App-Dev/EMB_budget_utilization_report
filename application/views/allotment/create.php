@@ -593,15 +593,258 @@
              <!-- TAB AUTOMATIC -->
              <div role="tabpanel" class="tab-pane fade" id="automatic">
                 <div class="form-group">  
-                    <div class="row">
+                    <div class="row">  
                         <div class='col-sm-12'>
                             <p>Automatic Appropriation</p>
+                        </div>  
+
+                        <div class="col-sm-4" >
+                            Type:
+                        </div> 
+                        <div class="col-sm-3">
+                            <select name='source_aa' class="browser-default custom-select">
+                                <option value='RLIP' selected>Retirement and Life Insurance Premium</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-5"></div>
+
+                        <div class="col-sm-4" >
+                            Funding:
+                        </div> 
+                        <div class="col-sm-3">
+                            <select name='source_aa' id="source_aa" class="browser-default custom-select">
+                                <option value=''>SELECT</option>
+                                <option value='AS'>Agency Specific</option>
+                                <option value='OR'>Other Releases</option>
+                                <option value='SAA'>SAA</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-5" id="saa_no_pad_aa"></div>
+
+                        <div class="col-sm-2" id="saa_no_label_aa">
+                            SAA No:
+                        </div> 
+                        <div class="col-sm-3" id="saa_no_value_aa">
+                            <input type='text' placeholder='0000' class='form-control' name='SAA_number_aa'>
                         </div>
 
-                        <div class="col-sm-12" >
-                            <h5>Retirement and Life Insurance Premium</h5>
+                        <div class="col-sm-7" id="saa_desc_pad_aa"></div>
+                        <div class="col-sm-2" id="saa_desc_label_aa">
+                            Description: 
+                        </div> 
+                        <div class="col-sm-3" id="saa_desc_value_aa">
+                            <input type='text' class='form-control' name='SAA_desc_aa'>
                         </div>
-                    </div>
+
+                        <div class="col-sm-4" >
+                            Allotment Class:
+                        </div> 
+                        <div class="col-sm-3" style="margin-bottom: 2em;">
+                            <select name='source_aa' class="browser-default custom-select">
+                                <option value=''>SELECT</option>
+                                <option value='PS'>PS</option>
+                                <option value='MOOE'>MOOE</option>
+                                <option value='CO'>CO</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-5"></div>
+
+                        <!-- PAP -->
+                        <!-- Agency Specific -->
+                        <div id="sub_pap_as_aa">
+                            <?php 
+                                foreach($main_pap as $mp){
+                                    $mp_id = $mp['mp_id'];
+                                    $mp_code = $mp['mp_code'];
+                                    $mp_name = $mp['mp_name'];
+
+                                    echo"
+                                    <div class='col-sm-12'>
+                                        <input type='hidden' name='mp_id_aa' value='$mp_id'>
+                                        <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
+                                    </div>
+                                    ";
+
+                                    foreach($sub_pap as $sp){
+                                        $sp_id = $sp['sp_id'];
+                                        $sp_code = $sp['sp_code'];
+                                        $sp_name = $sp['sp_name'];
+                                        $sp_mp_id = $sp['sp_mp_id'];
+                                        
+                                        if( $mp_id == $sp_mp_id){
+                                            echo"
+                                            <div class='col-sm-12' style='margin-bottom: 0px;'>
+                                                <input type='hidden' name='sp_id_aa' value='$sp_id'>
+                                                $sp_code - $sp_name
+                                            </div>
+                                    
+                                            <div class='col-sm-12' style='overflow-x:auto;'>
+                                                <table>
+                                                    <tr>
+                                                        <td><input type='number' step='0.01' placeholder='Jan' class='form-control' name='$sp_id-amount-jan-aa'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Feb' class='form-control' name='$sp_id-amount-feb-aa'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Mar' class='form-control' name='$sp_id-amount-mar-aa'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Apr' class='form-control' name='$sp_id-amount-apr-aa'></td>
+                                                        <td><input type='number' step='0.01' placeholder='May' class='form-control' name='$sp_id-amount-may-aa'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Jun' class='form-control' name='$sp_id-amount-jun-aa'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Jul' class='form-control' name='$sp_id-amount-jul-aa'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Aug' class='form-control' name='$sp_id-amount-aug-aa'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Sep' class='form-control' name='$sp_id-amount-sep-aa'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Oct' class='form-control' name='$sp_id-amount-oct-aa'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Nov' class='form-control' name='$sp_id-amount-nov-aa'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Dec' class='form-control' name='$sp_id-amount-dec-aa'></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            
+                                            ";
+                                        }
+                                        
+                                    };
+                                };
+                            ?>      
+                        </div>
+
+                        <!-- OTHER RELEASES -->
+                        <div id="sub_pap_other_aa">
+                            <?php 
+                                foreach($main_pap as $mp){
+                                    $mp_id = $mp['mp_id'];
+                                    $mp_code = $mp['mp_code'];
+                                    $mp_name = $mp['mp_name'];
+
+                                    echo"
+                                    <div class='col-sm-12'>
+                                        <input type='hidden' name='mp_id_aa' value='$mp_id'>
+                                        <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
+                                    </div>
+                                    ";
+
+
+                                    // MODAL FOR ADD ACTIVITY
+                                    echo"
+                                    <div class='col-sm-12'>
+                                        <a href='' id='add-$mp_id-aa' data-toggle='modal' data-target='#myModal-aa-$mp_id'>Add Activity</a>
+                                        <div id='newAct_aa_$mp_id'></div>
+                                    </div>
+
+                                    
+                                    <div class='modal fade' id='myModal-aa-$mp_id' role='dialog'>
+                                        <div class='modal-dialog'>
+                                        
+                                        <!-- Modal content-->
+                                        <div class='modal-content'>
+                                            <div class='modal-header'>
+                                            <h4 class='modal-title'>Add Activity</h4>
+                                            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                            </div>
+                                            <div class='modal-body'>
+                                            <select name='source_aa' id='fund_source_aa_$mp_id' class='browser-default custom-select'>
+                                                <option value=''>SELECT</option>
+                                                    ";
+                                                    foreach($sub_pap as $sp){
+                                                        $sp_id = $sp['sp_id'];
+                                                        $sp_code = $sp['sp_code'];
+                                                        $sp_name = $sp['sp_name'];
+                                                        $sp_mp_id = $sp['sp_mp_id'];
+
+                                                        if( $mp_id == $sp_mp_id){
+                                                        echo"
+                                                        
+                                                        <option value='$sp_id'>$sp_code - $sp_name</option>
+                                                        
+                                                        ";
+                                                        };
+                                                    };
+                                                    echo"
+                                                </select>
+                                            </div>
+                                            <div class='modal-footer'>
+                                            <button type='button' class='btn btn-success' onclick='addAct_aa_$mp_id()'>Add</button>
+                                            <button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
+                                            </div>
+                                        </div>
+                                        
+                                        </div>
+                                    </div>
+
+                                    ";
+                                    // END MODAL FOR ADD ACTIVITY
+                                };
+                            ?>
+                        </div>
+
+                        <!-- SAA -->
+                        <div id="sub_pap_saa_aa">
+                            <?php 
+                                foreach($main_pap as $mp){
+                                    $mp_id = $mp['mp_id'];
+                                    $mp_code = $mp['mp_code'];
+                                    $mp_name = $mp['mp_name'];
+
+                                    echo"
+                                    <div class='col-sm-12'>
+                                        <input type='hidden' name='mp_id_aa' value='$mp_id'>
+                                        <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
+                                    </div>
+                                    ";
+
+
+                                    // MODAL FOR ADD ACTIVITY
+                                    echo"
+                                    <div class='col-sm-12'>
+                                        <a href='' id='add-aa-$mp_id' data-toggle='modal' data-target='#myModalsaa-aa-$mp_id'>Add Activity</a>
+                                        <div id='newActsaa_aa_$mp_id'></div>
+                                    </div>
+
+                                    
+                                    <div class='modal fade' id='myModalsaa-aa-$mp_id' role='dialog'>
+                                        <div class='modal-dialog'>
+                                        
+                                        <!-- Modal content-->
+                                        <div class='modal-content'>
+                                            <div class='modal-header'>
+                                            <h4 class='modal-title'>Add Activity</h4>
+                                            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                            </div>
+                                            <div class='modal-body'>
+                                            <select name='source_aa' id='fund_sourcesaa_aa_$mp_id' class='browser-default custom-select'>
+                                                <option value=''>SELECT</option>
+                                                    ";
+                                                    foreach($sub_pap as $sp){
+                                                        $sp_id = $sp['sp_id'];
+                                                        $sp_code = $sp['sp_code'];
+                                                        $sp_name = $sp['sp_name'];
+                                                        $sp_mp_id = $sp['sp_mp_id'];
+
+                                                        if( $mp_id == $sp_mp_id){
+                                                        echo"
+                                                        
+                                                        <option value='$sp_id'>$sp_code - $sp_name</option>
+                                                        
+                                                        ";
+                                                        };
+                                                    };
+                                                    echo"
+                                                </select>
+                                            </div>
+                                            <div class='modal-footer'>
+                                            <button type='button' class='btn btn-success' onclick='addActsaa_aa_$mp_id()'>Add</button>
+                                            <button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
+                                            </div>
+                                        </div>
+                                        
+                                        </div>
+                                    </div>
+
+                                    ";
+                                    // END MODAL FOR ADD ACTIVITY
+                                };
+                            ?>
+                        </div>
+
+
+                    </div>       
                 </div>
             </div>
         </div>

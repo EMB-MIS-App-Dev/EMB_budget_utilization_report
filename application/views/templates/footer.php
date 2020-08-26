@@ -97,6 +97,8 @@
 
                 if ($('input[name="newAct_'+ $select_id +'_input_jan"]').length){
                     alert('PAP already exist!');
+                }else if($select_id === ''){
+                    alert('Please select PAP!');
                 }else{
                     var $input = $("<div class='row'><div class='col-sm-12'>"+ $select_name +"</div><div class='col-sm-12' style='overflow-x:auto;'><table><tr><td><input name='newAct_"+ $select_id +"_input_jan' placeholder='Jan' type='number' step='0.01' class='form-control'></td><td><input name='newAct_"+ $select_id +"_input_feb' placeholder='Feb' type='number' step='0.01' class='form-control'></td><td><input name='newAct_"+ $select_id +"_input_mar' placeholder='Mar' type='number' step='0.01' class='form-control'></td><td><input name='newAct_"+ $select_id +"_input_apr' placeholder='Apr' type='number' step='0.01' class='form-control'></td><td><input name='newAct_"+ $select_id +"_input_may' placeholder='May' type='number' step='0.01' class='form-control'></td><td><input name='newAct_"+ $select_id +"_input_jun' placeholder='Jun' type='number' step='0.01' class='form-control'></td><td><input name='newAct_"+ $select_id +"_input_jul' placeholder='Jul' type='number' step='0.01' class='form-control'></td><td><input name='newAct_"+ $select_id +"_input_aug' placeholder='Aug' type='number' step='0.01' class='form-control'></td><td><input name='newAct_"+ $select_id +"_input_sep' placeholder='Sep' type='number' step='0.01' class='form-control'></td><td><input name='newAct_"+ $select_id +"_input_oct' placeholder='Oct' type='number' step='0.01' class='form-control'></td><td><input name='newAct_"+ $select_id +"_input_nov' placeholder='Nov' type='number' step='0.01' class='form-control'></td><td><input name='newAct_"+ $select_id +"_input_dec' placeholder='Dec' type='number' step='0.01' class='form-control'></td></tr></table></div></div>");
                     $('#newAct_<?php echo $mp['mp_id']; ?>').append($input);
@@ -114,6 +116,8 @@
 
                     if ($('input[name="newActsaa_'+ $select_id +'_input_jan"]').length){
                         alert('PAP already exist!');
+                    }else if($select_id === ''){
+                        alert('Please select PAP!');
                     }else{
                         var $input = $("<div class='row'><div class='col-sm-12'>"+ $select_name +"</div><div class='col-sm-12' style='overflow-x:auto;'><table><tr><td><input name='newActsaa_"+ $select_id +"_input_jan' placeholder='Jan' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_"+ $select_id +"_input_feb' placeholder='Feb' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_"+ $select_id +"_input_mar' placeholder='Mar' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_"+ $select_id +"_input_apr' placeholder='Apr' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_"+ $select_id +"_input_may' placeholder='May' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_"+ $select_id +"_input_jun' placeholder='Jun' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_"+ $select_id +"_input_jul' placeholder='Jul' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_"+ $select_id +"_input_aug' placeholder='Aug' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_"+ $select_id +"_input_sep' placeholder='Sep' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_"+ $select_id +"_input_oct' placeholder='Oct' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_"+ $select_id +"_input_nov' placeholder='Nov' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_"+ $select_id +"_input_dec' placeholder='Dec' type='number' step='0.01' class='form-control'></td></tr></table></div></div>");
                         $('#newActsaa_<?php echo $mp['mp_id']; ?>').append($input);
@@ -184,6 +188,8 @@
 
                 if ($('input[name="newAct_ca_'+ $select_id +'_input_jan"]').length){
                     alert('PAP already exist!');
+                }else if($select_id === ''){
+                        alert('Please select PAP!');
                 }else{
                     var $input = $("<div class='row'><div class='col-sm-12'>"+ $select_name +"</div><div class='col-sm-12' style='overflow-x:auto;'><table><tr><td><input name='newAct_ca_"+ $select_id +"_input_jan' placeholder='Jan' type='number' step='0.01' class='form-control'></td><td><input name='newAct_ca_"+ $select_id +"_input_feb' placeholder='Feb' type='number' step='0.01' class='form-control'></td><td><input name='newAct_ca_"+ $select_id +"_input_mar' placeholder='Mar' type='number' step='0.01' class='form-control'></td><td><input name='newAct_ca_"+ $select_id +"_input_apr' placeholder='Apr' type='number' step='0.01' class='form-control'></td><td><input name='newAct_ca_"+ $select_id +"_input_may' placeholder='May' type='number' step='0.01' class='form-control'></td><td><input name='newAct_ca_"+ $select_id +"_input_jun' placeholder='Jun' type='number' step='0.01' class='form-control'></td><td><input name='newAct_ca_"+ $select_id +"_input_jul' placeholder='Jul' type='number' step='0.01' class='form-control'></td><td><input name='newAct_ca_"+ $select_id +"_input_aug' placeholder='Aug' type='number' step='0.01' class='form-control'></td><td><input name='newAct_ca_"+ $select_id +"_input_sep' placeholder='Sep' type='number' step='0.01' class='form-control'></td><td><input name='newAct_ca_"+ $select_id +"_input_oct' placeholder='Oct' type='number' step='0.01' class='form-control'></td><td><input name='newAct_ca_"+ $select_id +"_input_nov' placeholder='Nov' type='number' step='0.01' class='form-control'></td><td><input name='newAct_ca_"+ $select_id +"_input_dec' placeholder='Dec' type='number' step='0.01' class='form-control'></td></tr></table></div></div>");
                     $('#newAct_ca_<?php echo $mp['mp_id']; ?>').append($input);
@@ -201,6 +207,8 @@
 
                     if ($('input[name="newActsaa_ca_'+ $select_id +'_input_jan"]').length){
                         alert('PAP already exist!');
+                    }else if($select_id === ''){
+                        alert('Please select PAP!');
                     }else{
                         var $input = $("<div class='row'><div class='col-sm-12'>"+ $select_name +"</div><div class='col-sm-12' style='overflow-x:auto;'><table><tr><td><input name='newActsaa_ca_"+ $select_id +"_input_jan' placeholder='Jan' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_feb' placeholder='Feb' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_mar' placeholder='Mar' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_apr' placeholder='Apr' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_may' placeholder='May' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_jun' placeholder='Jun' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_jul' placeholder='Jul' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_aug' placeholder='Aug' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_sep' placeholder='Sep' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_oct' placeholder='Oct' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_nov' placeholder='Nov' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_ca_"+ $select_id +"_input_dec' placeholder='Dec' type='number' step='0.01' class='form-control'></td></tr></table></div></div>");
                         $('#newActsaa_ca_<?php echo $mp['mp_id']; ?>').append($input);
@@ -211,6 +219,97 @@
             <?php endforeach; ?>
     </script>
 <!---------------------END CONTINUING APPRIATION--------------------->
+
+<!---------------------AUTOMATIC APPRPRIATION--------------------->
+    <!-- Show Ref Num and Particulars in select -->
+    <script>
+    $(document).ready(function(){
+        $("#sub_pap_as_aa").hide();
+        $("#sub_pap_other_aa").hide();
+        $("#sub_pap_saa_aa").hide();
+        
+        $("#source_aa").change(function(){
+            $(this).find("option:selected").each(function(){
+                var optionValue = $(this).attr("value");
+                if(optionValue === "SAA"){
+                    $("#saa_no_label_aa").show();
+                    $("#saa_no_value_aa").show();
+                    $("#saa_desc_pad_aa").show();
+                    $("#saa_desc_label_aa").show();
+                    $("#saa_desc_value_aa").show();
+                    $("#saa_no_pad_aa").hide();
+                } else{
+                    $("#saa_no_label_aa").hide();
+                    $("#saa_no_value_aa").hide();
+                    $("#saa_desc_pad_aa").hide();
+                    $("#saa_desc_label_aa").hide();
+                    $("#saa_desc_value_aa").hide();
+                    $("#saa_no_pad_aa").show();
+                }
+
+                if(optionValue === "AS"){
+                    $("#sub_pap_as_aa").show();
+                    $("#sub_pap_other_aa").hide();
+                    $("#sub_pap_saa_aa").hide();
+                }else if(optionValue === "OR"){
+                    $("#sub_pap_as_aa").hide();
+                    $("#sub_pap_other_aa").show();
+                    $("#sub_pap_saa_aa").hide();
+                }else if(optionValue === "SAA"){
+                    $("#sub_pap_as_aa").hide();
+                    $("#sub_pap_other_aa").hide();
+                    $("#sub_pap_saa_aa").show();
+                }else{
+                    $("#sub_pap_as_aa").hide();
+                    $("#sub_pap_other_aa").hide();
+                    $("#sub_pap_saa_aa").hide()
+                }
+            });
+        }).change();
+    });
+    </script>
+
+    <!-- Dynamically input after add activity in PAP for Continuing Apprpriation-->
+    <script type="text/javascript">
+    // other releases
+        <?php foreach($main_pap as $mp) : ?>
+            function addAct_aa_<?php echo $mp['mp_id']; ?>() {
+                $select_id = $( "#fund_source_aa_<?php echo $mp['mp_id']; ?> option:selected" ).val();
+                $select_name = $( "#fund_source_aa_<?php echo $mp['mp_id']; ?> option:selected" ).text();
+
+                if ($('input[name="newAct_aa_'+ $select_id +'_input_jan"]').length){
+                    alert('PAP already exist!');
+                }else if($select_id === ''){
+                        alert('Please select PAP!');
+                }else{
+                    var $input = $("<div class='row'><div class='col-sm-12'>"+ $select_name +"</div><div class='col-sm-12' style='overflow-x:auto;'><table><tr><td><input name='newAct_aa_"+ $select_id +"_input_jan' placeholder='Jan' type='number' step='0.01' class='form-control'></td><td><input name='newAct_aa_"+ $select_id +"_input_feb' placeholder='Feb' type='number' step='0.01' class='form-control'></td><td><input name='newAct_aa_"+ $select_id +"_input_mar' placeholder='Mar' type='number' step='0.01' class='form-control'></td><td><input name='newAct_aa_"+ $select_id +"_input_apr' placeholder='Apr' type='number' step='0.01' class='form-control'></td><td><input name='newAct_aa_"+ $select_id +"_input_may' placeholder='May' type='number' step='0.01' class='form-control'></td><td><input name='newAct_aa_"+ $select_id +"_input_jun' placeholder='Jun' type='number' step='0.01' class='form-control'></td><td><input name='newAct_aa_"+ $select_id +"_input_jul' placeholder='Jul' type='number' step='0.01' class='form-control'></td><td><input name='newAct_aa_"+ $select_id +"_input_aug' placeholder='Aug' type='number' step='0.01' class='form-control'></td><td><input name='newAct_aa_"+ $select_id +"_input_sep' placeholder='Sep' type='number' step='0.01' class='form-control'></td><td><input name='newAct_aa_"+ $select_id +"_input_oct' placeholder='Oct' type='number' step='0.01' class='form-control'></td><td><input name='newAct_aa_"+ $select_id +"_input_nov' placeholder='Nov' type='number' step='0.01' class='form-control'></td><td><input name='newAct_aa_"+ $select_id +"_input_dec' placeholder='Dec' type='number' step='0.01' class='form-control'></td></tr></table></div></div>");
+                    $('#newAct_aa_<?php echo $mp['mp_id']; ?>').append($input);
+                }
+                
+                  
+            };
+        <?php endforeach; ?>
+
+        // saa
+        <?php foreach($main_pap as $mp) : ?>
+                function addActsaa_aa_<?php echo $mp['mp_id']; ?>() {
+                    $select_id = $( "#fund_sourcesaa_aa_<?php echo $mp['mp_id']; ?> option:selected" ).val();
+                    $select_name = $( "#fund_sourcesaa_aa_<?php echo $mp['mp_id']; ?> option:selected" ).text();
+
+                    if ($('input[name="newActsaa_aa_'+ $select_id +'_input_jan"]').length){
+                        alert('PAP already exist!');
+                    }else if($select_id === ''){
+                        alert('Please select PAP!');
+                    }else{
+                        var $input = $("<div class='row'><div class='col-sm-12'>"+ $select_name +"</div><div class='col-sm-12' style='overflow-x:auto;'><table><tr><td><input name='newActsaa_aa_"+ $select_id +"_input_jan' placeholder='Jan' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_aa_"+ $select_id +"_input_feb' placeholder='Feb' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_aa_"+ $select_id +"_input_mar' placeholder='Mar' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_aa_"+ $select_id +"_input_apr' placeholder='Apr' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_aa_"+ $select_id +"_input_may' placeholder='May' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_aa_"+ $select_id +"_input_jun' placeholder='Jun' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_aa_"+ $select_id +"_input_jul' placeholder='Jul' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_aa_"+ $select_id +"_input_aug' placeholder='Aug' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_aa_"+ $select_id +"_input_sep' placeholder='Sep' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_aa_"+ $select_id +"_input_oct' placeholder='Oct' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_aa_"+ $select_id +"_input_nov' placeholder='Nov' type='number' step='0.01' class='form-control'></td><td><input name='newActsaa_aa_"+ $select_id +"_input_dec' placeholder='Dec' type='number' step='0.01' class='form-control'></td></tr></table></div></div>");
+                        $('#newActsaa_aa_<?php echo $mp['mp_id']; ?>').append($input);
+                    }
+                    
+                    
+                };
+            <?php endforeach; ?>
+    </script>
+<!---------------------END AUTOMATIC APPRIATION--------------------->
 
     <!-- Bootstrap 4 -->
     <script src="<?php echo base_url()."assets/"; ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
