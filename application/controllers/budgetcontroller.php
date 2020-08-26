@@ -26,7 +26,7 @@
 
             $createbtn = $this->input->post('createbtn');
                    
-            if($createbtn == 'create_cu_as'){
+            if($createbtn == 'create_cu_as' || $createbtn == 'create_cu_or' || $createbtn == 'create_cu_sa'){
                 $this->form_validation->set_rules('type_cu', 'Type', 
                     'required');
                 $this->form_validation->set_rules('funding_cu', 'Funding',

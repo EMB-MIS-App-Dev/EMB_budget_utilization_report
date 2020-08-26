@@ -15,7 +15,6 @@
             <tr>
                 <th scope="col">Region</th>
                 <th scope="col">Year</th>
-                <th scope="col">Status</th>
                 <th scope="col">Action</th>
             </tr>
 		</thead>
@@ -24,10 +23,9 @@
                 <tr class="table-active"> 
                     <td><?php echo $allotment['all_region']; ?></td>
                     <td><?php echo $allotment['all_year']; ?></td>
-                    <td><?php echo $allotment['all_status']; ?></td>
                     <td>
                         <a class="btn btn-primary" href="allotment/class/<?php echo $allotment['all_id'] ?>">Edit</a>
-                        <a class="btn btn-danger" onclick="return confirm('Press OK to confirm delete PAP?')" href="allotment/delete/<?php echo $allotment['id'] ?>">Delete</a>
+                        <a class="btn btn-danger" onclick="return confirm('Press OK to confirm delete PAP?')" href="allotment/delete/<?php echo $allotment['all_id'] ?>">Delete</a>
                     </td>
             </tr>   
             <?php endforeach; ?>

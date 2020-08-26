@@ -146,7 +146,6 @@
 
                                     echo"
                                     <div class='col-sm-12'>
-                                        <input type='hidden' name='mp_id_cu' value='$mp_id'>
                                         <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
                                     </div>
                                     ";
@@ -207,7 +206,6 @@
 
                                     echo"
                                     <div class='col-sm-12'>
-                                        <input type='hidden' name='mp_id' value='$mp_id'>
                                         <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
                                     </div>
                                     ";
@@ -264,6 +262,10 @@
                                     // END MODAL FOR ADD ACTIVITY
                                 };
                             ?>
+
+                            <div class='center-button'>
+                                <button type='submit' name="createbtn" value='create_cu_or' class='btn btn-success' >Create New Allotment</button>
+                            </div>
                         </div>
 
                         <!-- SAA -->
@@ -276,7 +278,6 @@
 
                                     echo"
                                     <div class='col-sm-12'>
-                                        <input type='hidden' name='mp_id' value='$mp_id'>
                                         <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
                                     </div>
                                     ";

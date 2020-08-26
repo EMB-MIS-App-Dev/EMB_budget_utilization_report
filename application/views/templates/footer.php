@@ -95,7 +95,7 @@
                 $select_id = $( "#fund_source_<?php echo $mp['mp_id']; ?> option:selected" ).val();
                 $select_name = $( "#fund_source_<?php echo $mp['mp_id']; ?> option:selected" ).text();
 
-                if ($('input[name="newAct_'+ $select_id +'_input_jan"]').length){
+                if ($('input[name="newAct_'+ $select_id +'_input_jan_cu_or"]').length){
                     alert('PAP already exist!');
                 }else if($select_id === ''){
                     alert('Please select PAP!');
@@ -106,21 +106,21 @@
                             "<div class='col-sm-12' style='overflow-x:auto;'>"+
                                 "<table>"+
                                     "<tr>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_jan' placeholder='Jan' step='0.01'></td>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_feb' placeholder='Feb' step='0.01'></td>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_mar' placeholder='Mar' step='0.01'></td>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_apr' placeholder='Apr' step='0.01'></td>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_may' placeholder='May' step='0.01'></td>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_jun' placeholder='Jun' step='0.01'></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_jan_cu_or' placeholder='Jan' step='0.01'></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_feb_cu_or' placeholder='Feb' step='0.01'></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_mar_cu_or' placeholder='Mar' step='0.01'></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_apr_cu_or' placeholder='Apr' step='0.01'></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_may_cu_or' placeholder='May' step='0.01'></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_jun_cu_or' placeholder='Jun' step='0.01'></td>"+
                                         "</tr>"+
                                         "<tr>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_jul' placeholder='Jul' step='0.01'></td>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_aug' placeholder='Aug' step='0.01'></td>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_sep' placeholder='Sep' step='0.01'></td>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_oct' placeholder='Oct' step='0.01'></td>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_nov' placeholder='Nov' step='0.01'></td>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_dec' placeholder='Dec' step='0.01'></td>"+
-                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_total' placeholder='Total' step='0.01' readonly></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_jul_cu_or' placeholder='Jul' step='0.01'></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_aug_cu_or' placeholder='Aug' step='0.01'></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_sep_cu_or' placeholder='Sep' step='0.01'></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_oct_cu_or' placeholder='Oct' step='0.01'></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_nov_cu_or' placeholder='Nov' step='0.01'></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_dec_cu_or' placeholder='Dec' step='0.01'></td>"+
+                                        "<td><input class='number' name='newAct_"+ $select_id +"_input_total_cu_or' placeholder='Total' step='0.01' readonly></td>"+
                                     "</tr>"+
                                 "</table>"+
                             "</div>"+
