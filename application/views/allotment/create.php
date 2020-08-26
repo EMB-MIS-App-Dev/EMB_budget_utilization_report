@@ -74,7 +74,7 @@
         <div class="tab-content">
             <!-- TAB CURRENT -->
             <div role="tabpanel" class="tab-pane fade in active" id="current">
-            <input type='hidden' name='all_category' value='cu'>
+            <input type='hidden' name='all_category_cu' value='cu'>
                 <div class="form-group">  
                     <div class="row">
 
@@ -160,7 +160,7 @@
                                         if( $mp_id == $sp_mp_id){
                                             echo"
                                             <div class='col-sm-12' style='margin-bottom: 0px;'>
-                                                <input type='hidden' name='sp_id' value='$sp_id'>
+                                            <input type='hidden' name='sp_id_cu' value='$sp_id'>
                                                 $sp_code - $sp_name
                                             </div>
                                     
@@ -193,7 +193,7 @@
                             ?>
                             
                             <div class='center-button'>
-                                <button type='submit' class='btn btn-success' >Create New Allotment</button>
+                                <button type='submit' name="createbtn" value='create_cu_as' class='btn btn-success' >Create New Allotment</button>
                             </div>
                         </div>
 

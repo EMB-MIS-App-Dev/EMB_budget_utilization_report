@@ -100,35 +100,23 @@ class Budget_allocation_model extends CI_Model{
 
     public function add_allotment(){
         
-        // allotment table
-        $funding = $this->input->post('funding_cu');
-        if($funding == 'sa'){
+        $createbtn = $this->input->post('createbtn');
+        // CREATE CURRENT AGENCY SPECIFIC
+        if($createbtn == 'create_cu_as'){
+            // allotment table
             $allotment = array(
                 'all_region' => $this->input->post('region'),
                 'all_year' => $this->input->post('year'),
-                'all_category' => $this->input->post('all_category'),
-                'all_type' => $this->input->post('type_cu'),
-                'all_funding' => $this->input->post('funding_cu'),
-                'all_saa_no' => $this->input->post('SAA_number_cu'),
-                'all_saa_desc' => $this->input->post('SAA_desc_cu'),
-                'all_class' => $this->input->post('class_cu'),
-            );
-        }else{
-            $allotment = array(
-                'all_region' => $this->input->post('region'),
-                'all_year' => $this->input->post('year'),
-                'all_category' => $this->input->post('all_category'),
+                'all_category' => $this->input->post('all_category_cu'),
                 'all_type' => $this->input->post('type_cu'),
                 'all_funding' => $this->input->post('funding_cu'),
                 'all_class' => $this->input->post('class_cu'),
             );
-        }
 
-        $this->db_budget->insert('allotment', $allotment);
-        $allotment_id = $this->db_budget->insert_id();
+            $this->db_budget->insert('allotment', $allotment);
+            $allotment_id = $this->db_budget->insert_id();
         
-        // allotment_amount table
-        if($funding == 'as'){
+            // allotment_amount table
             $this->db_budget->select('*');
             $this->db_budget->from('sub_pap');
             $this->db_budget->join('main_pap', 'sub_pap.sp_mp_id = main_pap.mp_id');
@@ -152,14 +140,14 @@ class Budget_allocation_model extends CI_Model{
                     'amt_oct' => $this->input->post($sp_id.'-amount-oct-cu'),
                     'amt_nov' => $this->input->post($sp_id.'-amount-nov-cu'),
                     'amt_dec' => $this->input->post($sp_id.'-amount-dec-cu'),
-                    'amt_sub_pap_id' => $this->input->post('sp_id_cu'),
+                    'amt_sub_pap_id' =>  $sp_id,
                     'amt_all_id' => $allotment_id,
                 );
 
                 $this->db_budget->insert('allotment_amount', $amount);
             };
-    
         }
+
 
         return true;
     }

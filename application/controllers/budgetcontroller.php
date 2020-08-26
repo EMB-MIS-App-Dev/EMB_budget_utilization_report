@@ -18,14 +18,15 @@
         }
 
         public function allotment_create(){
+            
             $this->form_validation->set_rules('region', 'Region', 
                     'required');
             $this->form_validation->set_rules('year', 'Year',
                     'required');
 
-            $category = $this->input->post('all_category');
+            $createbtn = $this->input->post('createbtn');
                    
-            if($category == 'cu'){
+            if($createbtn == 'create_cu_as'){
                 $this->form_validation->set_rules('type_cu', 'Type', 
                     'required');
                 $this->form_validation->set_rules('funding_cu', 'Funding',
@@ -52,6 +53,7 @@
                 $this->load->view('allotment/create', $data);
                 $this->load->view('templates/footer');
             }else{
+
                 $data['allotment'] =  $this->budget_allocation_model->add_allotment();
 
                 $this->session->set_flashdata('successmsg', 'Allotment successfully created!');
