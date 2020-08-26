@@ -177,6 +177,7 @@
                                                         <td><input type='number' step='0.01' placeholder='Oct' class='form-control' name='$sp_id-amount-oct'></td>
                                                         <td><input type='number' step='0.01' placeholder='Nov' class='form-control' name='$sp_id-amount-nov'></td>
                                                         <td><input type='number' step='0.01' placeholder='Dec' class='form-control' name='$sp_id-amount-dec'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Total' class='form-control' name='$sp_id-amount-total' readonly></td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -435,6 +436,7 @@
                                                         <td><input type='number' step='0.01' placeholder='Oct' class='form-control' name='$sp_id-amount-oct-ca'></td>
                                                         <td><input type='number' step='0.01' placeholder='Nov' class='form-control' name='$sp_id-amount-nov-ca'></td>
                                                         <td><input type='number' step='0.01' placeholder='Dec' class='form-control' name='$sp_id-amount-dec-ca'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Total' class='form-control' name='$sp_id-amount-total-ca' readonly></td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -693,6 +695,7 @@
                                                         <td><input type='number' step='0.01' placeholder='Oct' class='form-control' name='$sp_id-amount-oct-aa'></td>
                                                         <td><input type='number' step='0.01' placeholder='Nov' class='form-control' name='$sp_id-amount-nov-aa'></td>
                                                         <td><input type='number' step='0.01' placeholder='Dec' class='form-control' name='$sp_id-amount-dec-aa'></td>
+                                                        <td><input type='number' step='0.01' placeholder='Total' class='form-control' name='$sp_id-amount-total-aa' readonly></td>
                                                     </tr>
                                                 </table>
                                             </div>
