@@ -49,7 +49,7 @@
         $("#source").change(function(){
             $(this).find("option:selected").each(function(){
                 var optionValue = $(this).attr("value");
-                if(optionValue === "SAA"){
+                if(optionValue === "sa"){
                     $("#saa_no_label").show();
                     $("#saa_no_value").show();
                     $("#saa_desc_pad").show();
@@ -65,15 +65,15 @@
                     $("#saa_no_pad").show();
                 }
 
-                if(optionValue === "AS"){
+                if(optionValue === "as"){
                     $("#sub_pap_as").show();
                     $("#sub_pap_other").hide();
                     $("#sub_pap_saa").hide();
-                }else if(optionValue === "OR"){
+                }else if(optionValue === "or"){
                     $("#sub_pap_as").hide();
                     $("#sub_pap_other").show();
                     $("#sub_pap_saa").hide();
-                }else if(optionValue === "SAA"){
+                }else if(optionValue === "sa"){
                     $("#sub_pap_as").hide();
                     $("#sub_pap_other").hide();
                     $("#sub_pap_saa").show();
@@ -200,7 +200,7 @@
         $("#source_ca").change(function(){
             $(this).find("option:selected").each(function(){
                 var optionValue = $(this).attr("value");
-                if(optionValue === "SAA"){
+                if(optionValue === "sa"){
                     $("#saa_no_label_ca").show();
                     $("#saa_no_value_ca").show();
                     $("#saa_desc_pad_ca").show();
@@ -216,15 +216,15 @@
                     $("#saa_no_pad_ca").show();
                 }
 
-                if(optionValue === "AS"){
+                if(optionValue === "as"){
                     $("#sub_pap_as_ca").show();
                     $("#sub_pap_other_ca").hide();
                     $("#sub_pap_saa_ca").hide();
-                }else if(optionValue === "OR"){
+                }else if(optionValue === "or"){
                     $("#sub_pap_as_ca").hide();
                     $("#sub_pap_other_ca").show();
                     $("#sub_pap_saa_ca").hide();
-                }else if(optionValue === "SAA"){
+                }else if(optionValue === "sa"){
                     $("#sub_pap_as_ca").hide();
                     $("#sub_pap_other_ca").hide();
                     $("#sub_pap_saa_ca").show();
@@ -351,7 +351,7 @@
         $("#source_aa").change(function(){
             $(this).find("option:selected").each(function(){
                 var optionValue = $(this).attr("value");
-                if(optionValue === "SAA"){
+                if(optionValue === "sa"){
                     $("#saa_no_label_aa").show();
                     $("#saa_no_value_aa").show();
                     $("#saa_desc_pad_aa").show();
@@ -367,15 +367,15 @@
                     $("#saa_no_pad_aa").show();
                 }
 
-                if(optionValue === "AS"){
+                if(optionValue === "as"){
                     $("#sub_pap_as_aa").show();
                     $("#sub_pap_other_aa").hide();
                     $("#sub_pap_saa_aa").hide();
-                }else if(optionValue === "OR"){
+                }else if(optionValue === "or"){
                     $("#sub_pap_as_aa").hide();
                     $("#sub_pap_other_aa").show();
                     $("#sub_pap_saa_aa").hide();
-                }else if(optionValue === "SAA"){
+                }else if(optionValue === "sa"){
                     $("#sub_pap_as_aa").hide();
                     $("#sub_pap_other_aa").hide();
                     $("#sub_pap_saa_aa").show();

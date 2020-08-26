@@ -97,6 +97,43 @@ class Budget_allocation_model extends CI_Model{
         $query = $this->db_budget->get('allotment');
         return $query->result_array();
     }
+
+    public function add_allotment(){
+        
+        // allotment table
+        $funding = $this->input->post('funding_cu');
+        if($funding == 'sa'){
+            $allotment = array(
+                'all_region' => $this->input->post('region'),
+                'all_year' => $this->input->post('year'),
+                'all_category' => $this->input->post('all_category'),
+                'all_type' => $this->input->post('type_cu'),
+                'all_funding' => $this->input->post('funding_cu'),
+                'all_saa_no' => $this->input->post('SAA_number_cu'),
+                'all_saa_desc' => $this->input->post('SAA_desc_cu'),
+                'all_class' => $this->input->post('class_cu'),
+            );
+        }else{
+            $allotment = array(
+                'all_region' => $this->input->post('region'),
+                'all_year' => $this->input->post('year'),
+                'all_category' => $this->input->post('all_category'),
+                'all_type' => $this->input->post('type_cu'),
+                'all_funding' => $this->input->post('funding_cu'),
+                'all_class' => $this->input->post('class_cu'),
+            );
+        }
+
+        $this->db_budget->insert('allotment', $allotment);
+        $allotment_id = $this->db_budget->insert_id();
+        
+        // allotment_amount table
+        $amount = array(
+            'amt_all_id' => $allotment_id,
+        );
+
+        $this->db_budget->insert('allotment_amount', $amount);
+    }
     // ---------------------------------- END ALLOTMENT TABLE ----------------------------------
 }
 ?>

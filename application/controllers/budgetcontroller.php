@@ -18,15 +18,48 @@
         }
 
         public function allotment_create(){
+            $this->form_validation->set_rules('region', 'Region', 
+                    'required');
+            $this->form_validation->set_rules('year', 'Year',
+                    'required');
 
-            $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap();
-            $data['main_pap'] = $this->budget_allocation_model->view_main_pap();
+            $category = $this->input->post('all_category');
+                   
+            if($category == 'cu'){
+                $this->form_validation->set_rules('type_cu', 'Type', 
+                    'required');
+                $this->form_validation->set_rules('funding_cu', 'Funding',
+                        'required');
 
-            $this->load->view('templates/header');
-            $this->load->view('allotment/create', $data);
-            $this->load->view('templates/footer');
-           
-           
+                        $funding = $this->input->post('funding_cu');
+                        if($funding == 'sa'){
+                            $this->form_validation->set_rules('SAA_number_cu', 'SAA Number',
+                                    'required');
+                            $this->form_validation->set_rules('SAA_desc_cu', 'SAA Description', 
+                                    'required');
+                        }
+
+                $this->form_validation->set_rules('class_cu', 'Allotment Class', 
+                        'required');
+            }
+            
+
+            if($this->form_validation->run() === FALSE){
+                $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap();
+                $data['main_pap'] = $this->budget_allocation_model->view_main_pap();
+
+                $this->load->view('templates/header');
+                $this->load->view('allotment/create', $data);
+                $this->load->view('templates/footer');
+            }else{
+                $data['allotment'] =  $this->budget_allocation_model->add_allotment();
+
+                $this->session->set_flashdata('successmsg', 'Allotment successfully created!');
+
+                $url = $_SERVER['HTTP_REFERER'];
+                redirect($url);
+            }
+            
         }
         // ------------------------END ALLOTMENT------------------------
 

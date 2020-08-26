@@ -11,6 +11,7 @@
 </div>
 
 <div class="form-group">
+<form action="<?= base_url('allotment/create'); ?>" method="post" accept-charset="utf-8">
     <div class="form-group-create">
         <!-- IF USER IS ADMIN -->
         <p><b>MONTHLY FINANCIAL PROGRAM</b></p>
@@ -71,8 +72,9 @@
         </ul> 
 
         <div class="tab-content">
-        <!-- TAB CURRENT -->
+            <!-- TAB CURRENT -->
             <div role="tabpanel" class="tab-pane fade in active" id="current">
+            <input type='hidden' name='all_category' value='cu'>
                 <div class="form-group">  
                     <div class="row">
 
@@ -84,10 +86,10 @@
                             Type:
                         </div> 
                         <div class="col-sm-3">
-                            <select name='source' class="browser-default custom-select">
+                            <select name='type_cu' class="browser-default custom-select">
                                 <option value=''>SELECT</option>
-                                <option value='specificBudget'>Specific Budget</option>
-                                <option value='specialPurposeFund'>Special Purpose Fund</option>
+                                <option value='sb'>Specific Budget</option>
+                                <option value='sp'>Special Purpose Fund</option>
                             </select>
                         </div>
                         <div class="col-sm-5"></div>
@@ -96,11 +98,11 @@
                             Funding:
                         </div> 
                         <div class="col-sm-3">
-                            <select name='source' id="source" class="browser-default custom-select">
+                            <select name='funding_cu' id="source" class="browser-default custom-select">
                                 <option value=''>SELECT</option>
-                                <option value='AS'>Agency Specific</option>
-                                <option value='OR'>Other Releases</option>
-                                <option value='SAA'>SAA</option>
+                                <option value='as'>Agency Specific</option>
+                                <option value='or'>Other Releases</option>
+                                <option value='sa'>SAA</option>
                             </select>
                         </div>
                         <div class="col-sm-5" id="saa_no_pad"></div>
@@ -109,7 +111,7 @@
                             SAA No:
                         </div> 
                         <div class="col-sm-3" id="saa_no_value">
-                            <input type='text' placeholder='0000' class='number' name='SAA_number'>
+                            <input type='text' placeholder='0000' class='number' name='SAA_number_cu'>
                         </div>
 
                         <div class="col-sm-7" id="saa_desc_pad"></div>
@@ -117,18 +119,18 @@
                             Description: 
                         </div> 
                         <div class="col-sm-3" id="saa_desc_value">
-                            <input type='text' class='number' name='SAA_desc'>
+                            <input type='text' class='number' name='SAA_desc_cu'>
                         </div>
 
                         <div class="col-sm-4" >
                             Allotment Class:
                         </div> 
                         <div class="col-sm-3" style="margin-bottom: 2em;">
-                            <select name='source' class="browser-default custom-select">
+                            <select name='class_cu' class="browser-default custom-select">
                                 <option value=''>SELECT</option>
-                                <option value='PS'>PS</option>
-                                <option value='MOOE'>MOOE</option>
-                                <option value='CO'>CO</option>
+                                <option value='ps'>PS</option>
+                                <option value='mo'>MOOE</option>
+                                <option value='co'>CO</option>
                             </select>
                         </div>
                         <div class="col-sm-5"></div>
@@ -172,7 +174,6 @@
                                                         <td><input step='0.01' placeholder='May' class='number' name='$sp_id-amount-may'></td>
                                                         <td><input step='0.01' placeholder='Jun' class='number' name='$sp_id-amount-jun'></td>
                                                         </tr>
-                                                        <tr>
                                                         <td><input step='0.01' placeholder='Jul' class='number' name='$sp_id-amount-jul'></td>
                                                         <td><input step='0.01' placeholder='Aug' class='number' name='$sp_id-amount-aug'></td>
                                                         <td><input step='0.01' placeholder='Sep' class='number' name='$sp_id-amount-sep'></td>
@@ -190,6 +191,10 @@
                                     };
                                 };
                             ?>
+                            
+                            <div class='center-button'>
+                                <button type='submit' class='btn btn-success' >Create New Allotment</button>
+                            </div>
                         </div>
 
                         <!-- OTHER RELEASES -->
@@ -432,8 +437,6 @@
                                                         <td><input step='0.01' placeholder='Apr' class='number' name='$sp_id-amount-apr-ca'></td>
                                                         <td><input step='0.01' placeholder='May' class='number' name='$sp_id-amount-may-ca'></td>
                                                         <td><input step='0.01' placeholder='Jun' class='number' name='$sp_id-amount-jun-ca'></td>
-                                                        </tr>
-                                                        <tr>
                                                         <td><input step='0.01' placeholder='Jul' class='number' name='$sp_id-amount-jul-ca'></td>
                                                         <td><input step='0.01' placeholder='Aug' class='number' name='$sp_id-amount-aug-ca'></td>
                                                         <td><input step='0.01' placeholder='Sep' class='number' name='$sp_id-amount-sep-ca'></td>
@@ -597,7 +600,7 @@
             </div>
 
              <!-- TAB AUTOMATIC -->
-             <div role="tabpanel" class="tab-pane fade" id="automatic">
+            <div role="tabpanel" class="tab-pane fade" id="automatic">
                 <div class="form-group">  
                     <div class="row">  
                         <div class='col-sm-12'>
@@ -693,8 +696,6 @@
                                                         <td><input step='0.01' placeholder='Apr' class='number' name='$sp_id-amount-apr-aa'></td>
                                                         <td><input step='0.01' placeholder='May' class='number' name='$sp_id-amount-may-aa'></td>
                                                         <td><input step='0.01' placeholder='Jun' class='number' name='$sp_id-amount-jun-aa'></td>
-                                                        </tr>
-                                                        <tr>
                                                         <td><input step='0.01' placeholder='Jul' class='number' name='$sp_id-amount-jul-aa'></td>
                                                         <td><input step='0.01' placeholder='Aug' class='number' name='$sp_id-amount-aug-aa'></td>
                                                         <td><input step='0.01' placeholder='Sep' class='number' name='$sp_id-amount-sep-aa'></td>
@@ -858,13 +859,7 @@
             </div>
         </div>
     </div>
-    
-
-    <!-- STATUS -->
-    <input type="hidden" name="status" value="1">
-
-    
-    
+</form>
 </div>
 
 

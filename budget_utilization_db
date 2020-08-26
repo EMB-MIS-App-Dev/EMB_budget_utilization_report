@@ -22,7 +22,32 @@ CREATE TABLE allotment (
     all_id INTEGER(20) AUTO_INCREMENT NOT NULL,
     all_region VARCHAR(200),
     all_year VARCHAR(200),
-    all_status VARCHAR(200),
+    all_category VARCHAR(200),
+    all_type VARCHAR(200),
+    all_funding VARCHAR(200),
+    all_saa_no VARCHAR(200),
+    all_saa_desc VARCHAR(200),
+    all_class VARCHAR(200),
     all_remarks VARCHAR(200),
     PRIMARY KEY (all_id)    
 );
+
+CREATE TABLE allotment_amount (
+    amt_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    amt_jan VARCHAR(200),
+    amt_feb VARCHAR(200),
+    amt_mar VARCHAR(200),
+    amt_apr VARCHAR(200),
+    amt_may VARCHAR(200),
+    amt_jun VARCHAR(200),
+    amt_jul VARCHAR(200),
+    amt_aug VARCHAR(200),
+    amt_sep VARCHAR(200),
+    amt_oct VARCHAR(200),
+    amt_nov VARCHAR(200),
+    amt_dec VARCHAR(200),
+    amt_all_id INTEGER(20),
+    PRIMARY KEY (amt_id),
+    FOREIGN KEY (amt_all_id) REFERENCES allotment(all_id)
+);
+
