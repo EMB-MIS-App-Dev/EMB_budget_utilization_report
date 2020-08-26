@@ -111,7 +111,7 @@
                             SAA No:
                         </div> 
                         <div class="col-sm-3" id="saa_no_value">
-                            <input type='text' placeholder='0000' class='number' name='SAA_number_cu'>
+                            <input type='number' placeholder='0000' name='SAA_number_cu'>
                         </div>
 
                         <div class="col-sm-7" id="saa_desc_pad"></div>
@@ -119,7 +119,7 @@
                             Description: 
                         </div> 
                         <div class="col-sm-3" id="saa_desc_value">
-                            <input type='text' class='number' name='SAA_desc_cu'>
+                            <input type='text' name='SAA_desc_cu'>
                         </div>
 
                         <div class="col-sm-4" >
@@ -334,6 +334,11 @@
                                     // END MODAL FOR ADD ACTIVITY
                                 };
                             ?>
+
+                            <div class='center-button'>
+                                <button type='submit' name="createbtn" value='create_cu_sa' class='btn btn-success' >Create New Allotment</button>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -376,7 +381,7 @@
                             SAA No:
                         </div> 
                         <div class="col-sm-3" id="saa_no_value_ca">
-                            <input type='text' placeholder='0000' class='number' name='SAA_number_ca'>
+                            <input type='number' placeholder='0000' name='SAA_number_ca'>
                         </div>
 
                         <div class="col-sm-7" id="saa_desc_pad_ca"></div>
@@ -384,7 +389,7 @@
                             Description: 
                         </div> 
                         <div class="col-sm-3" id="saa_desc_value_ca">
-                            <input type='text' class='number' name='SAA_desc_ca'>
+                            <input type='text' name='SAA_desc_ca'>
                         </div>
 
                         <div class="col-sm-4" >
@@ -635,7 +640,7 @@
                             SAA No:
                         </div> 
                         <div class="col-sm-3" id="saa_no_value_aa">
-                            <input type='text' placeholder='0000' class='number' name='SAA_number_aa'>
+                            <input type='number' placeholder='0000' name='SAA_number_aa'>
                         </div>
 
                         <div class="col-sm-7" id="saa_desc_pad_aa"></div>
@@ -643,7 +648,7 @@
                             Description: 
                         </div> 
                         <div class="col-sm-3" id="saa_desc_value_aa">
-                            <input type='text' class='number' name='SAA_desc_aa'>
+                            <input type='text' name='SAA_desc_aa'>
                         </div>
 
                         <div class="col-sm-4" >
