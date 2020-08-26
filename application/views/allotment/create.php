@@ -109,7 +109,7 @@
                             SAA No:
                         </div> 
                         <div class="col-sm-3" id="saa_no_value">
-                            <input type='text' placeholder='0000' class='form-control' name='SAA_number'>
+                            <input type='text' placeholder='0000' class='number' name='SAA_number'>
                         </div>
 
                         <div class="col-sm-7" id="saa_desc_pad"></div>
@@ -117,7 +117,7 @@
                             Description: 
                         </div> 
                         <div class="col-sm-3" id="saa_desc_value">
-                            <input type='text' class='form-control' name='SAA_desc'>
+                            <input type='text' class='number' name='SAA_desc'>
                         </div>
 
                         <div class="col-sm-4" >
@@ -165,19 +165,21 @@
                                             <div class='col-sm-12' style='overflow-x:auto;'>
                                                 <table>
                                                     <tr>
-                                                        <td><input type='number' step='0.01' placeholder='Jan' class='form-control' name='$sp_id-amount-jan'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Feb' class='form-control' name='$sp_id-amount-feb'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Mar' class='form-control' name='$sp_id-amount-mar'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Apr' class='form-control' name='$sp_id-amount-apr'></td>
-                                                        <td><input type='number' step='0.01' placeholder='May' class='form-control' name='$sp_id-amount-may'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Jun' class='form-control' name='$sp_id-amount-jun'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Jul' class='form-control' name='$sp_id-amount-jul'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Aug' class='form-control' name='$sp_id-amount-aug'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Sep' class='form-control' name='$sp_id-amount-sep'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Oct' class='form-control' name='$sp_id-amount-oct'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Nov' class='form-control' name='$sp_id-amount-nov'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Dec' class='form-control' name='$sp_id-amount-dec'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Total' class='form-control' name='$sp_id-amount-total' readonly></td>
+                                                        <td><input step='0.01' placeholder='Jan' class='number' name='$sp_id-amount-jan'></td>
+                                                        <td><input step='0.01' placeholder='Feb' class='number' name='$sp_id-amount-feb'></td>
+                                                        <td><input step='0.01' placeholder='Mar' class='number' name='$sp_id-amount-mar'></td>
+                                                        <td><input step='0.01' placeholder='Apr' class='number' name='$sp_id-amount-apr'></td>
+                                                        <td><input step='0.01' placeholder='May' class='number' name='$sp_id-amount-may'></td>
+                                                        <td><input step='0.01' placeholder='Jun' class='number' name='$sp_id-amount-jun'></td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td><input step='0.01' placeholder='Jul' class='number' name='$sp_id-amount-jul'></td>
+                                                        <td><input step='0.01' placeholder='Aug' class='number' name='$sp_id-amount-aug'></td>
+                                                        <td><input step='0.01' placeholder='Sep' class='number' name='$sp_id-amount-sep'></td>
+                                                        <td><input step='0.01' placeholder='Oct' class='number' name='$sp_id-amount-oct'></td>
+                                                        <td><input step='0.01' placeholder='Nov' class='number' name='$sp_id-amount-nov'></td>
+                                                        <td><input step='0.01' placeholder='Dec' class='number' name='$sp_id-amount-dec'></td>
+                                                        <td><input step='0.01' placeholder='Total' class='number' name='$sp_id-amount-total' readonly></td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -368,7 +370,7 @@
                             SAA No:
                         </div> 
                         <div class="col-sm-3" id="saa_no_value_ca">
-                            <input type='text' placeholder='0000' class='form-control' name='SAA_number_ca'>
+                            <input type='text' placeholder='0000' class='number' name='SAA_number_ca'>
                         </div>
 
                         <div class="col-sm-7" id="saa_desc_pad_ca"></div>
@@ -376,7 +378,7 @@
                             Description: 
                         </div> 
                         <div class="col-sm-3" id="saa_desc_value_ca">
-                            <input type='text' class='form-control' name='SAA_desc_ca'>
+                            <input type='text' class='number' name='SAA_desc_ca'>
                         </div>
 
                         <div class="col-sm-4" >
@@ -424,19 +426,21 @@
                                             <div class='col-sm-12' style='overflow-x:auto;'>
                                                 <table>
                                                     <tr>
-                                                        <td><input type='number' step='0.01' placeholder='Jan' class='form-control' name='$sp_id-amount-jan-ca'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Feb' class='form-control' name='$sp_id-amount-feb-ca'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Mar' class='form-control' name='$sp_id-amount-mar-ca'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Apr' class='form-control' name='$sp_id-amount-apr-ca'></td>
-                                                        <td><input type='number' step='0.01' placeholder='May' class='form-control' name='$sp_id-amount-may-ca'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Jun' class='form-control' name='$sp_id-amount-jun-ca'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Jul' class='form-control' name='$sp_id-amount-jul-ca'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Aug' class='form-control' name='$sp_id-amount-aug-ca'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Sep' class='form-control' name='$sp_id-amount-sep-ca'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Oct' class='form-control' name='$sp_id-amount-oct-ca'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Nov' class='form-control' name='$sp_id-amount-nov-ca'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Dec' class='form-control' name='$sp_id-amount-dec-ca'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Total' class='form-control' name='$sp_id-amount-total-ca' readonly></td>
+                                                        <td><input step='0.01' placeholder='Jan' class='number' name='$sp_id-amount-jan-ca'></td>
+                                                        <td><input step='0.01' placeholder='Feb' class='number' name='$sp_id-amount-feb-ca'></td>
+                                                        <td><input step='0.01' placeholder='Mar' class='number' name='$sp_id-amount-mar-ca'></td>
+                                                        <td><input step='0.01' placeholder='Apr' class='number' name='$sp_id-amount-apr-ca'></td>
+                                                        <td><input step='0.01' placeholder='May' class='number' name='$sp_id-amount-may-ca'></td>
+                                                        <td><input step='0.01' placeholder='Jun' class='number' name='$sp_id-amount-jun-ca'></td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td><input step='0.01' placeholder='Jul' class='number' name='$sp_id-amount-jul-ca'></td>
+                                                        <td><input step='0.01' placeholder='Aug' class='number' name='$sp_id-amount-aug-ca'></td>
+                                                        <td><input step='0.01' placeholder='Sep' class='number' name='$sp_id-amount-sep-ca'></td>
+                                                        <td><input step='0.01' placeholder='Oct' class='number' name='$sp_id-amount-oct-ca'></td>
+                                                        <td><input step='0.01' placeholder='Nov' class='number' name='$sp_id-amount-nov-ca'></td>
+                                                        <td><input step='0.01' placeholder='Dec' class='number' name='$sp_id-amount-dec-ca'></td>
+                                                        <td><input step='0.01' placeholder='Total' class='number' name='$sp_id-amount-total-ca' readonly></td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -627,7 +631,7 @@
                             SAA No:
                         </div> 
                         <div class="col-sm-3" id="saa_no_value_aa">
-                            <input type='text' placeholder='0000' class='form-control' name='SAA_number_aa'>
+                            <input type='text' placeholder='0000' class='number' name='SAA_number_aa'>
                         </div>
 
                         <div class="col-sm-7" id="saa_desc_pad_aa"></div>
@@ -635,7 +639,7 @@
                             Description: 
                         </div> 
                         <div class="col-sm-3" id="saa_desc_value_aa">
-                            <input type='text' class='form-control' name='SAA_desc_aa'>
+                            <input type='text' class='number' name='SAA_desc_aa'>
                         </div>
 
                         <div class="col-sm-4" >
@@ -683,19 +687,21 @@
                                             <div class='col-sm-12' style='overflow-x:auto;'>
                                                 <table>
                                                     <tr>
-                                                        <td><input type='number' step='0.01' placeholder='Jan' class='form-control' name='$sp_id-amount-jan-aa'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Feb' class='form-control' name='$sp_id-amount-feb-aa'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Mar' class='form-control' name='$sp_id-amount-mar-aa'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Apr' class='form-control' name='$sp_id-amount-apr-aa'></td>
-                                                        <td><input type='number' step='0.01' placeholder='May' class='form-control' name='$sp_id-amount-may-aa'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Jun' class='form-control' name='$sp_id-amount-jun-aa'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Jul' class='form-control' name='$sp_id-amount-jul-aa'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Aug' class='form-control' name='$sp_id-amount-aug-aa'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Sep' class='form-control' name='$sp_id-amount-sep-aa'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Oct' class='form-control' name='$sp_id-amount-oct-aa'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Nov' class='form-control' name='$sp_id-amount-nov-aa'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Dec' class='form-control' name='$sp_id-amount-dec-aa'></td>
-                                                        <td><input type='number' step='0.01' placeholder='Total' class='form-control' name='$sp_id-amount-total-aa' readonly></td>
+                                                        <td><input step='0.01' placeholder='Jan' class='number' name='$sp_id-amount-jan-aa'></td>
+                                                        <td><input step='0.01' placeholder='Feb' class='number' name='$sp_id-amount-feb-aa'></td>
+                                                        <td><input step='0.01' placeholder='Mar' class='number' name='$sp_id-amount-mar-aa'></td>
+                                                        <td><input step='0.01' placeholder='Apr' class='number' name='$sp_id-amount-apr-aa'></td>
+                                                        <td><input step='0.01' placeholder='May' class='number' name='$sp_id-amount-may-aa'></td>
+                                                        <td><input step='0.01' placeholder='Jun' class='number' name='$sp_id-amount-jun-aa'></td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td><input step='0.01' placeholder='Jul' class='number' name='$sp_id-amount-jul-aa'></td>
+                                                        <td><input step='0.01' placeholder='Aug' class='number' name='$sp_id-amount-aug-aa'></td>
+                                                        <td><input step='0.01' placeholder='Sep' class='number' name='$sp_id-amount-sep-aa'></td>
+                                                        <td><input step='0.01' placeholder='Oct' class='number' name='$sp_id-amount-oct-aa'></td>
+                                                        <td><input step='0.01' placeholder='Nov' class='number' name='$sp_id-amount-nov-aa'></td>
+                                                        <td><input step='0.01' placeholder='Dec' class='number' name='$sp_id-amount-dec-aa'></td>
+                                                        <td><input step='0.01' placeholder='Total' class='number' name='$sp_id-amount-total-aa' readonly></td>
                                                     </tr>
                                                 </table>
                                             </div>
