@@ -1,3 +1,6 @@
+DELETE FROM allotment;
+DELETE FROM allotment_amount;
+
 CREATE TABLE main_pap (
     mp_id INTEGER(20) AUTO_INCREMENT NOT NULL,
     mp_code VARCHAR(200),
@@ -46,8 +49,10 @@ CREATE TABLE allotment_amount (
     amt_oct VARCHAR(200),
     amt_nov VARCHAR(200),
     amt_dec VARCHAR(200),
+    amt_sub_pap_id INTEGER(20),
     amt_all_id INTEGER(20),
     PRIMARY KEY (amt_id),
+    FOREIGN KEY (amt_sub_pap_id) REFERENCES sub_pap(sp_id),
     FOREIGN KEY (amt_all_id) REFERENCES allotment(all_id)
 );
 

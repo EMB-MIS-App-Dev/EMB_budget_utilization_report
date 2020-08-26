@@ -146,7 +146,7 @@
 
                                     echo"
                                     <div class='col-sm-12'>
-                                        <input type='hidden' name='mp_id' value='$mp_id'>
+                                        <input type='hidden' name='mp_id_cu' value='$mp_id'>
                                         <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
                                     </div>
                                     ";
@@ -167,20 +167,20 @@
                                             <div class='col-sm-12' style='overflow-x:auto;'>
                                                 <table>
                                                     <tr>
-                                                        <td><input step='0.01' placeholder='Jan' class='number' name='$sp_id-amount-jan'></td>
-                                                        <td><input step='0.01' placeholder='Feb' class='number' name='$sp_id-amount-feb'></td>
-                                                        <td><input step='0.01' placeholder='Mar' class='number' name='$sp_id-amount-mar'></td>
-                                                        <td><input step='0.01' placeholder='Apr' class='number' name='$sp_id-amount-apr'></td>
-                                                        <td><input step='0.01' placeholder='May' class='number' name='$sp_id-amount-may'></td>
-                                                        <td><input step='0.01' placeholder='Jun' class='number' name='$sp_id-amount-jun'></td>
+                                                        <td><input step='0.01' placeholder='Jan' class='number' name='$sp_id-amount-jan-cu'></td>
+                                                        <td><input step='0.01' placeholder='Feb' class='number' name='$sp_id-amount-feb-cu'></td>
+                                                        <td><input step='0.01' placeholder='Mar' class='number' name='$sp_id-amount-mar-cu'></td>
+                                                        <td><input step='0.01' placeholder='Apr' class='number' name='$sp_id-amount-apr-cu'></td>
+                                                        <td><input step='0.01' placeholder='May' class='number' name='$sp_id-amount-may-cu'></td>
+                                                        <td><input step='0.01' placeholder='Jun' class='number' name='$sp_id-amount-jun-cu'></td>
                                                         </tr>
-                                                        <td><input step='0.01' placeholder='Jul' class='number' name='$sp_id-amount-jul'></td>
-                                                        <td><input step='0.01' placeholder='Aug' class='number' name='$sp_id-amount-aug'></td>
-                                                        <td><input step='0.01' placeholder='Sep' class='number' name='$sp_id-amount-sep'></td>
-                                                        <td><input step='0.01' placeholder='Oct' class='number' name='$sp_id-amount-oct'></td>
-                                                        <td><input step='0.01' placeholder='Nov' class='number' name='$sp_id-amount-nov'></td>
-                                                        <td><input step='0.01' placeholder='Dec' class='number' name='$sp_id-amount-dec'></td>
-                                                        <td><input step='0.01' placeholder='Total' class='number' name='$sp_id-amount-total' readonly></td>
+                                                        <td><input step='0.01' placeholder='Jul' class='number' name='$sp_id-amount-jul-cu'></td>
+                                                        <td><input step='0.01' placeholder='Aug' class='number' name='$sp_id-amount-aug-cu'></td>
+                                                        <td><input step='0.01' placeholder='Sep' class='number' name='$sp_id-amount-sep-cu'></td>
+                                                        <td><input step='0.01' placeholder='Oct' class='number' name='$sp_id-amount-oct-cu'></td>
+                                                        <td><input step='0.01' placeholder='Nov' class='number' name='$sp_id-amount-nov-cu'></td>
+                                                        <td><input step='0.01' placeholder='Dec' class='number' name='$sp_id-amount-dec-cu'></td>
+                                                        <td><input step='0.01' placeholder='Total' class='number' name='$sp_id-amount-total-cu' readonly></td>
                                                     </tr>
                                                 </table>
                                             </div>

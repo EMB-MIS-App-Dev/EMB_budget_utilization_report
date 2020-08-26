@@ -128,11 +128,40 @@ class Budget_allocation_model extends CI_Model{
         $allotment_id = $this->db_budget->insert_id();
         
         // allotment_amount table
-        $amount = array(
-            'amt_all_id' => $allotment_id,
-        );
+        if($funding == 'as'){
+            $this->db_budget->select('*');
+            $this->db_budget->from('sub_pap');
+            $this->db_budget->join('main_pap', 'sub_pap.sp_mp_id = main_pap.mp_id');
+            $this->db_budget->order_by('sp_code ASC');
+    
+            $query = $this->db_budget->get();
 
-        $this->db_budget->insert('allotment_amount', $amount);
+            foreach($query->result_array() as $row){
+                $sp_id = $row['sp_id'];
+
+                $amount = array(
+                    'amt_jan' => $this->input->post($sp_id.'-amount-jan-cu'),
+                    'amt_feb' => $this->input->post($sp_id.'-amount-feb-cu'),
+                    'amt_mar' => $this->input->post($sp_id.'-amount-mar-cu'),
+                    'amt_apr' => $this->input->post($sp_id.'-amount-apr-cu'),
+                    'amt_may' => $this->input->post($sp_id.'-amount-may-cu'),
+                    'amt_jun' => $this->input->post($sp_id.'-amount-jun-cu'),
+                    'amt_jul' => $this->input->post($sp_id.'-amount-jul-cu'),
+                    'amt_aug' => $this->input->post($sp_id.'-amount-aug-cu'),
+                    'amt_sep' => $this->input->post($sp_id.'-amount-sep-cu'),
+                    'amt_oct' => $this->input->post($sp_id.'-amount-oct-cu'),
+                    'amt_nov' => $this->input->post($sp_id.'-amount-nov-cu'),
+                    'amt_dec' => $this->input->post($sp_id.'-amount-dec-cu'),
+                    'amt_sub_pap_id' => $this->input->post('sp_id_cu'),
+                    'amt_all_id' => $allotment_id,
+                );
+
+                $this->db_budget->insert('allotment_amount', $amount);
+            };
+    
+        }
+
+        return true;
     }
     // ---------------------------------- END ALLOTMENT TABLE ----------------------------------
 }
