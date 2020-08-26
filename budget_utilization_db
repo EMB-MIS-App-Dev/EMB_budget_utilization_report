@@ -19,10 +19,10 @@ CREATE TABLE sub_pap (
 );
 
 CREATE TABLE allotment (
-    id INTEGER(20) AUTO_INCREMENT NOT NULL,
-    region VARCHAR(200),
-    year VARCHAR(200),
-    fund_source VARCHAR(200),
-    status VARCHAR(200),
-    PRIMARY KEY (id)
+    all_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    all_region VARCHAR(200),
+    all_year VARCHAR(200),
+    all_status VARCHAR(200),
+    all_remarks VARCHAR(200),
+    PRIMARY KEY (all_id)    
 );
