@@ -246,6 +246,296 @@ class Budget_allocation_model extends CI_Model{
             };
         }
 
+        // CREATE CONTINUING APPROPRIATION AGENCY SPECIFIC
+        if($createbtn == 'create_ca_as'){
+            // allotment table
+            $allotment = array(
+                'all_region' => $this->input->post('region'),
+                'all_year' => $this->input->post('year'),
+                'all_category' => $this->input->post('all_category_ca'),
+                'all_type' => $this->input->post('type_ca'),
+                'all_funding' => $this->input->post('funding_ca'),
+                'all_class' => $this->input->post('class_ca'),
+            );
+
+            $this->db_budget->insert('allotment', $allotment);
+            $allotment_id = $this->db_budget->insert_id();
+        
+            // allotment_amount table
+            $this->db_budget->select('*');
+            $this->db_budget->from('sub_pap');
+            $this->db_budget->join('main_pap', 'sub_pap.sp_mp_id = main_pap.mp_id');
+            $this->db_budget->order_by('sp_code ASC');
+    
+            $query = $this->db_budget->get();
+
+            foreach($query->result_array() as $row){
+                $sp_id = $row['sp_id'];
+
+                $amount = array(
+                    'amt_jan' => $this->input->post($sp_id.'-amount-jan-ca'),
+                    'amt_feb' => $this->input->post($sp_id.'-amount-feb-ca'),
+                    'amt_mar' => $this->input->post($sp_id.'-amount-mar-ca'),
+                    'amt_apr' => $this->input->post($sp_id.'-amount-apr-ca'),
+                    'amt_may' => $this->input->post($sp_id.'-amount-may-ca'),
+                    'amt_jun' => $this->input->post($sp_id.'-amount-jun-ca'),
+                    'amt_jul' => $this->input->post($sp_id.'-amount-jul-ca'),
+                    'amt_aug' => $this->input->post($sp_id.'-amount-aug-ca'),
+                    'amt_sep' => $this->input->post($sp_id.'-amount-sep-ca'),
+                    'amt_oct' => $this->input->post($sp_id.'-amount-oct-ca'),
+                    'amt_nov' => $this->input->post($sp_id.'-amount-nov-ca'),
+                    'amt_dec' => $this->input->post($sp_id.'-amount-dec-ca'),
+                    'amt_sub_pap_id' =>  $sp_id,
+                    'amt_all_id' => $allotment_id,
+                );
+
+                $this->db_budget->insert('allotment_amount', $amount);
+            };
+        }else if($createbtn == 'create_ca_or'){
+            // CREATE CONTINUING APPROPRIATION OTHER RELEASES
+            // allotment table
+            $allotment = array(
+                'all_region' => $this->input->post('region'),
+                'all_year' => $this->input->post('year'),
+                'all_category' => $this->input->post('all_category_ca'),
+                'all_type' => $this->input->post('type_ca'),
+                'all_funding' => $this->input->post('funding_ca'),
+                'all_class' => $this->input->post('class_ca'),
+            );
+
+            $this->db_budget->insert('allotment', $allotment);
+            $allotment_id = $this->db_budget->insert_id();
+        
+            // allotment_amount table
+            $this->db_budget->select('*');
+            $this->db_budget->from('sub_pap');
+            $this->db_budget->join('main_pap', 'sub_pap.sp_mp_id = main_pap.mp_id');
+            $this->db_budget->order_by('sp_code ASC');
+    
+            $query = $this->db_budget->get();
+
+            foreach($query->result_array() as $row){
+                $sp_id = $row['sp_id'];
+
+                $amount = array(
+                    'amt_jan' => $this->input->post('newAct_'.$sp_id.'_input_jan_ca_or'),
+                    'amt_feb' => $this->input->post('newAct_'.$sp_id.'_input_feb_ca_or'),
+                    'amt_mar' => $this->input->post('newAct_'.$sp_id.'_input_mar_ca_or'),
+                    'amt_apr' => $this->input->post('newAct_'.$sp_id.'_input_apr_ca_or'),
+                    'amt_may' => $this->input->post('newAct_'.$sp_id.'_input_may_ca_or'),
+                    'amt_jun' => $this->input->post('newAct_'.$sp_id.'_input_jun_ca_or'),
+                    'amt_jul' => $this->input->post('newAct_'.$sp_id.'_input_jul_ca_or'),
+                    'amt_aug' => $this->input->post('newAct_'.$sp_id.'_input_aug_ca_or'),
+                    'amt_sep' => $this->input->post('newAct_'.$sp_id.'_input_sep_ca_or'),
+                    'amt_oct' => $this->input->post('newAct_'.$sp_id.'_input_oct_ca_or'),
+                    'amt_nov' => $this->input->post('newAct_'.$sp_id.'_input_nov_ca_or'),
+                    'amt_dec' => $this->input->post('newAct_'.$sp_id.'_input_dec_ca_or'),
+                    'amt_sub_pap_id' =>  $sp_id,
+                    'amt_all_id' => $allotment_id,
+                );
+
+                if(($this->input->post('newAct_'.$sp_id.'_input_jan_ca_or')) !== null){
+                    $this->db_budget->insert('allotment_amount', $amount);
+                }
+                
+            };
+        }else if($createbtn == 'create_ca_sa'){
+            // CREATE CONTINUING APPROPRIATION SAA
+            // allotment table
+            $allotment = array(
+                'all_region' => $this->input->post('region'),
+                'all_year' => $this->input->post('year'),
+                'all_category' => $this->input->post('all_category_ca'),
+                'all_type' => $this->input->post('type_ca'),
+                'all_funding' => $this->input->post('funding_ca'),
+                'all_saa_no' => $this->input->post('SAA_number_ca'),
+                'all_saa_desc' => $this->input->post('SAA_desc_ca'),
+                'all_class' => $this->input->post('class_ca'),
+            );
+
+            $this->db_budget->insert('allotment', $allotment);
+            $allotment_id = $this->db_budget->insert_id();
+        
+            // allotment_amount table
+            $this->db_budget->select('*');
+            $this->db_budget->from('sub_pap');
+            $this->db_budget->join('main_pap', 'sub_pap.sp_mp_id = main_pap.mp_id');
+            $this->db_budget->order_by('sp_code ASC');
+    
+            $query = $this->db_budget->get();
+
+            foreach($query->result_array() as $row){
+                $sp_id = $row['sp_id'];
+
+                $amount = array(
+                    'amt_jan' => $this->input->post('newActsaa_'.$sp_id.'_input_jan_ca_sa'),
+                    'amt_feb' => $this->input->post('newActsaa_'.$sp_id.'_input_feb_ca_sa'),
+                    'amt_mar' => $this->input->post('newActsaa_'.$sp_id.'_input_mar_ca_sa'),
+                    'amt_apr' => $this->input->post('newActsaa_'.$sp_id.'_input_apr_ca_sa'),
+                    'amt_may' => $this->input->post('newActsaa_'.$sp_id.'_input_may_ca_sa'),
+                    'amt_jun' => $this->input->post('newActsaa_'.$sp_id.'_input_jun_ca_sa'),
+                    'amt_jul' => $this->input->post('newActsaa_'.$sp_id.'_input_jul_ca_sa'),
+                    'amt_aug' => $this->input->post('newActsaa_'.$sp_id.'_input_aug_ca_sa'),
+                    'amt_sep' => $this->input->post('newActsaa_'.$sp_id.'_input_sep_ca_sa'),
+                    'amt_oct' => $this->input->post('newActsaa_'.$sp_id.'_input_oct_ca_sa'),
+                    'amt_nov' => $this->input->post('newActsaa_'.$sp_id.'_input_nov_ca_sa'),
+                    'amt_dec' => $this->input->post('newActsaa_'.$sp_id.'_input_dec_ca_sa'),
+                    'amt_sub_pap_id' =>  $sp_id,
+                    'amt_all_id' => $allotment_id,
+                );
+
+                if(($this->input->post('newActsaa_'.$sp_id.'_input_jan_ca_sa')) !== null){
+                    $this->db_budget->insert('allotment_amount', $amount);
+                }
+                
+            };
+        }
+
+        // CREATE AUTOMATIC APPROPRIATION AGENCY SPECIFIC
+        if($createbtn == 'create_aa_as'){
+            // allotment table
+            $allotment = array(
+                'all_region' => $this->input->post('region'),
+                'all_year' => $this->input->post('year'),
+                'all_category' => $this->input->post('all_category_aa'),
+                'all_type' => $this->input->post('type_aa'),
+                'all_funding' => $this->input->post('funding_aa'),
+                'all_class' => $this->input->post('class_aa'),
+            );
+
+            $this->db_budget->insert('allotment', $allotment);
+            $allotment_id = $this->db_budget->insert_id();
+        
+            // allotment_amount table
+            $this->db_budget->select('*');
+            $this->db_budget->from('sub_pap');
+            $this->db_budget->join('main_pap', 'sub_pap.sp_mp_id = main_pap.mp_id');
+            $this->db_budget->order_by('sp_code ASC');
+    
+            $query = $this->db_budget->get();
+
+            foreach($query->result_array() as $row){
+                $sp_id = $row['sp_id'];
+
+                $amount = array(
+                    'amt_jan' => $this->input->post($sp_id.'-amount-jan-aa'),
+                    'amt_feb' => $this->input->post($sp_id.'-amount-feb-aa'),
+                    'amt_mar' => $this->input->post($sp_id.'-amount-mar-aa'),
+                    'amt_apr' => $this->input->post($sp_id.'-amount-apr-aa'),
+                    'amt_may' => $this->input->post($sp_id.'-amount-may-aa'),
+                    'amt_jun' => $this->input->post($sp_id.'-amount-jun-aa'),
+                    'amt_jul' => $this->input->post($sp_id.'-amount-jul-aa'),
+                    'amt_aug' => $this->input->post($sp_id.'-amount-aug-aa'),
+                    'amt_sep' => $this->input->post($sp_id.'-amount-sep-aa'),
+                    'amt_oct' => $this->input->post($sp_id.'-amount-oct-aa'),
+                    'amt_nov' => $this->input->post($sp_id.'-amount-nov-aa'),
+                    'amt_dec' => $this->input->post($sp_id.'-amount-dec-aa'),
+                    'amt_sub_pap_id' =>  $sp_id,
+                    'amt_all_id' => $allotment_id,
+                );
+
+                $this->db_budget->insert('allotment_amount', $amount);
+            };
+        }else if($createbtn == 'create_aa_or'){
+            // CREATE AUTOMATIC APPROPRIATION OTHER RELEASES
+            // allotment table
+            $allotment = array(
+                'all_region' => $this->input->post('region'),
+                'all_year' => $this->input->post('year'),
+                'all_category' => $this->input->post('all_category_aa'),
+                'all_type' => $this->input->post('type_aa'),
+                'all_funding' => $this->input->post('funding_aa'),
+                'all_class' => $this->input->post('class_aa'),
+            );
+
+            $this->db_budget->insert('allotment', $allotment);
+            $allotment_id = $this->db_budget->insert_id();
+        
+            // allotment_amount table
+            $this->db_budget->select('*');
+            $this->db_budget->from('sub_pap');
+            $this->db_budget->join('main_pap', 'sub_pap.sp_mp_id = main_pap.mp_id');
+            $this->db_budget->order_by('sp_code ASC');
+    
+            $query = $this->db_budget->get();
+
+            foreach($query->result_array() as $row){
+                $sp_id = $row['sp_id'];
+
+                $amount = array(
+                    'amt_jan' => $this->input->post('newAct_'.$sp_id.'_input_jan_aa_or'),
+                    'amt_feb' => $this->input->post('newAct_'.$sp_id.'_input_feb_aa_or'),
+                    'amt_mar' => $this->input->post('newAct_'.$sp_id.'_input_mar_aa_or'),
+                    'amt_apr' => $this->input->post('newAct_'.$sp_id.'_input_apr_aa_or'),
+                    'amt_may' => $this->input->post('newAct_'.$sp_id.'_input_may_aa_or'),
+                    'amt_jun' => $this->input->post('newAct_'.$sp_id.'_input_jun_aa_or'),
+                    'amt_jul' => $this->input->post('newAct_'.$sp_id.'_input_jul_aa_or'),
+                    'amt_aug' => $this->input->post('newAct_'.$sp_id.'_input_aug_aa_or'),
+                    'amt_sep' => $this->input->post('newAct_'.$sp_id.'_input_sep_aa_or'),
+                    'amt_oct' => $this->input->post('newAct_'.$sp_id.'_input_oct_aa_or'),
+                    'amt_nov' => $this->input->post('newAct_'.$sp_id.'_input_nov_aa_or'),
+                    'amt_dec' => $this->input->post('newAct_'.$sp_id.'_input_dec_aa_or'),
+                    'amt_sub_pap_id' =>  $sp_id,
+                    'amt_all_id' => $allotment_id,
+                );
+
+                if(($this->input->post('newAct_'.$sp_id.'_input_jan_aa_or')) !== null){
+                    $this->db_budget->insert('allotment_amount', $amount);
+                }
+                
+            };
+        }else if($createbtn == 'create_aa_sa'){
+            // CREATE AUTOMATIC APPROPRIATION SAA
+            // allotment table
+            $allotment = array(
+                'all_region' => $this->input->post('region'),
+                'all_year' => $this->input->post('year'),
+                'all_category' => $this->input->post('all_category_aa'),
+                'all_type' => $this->input->post('type_aa'),
+                'all_funding' => $this->input->post('funding_aa'),
+                'all_saa_no' => $this->input->post('SAA_number_aa'),
+                'all_saa_desc' => $this->input->post('SAA_desc_aa'),
+                'all_class' => $this->input->post('class_aa'),
+            );
+
+            $this->db_budget->insert('allotment', $allotment);
+            $allotment_id = $this->db_budget->insert_id();
+        
+            // allotment_amount table
+            $this->db_budget->select('*');
+            $this->db_budget->from('sub_pap');
+            $this->db_budget->join('main_pap', 'sub_pap.sp_mp_id = main_pap.mp_id');
+            $this->db_budget->order_by('sp_code ASC');
+    
+            $query = $this->db_budget->get();
+
+            foreach($query->result_array() as $row){
+                $sp_id = $row['sp_id'];
+
+                $amount = array(
+                    'amt_jan' => $this->input->post('newActsaa_'.$sp_id.'_input_jan_aa_sa'),
+                    'amt_feb' => $this->input->post('newActsaa_'.$sp_id.'_input_feb_aa_sa'),
+                    'amt_mar' => $this->input->post('newActsaa_'.$sp_id.'_input_mar_aa_sa'),
+                    'amt_apr' => $this->input->post('newActsaa_'.$sp_id.'_input_apr_aa_sa'),
+                    'amt_may' => $this->input->post('newActsaa_'.$sp_id.'_input_may_aa_sa'),
+                    'amt_jun' => $this->input->post('newActsaa_'.$sp_id.'_input_jun_aa_sa'),
+                    'amt_jul' => $this->input->post('newActsaa_'.$sp_id.'_input_jul_aa_sa'),
+                    'amt_aug' => $this->input->post('newActsaa_'.$sp_id.'_input_aug_aa_sa'),
+                    'amt_sep' => $this->input->post('newActsaa_'.$sp_id.'_input_sep_aa_sa'),
+                    'amt_oct' => $this->input->post('newActsaa_'.$sp_id.'_input_oct_aa_sa'),
+                    'amt_nov' => $this->input->post('newActsaa_'.$sp_id.'_input_nov_aa_sa'),
+                    'amt_dec' => $this->input->post('newActsaa_'.$sp_id.'_input_dec_aa_sa'),
+                    'amt_sub_pap_id' =>  $sp_id,
+                    'amt_all_id' => $allotment_id,
+                );
+
+                if(($this->input->post('newActsaa_'.$sp_id.'_input_jan_aa_sa')) !== null){
+                    $this->db_budget->insert('allotment_amount', $amount);
+                }
+                
+            };
+        }
+
         return true;
     }
     // ---------------------------------- END ALLOTMENT TABLE ----------------------------------

@@ -42,6 +42,38 @@
 
                 $this->form_validation->set_rules('class_cu', 'Allotment Class', 
                         'required');
+            }else if($createbtn == 'create_ca_as' || $createbtn == 'create_ca_or' || $createbtn == 'create_ca_sa'){
+                $this->form_validation->set_rules('type_ca', 'Type', 
+                    'required');
+                $this->form_validation->set_rules('funding_ca', 'Funding',
+                        'required');
+
+                        $funding = $this->input->post('funding_ca');
+                        if($funding == 'sa'){
+                            $this->form_validation->set_rules('SAA_number_ca', 'SAA Number',
+                                    'required');
+                            $this->form_validation->set_rules('SAA_desc_ca', 'SAA Description', 
+                                    'required');
+                        }
+
+                $this->form_validation->set_rules('class_ca', 'Allotment Class', 
+                        'required');
+            }else if($createbtn == 'create_aa_as' || $createbtn == 'create_aa_or' || $createbtn == 'create_aa_sa'){
+                $this->form_validation->set_rules('type_aa', 'Type', 
+                    'required');
+                $this->form_validation->set_rules('funding_aa', 'Funding',
+                        'required');
+
+                        $funding = $this->input->post('funding_aa');
+                        if($funding == 'sa'){
+                            $this->form_validation->set_rules('SAA_number_aa', 'SAA Number',
+                                    'required');
+                            $this->form_validation->set_rules('SAA_desc_aa', 'SAA Description', 
+                                    'required');
+                        }
+
+                $this->form_validation->set_rules('class_aa', 'Allotment Class', 
+                        'required');
             }
             
 
