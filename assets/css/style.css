@@ -72,3 +72,9 @@ margin-bottom: 2em;
 .col-sm-12 table tr td input{
     width: 6em;
 }
+
+table.align {
+    table-layout: fixed;
+    width: 100%;
+  }
+  
