@@ -95,6 +95,14 @@
             }
             
         }
+
+        public function allotment_delete($id){
+            $this->budget_allocation_model->delete_allotment($id);
+            $this->session->set_flashdata('successmsg', 'Allotment successfully deleted!');
+            
+            $url = $_SERVER['HTTP_REFERER'];
+            redirect($url);
+        }
         // ------------------------END ALLOTMENT------------------------
 
         // ------------------------MAIN PAP------------------------

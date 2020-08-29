@@ -538,6 +538,15 @@ class Budget_allocation_model extends CI_Model{
 
         return true;
     }
+
+    public function delete_allotment($id){
+        $this->db_budget->where('amt_all_id', $id);
+        $this->db_budget->delete('allotment_amount');
+
+        $this->db_budget->where('all_id', $id);
+        $this->db_budget->delete('allotment');
+        return true;
+    }
     // ---------------------------------- END ALLOTMENT TABLE ----------------------------------
 }
 ?>
