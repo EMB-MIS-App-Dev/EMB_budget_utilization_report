@@ -510,7 +510,305 @@
             });
         });
     </script>
-    
+        
+    <!-- total computation -->
+    <script>
+        $(document).ready(function(){
+
+            <?php foreach($sub_pap as $sp) : ?>
+
+                // CURRENT 
+                //AGENCY SPECIFIC
+                $('[name=<?php echo $sp['sp_id']; ?>-amount-total-cu]').click(function(){
+                    var jan = $('[name=<?php echo $sp['sp_id']; ?>-amount-jan-cu]').val().replace(/,/g, '');
+                    var feb = $('[name=<?php echo $sp['sp_id']; ?>-amount-feb-cu]').val().replace(/,/g, '');
+                    var mar = $('[name=<?php echo $sp['sp_id']; ?>-amount-mar-cu]').val().replace(/,/g, '');
+                    var apr = $('[name=<?php echo $sp['sp_id']; ?>-amount-apr-cu]').val().replace(/,/g, '');
+                    var may = $('[name=<?php echo $sp['sp_id']; ?>-amount-may-cu]').val().replace(/,/g, '');
+                    var jun = $('[name=<?php echo $sp['sp_id']; ?>-amount-jun-cu]').val().replace(/,/g, '');
+                    var jul = $('[name=<?php echo $sp['sp_id']; ?>-amount-jul-cu]').val().replace(/,/g, '');
+                    var aug = $('[name=<?php echo $sp['sp_id']; ?>-amount-aug-cu]').val().replace(/,/g, '');
+                    var sep = $('[name=<?php echo $sp['sp_id']; ?>-amount-sep-cu]').val().replace(/,/g, '');
+                    var oct = $('[name=<?php echo $sp['sp_id']; ?>-amount-oct-cu]').val().replace(/,/g, '');
+                    var nov = $('[name=<?php echo $sp['sp_id']; ?>-amount-nov-cu]').val().replace(/,/g, '');
+                    var dec = $('[name=<?php echo $sp['sp_id']; ?>-amount-dec-cu]').val().replace(/,/g, '');
+                    
+                    var total = Number(jan) + Number(feb)+ 
+                                Number(mar) + Number(apr)+ 
+                                Number(may) + Number(jun)+ 
+                                Number(jul) + Number(aug)+ 
+                                Number(sep) + Number(oct)+
+                                Number(nov) + Number(dec);
+                    total = total.toFixed(2)
+                                    .replace(/[^\d.]/g, "")
+                                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                    .replace(/\.(\d{2})\d+/, '.$1')
+                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    
+                    $('[name=<?php echo $sp['sp_id']; ?>-amount-total-cu]').val(total);
+                    
+                });
+
+                //OTHER RELEASES
+                $(document).on('click', '[name=newAct_<?php echo $sp['sp_id']; ?>_input_total_cu_or]', function(e) {
+
+                    var jan = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_jan_cu_or]').val().replace(/,/g, '');
+                    var feb = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_feb_cu_or]').val().replace(/,/g, '');
+                    var mar = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_mar_cu_or]').val().replace(/,/g, '');
+                    var apr = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_apr_cu_or]').val().replace(/,/g, '');
+                    var may = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_may_cu_or]').val().replace(/,/g, '');
+                    var jun = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_jun_cu_or]').val().replace(/,/g, '');
+                    var jul = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_jul_cu_or]').val().replace(/,/g, '');
+                    var aug = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_aug_cu_or]').val().replace(/,/g, '');
+                    var sep = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_sep_cu_or]').val().replace(/,/g, '');
+                    var oct = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_oct_cu_or]').val().replace(/,/g, '');
+                    var nov = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_nov_cu_or]').val().replace(/,/g, '');
+                    var dec = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_dec_cu_or]').val().replace(/,/g, '');
+                    
+                    var total = Number(jan) + Number(feb)+ 
+                                Number(mar) + Number(apr)+ 
+                                Number(may) + Number(jun)+ 
+                                Number(jul) + Number(aug)+ 
+                                Number(sep) + Number(oct)+
+                                Number(nov) + Number(dec);
+                    total = total.toFixed(2)
+                                    .replace(/[^\d.]/g, "")
+                                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                    .replace(/\.(\d{2})\d+/, '.$1')
+                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    
+                    $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_total_cu_or]').val(total);
+
+                });
+
+                //SAA
+                $(document).on('click', '[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_total_cu_sa]', function(e) {
+
+                    var jan = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jan_cu_sa]').val().replace(/,/g, '');
+                    var feb = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_feb_cu_sa]').val().replace(/,/g, '');
+                    var mar = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_mar_cu_sa]').val().replace(/,/g, '');
+                    var apr = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_apr_cu_sa]').val().replace(/,/g, '');
+                    var may = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_may_cu_sa]').val().replace(/,/g, '');
+                    var jun = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jun_cu_sa]').val().replace(/,/g, '');
+                    var jul = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jul_cu_sa]').val().replace(/,/g, '');
+                    var aug = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_aug_cu_sa]').val().replace(/,/g, '');
+                    var sep = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_sep_cu_sa]').val().replace(/,/g, '');
+                    var oct = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_oct_cu_sa]').val().replace(/,/g, '');
+                    var nov = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_nov_cu_sa]').val().replace(/,/g, '');
+                    var dec = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_dec_cu_sa]').val().replace(/,/g, '');
+
+                    var total = Number(jan) + Number(feb)+ 
+                                Number(mar) + Number(apr)+ 
+                                Number(may) + Number(jun)+ 
+                                Number(jul) + Number(aug)+ 
+                                Number(sep) + Number(oct)+
+                                Number(nov) + Number(dec);
+                    total = total.toFixed(2)
+                                    .replace(/[^\d.]/g, "")
+                                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                    .replace(/\.(\d{2})\d+/, '.$1')
+                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    
+                    $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_total_cu_sa]').val(total);
+
+                });
+
+                // CONTINUING AGENCY SPECIFIC
+                //AGENCY SPECIFIC
+                $('[name=<?php echo $sp['sp_id']; ?>-amount-total-ca]').click(function(){
+                    var jan = $('[name=<?php echo $sp['sp_id']; ?>-amount-jan-ca]').val().replace(/,/g, '');
+                    var feb = $('[name=<?php echo $sp['sp_id']; ?>-amount-feb-ca]').val().replace(/,/g, '');
+                    var mar = $('[name=<?php echo $sp['sp_id']; ?>-amount-mar-ca]').val().replace(/,/g, '');
+                    var apr = $('[name=<?php echo $sp['sp_id']; ?>-amount-apr-ca]').val().replace(/,/g, '');
+                    var may = $('[name=<?php echo $sp['sp_id']; ?>-amount-may-ca]').val().replace(/,/g, '');
+                    var jun = $('[name=<?php echo $sp['sp_id']; ?>-amount-jun-ca]').val().replace(/,/g, '');
+                    var jul = $('[name=<?php echo $sp['sp_id']; ?>-amount-jul-ca]').val().replace(/,/g, '');
+                    var aug = $('[name=<?php echo $sp['sp_id']; ?>-amount-aug-ca]').val().replace(/,/g, '');
+                    var sep = $('[name=<?php echo $sp['sp_id']; ?>-amount-sep-ca]').val().replace(/,/g, '');
+                    var oct = $('[name=<?php echo $sp['sp_id']; ?>-amount-oct-ca]').val().replace(/,/g, '');
+                    var nov = $('[name=<?php echo $sp['sp_id']; ?>-amount-nov-ca]').val().replace(/,/g, '');
+                    var dec = $('[name=<?php echo $sp['sp_id']; ?>-amount-dec-ca]').val().replace(/,/g, '');
+                    
+                    var total = Number(jan) + Number(feb)+ 
+                                Number(mar) + Number(apr)+ 
+                                Number(may) + Number(jun)+ 
+                                Number(jul) + Number(aug)+ 
+                                Number(sep) + Number(oct)+
+                                Number(nov) + Number(dec);
+                    total = total.toFixed(2)
+                                    .replace(/[^\d.]/g, "")
+                                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                    .replace(/\.(\d{2})\d+/, '.$1')
+                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    
+                    $('[name=<?php echo $sp['sp_id']; ?>-amount-total-ca]').val(total);
+                    
+                });
+
+                //OTHER RELEASES
+                $(document).on('click', '[name=newAct_<?php echo $sp['sp_id']; ?>_input_total_ca_or]', function(e) {
+
+                    var jan = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_jan_ca_or]').val().replace(/,/g, '');
+                    var feb = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_feb_ca_or]').val().replace(/,/g, '');
+                    var mar = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_mar_ca_or]').val().replace(/,/g, '');
+                    var apr = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_apr_ca_or]').val().replace(/,/g, '');
+                    var may = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_may_ca_or]').val().replace(/,/g, '');
+                    var jun = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_jun_ca_or]').val().replace(/,/g, '');
+                    var jul = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_jul_ca_or]').val().replace(/,/g, '');
+                    var aug = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_aug_ca_or]').val().replace(/,/g, '');
+                    var sep = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_sep_ca_or]').val().replace(/,/g, '');
+                    var oct = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_oct_ca_or]').val().replace(/,/g, '');
+                    var nov = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_nov_ca_or]').val().replace(/,/g, '');
+                    var dec = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_dec_ca_or]').val().replace(/,/g, '');
+
+                    var total = Number(jan) + Number(feb)+ 
+                                Number(mar) + Number(apr)+ 
+                                Number(may) + Number(jun)+ 
+                                Number(jul) + Number(aug)+ 
+                                Number(sep) + Number(oct)+
+                                Number(nov) + Number(dec);
+                    total = total.toFixed(2)
+                                    .replace(/[^\d.]/g, "")
+                                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                    .replace(/\.(\d{2})\d+/, '.$1')
+                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    
+                    $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_total_ca_or]').val(total);
+
+                });
+
+                //SAA
+                $(document).on('click', '[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_total_ca_sa]', function(e) {
+
+                    var jan = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jan_ca_sa]').val().replace(/,/g, '');
+                    var feb = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_feb_ca_sa]').val().replace(/,/g, '');
+                    var mar = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_mar_ca_sa]').val().replace(/,/g, '');
+                    var apr = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_apr_ca_sa]').val().replace(/,/g, '');
+                    var may = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_may_ca_sa]').val().replace(/,/g, '');
+                    var jun = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jun_ca_sa]').val().replace(/,/g, '');
+                    var jul = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jul_ca_sa]').val().replace(/,/g, '');
+                    var aug = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_aug_ca_sa]').val().replace(/,/g, '');
+                    var sep = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_sep_ca_sa]').val().replace(/,/g, '');
+                    var oct = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_oct_ca_sa]').val().replace(/,/g, '');
+                    var nov = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_nov_ca_sa]').val().replace(/,/g, '');
+                    var dec = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_dec_ca_sa]').val().replace(/,/g, '');
+
+                    var total = Number(jan) + Number(feb)+ 
+                                Number(mar) + Number(apr)+ 
+                                Number(may) + Number(jun)+ 
+                                Number(jul) + Number(aug)+ 
+                                Number(sep) + Number(oct)+
+                                Number(nov) + Number(dec);
+                    total = total.toFixed(2)
+                                    .replace(/[^\d.]/g, "")
+                                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                    .replace(/\.(\d{2})\d+/, '.$1')
+                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    
+                    $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_total_ca_sa]').val(total);
+
+                });
+
+                // AUTOMATIC AGENCY SPECIFIC
+                //AGENCY SPECIFIC
+                $('[name=<?php echo $sp['sp_id']; ?>-amount-total-aa]').click(function(){
+                    var jan = $('[name=<?php echo $sp['sp_id']; ?>-amount-jan-aa]').val().replace(/,/g, '');
+                    var feb = $('[name=<?php echo $sp['sp_id']; ?>-amount-feb-aa]').val().replace(/,/g, '');
+                    var mar = $('[name=<?php echo $sp['sp_id']; ?>-amount-mar-aa]').val().replace(/,/g, '');
+                    var apr = $('[name=<?php echo $sp['sp_id']; ?>-amount-apr-aa]').val().replace(/,/g, '');
+                    var may = $('[name=<?php echo $sp['sp_id']; ?>-amount-may-aa]').val().replace(/,/g, '');
+                    var jun = $('[name=<?php echo $sp['sp_id']; ?>-amount-jun-aa]').val().replace(/,/g, '');
+                    var jul = $('[name=<?php echo $sp['sp_id']; ?>-amount-jul-aa]').val().replace(/,/g, '');
+                    var aug = $('[name=<?php echo $sp['sp_id']; ?>-amount-aug-aa]').val().replace(/,/g, '');
+                    var sep = $('[name=<?php echo $sp['sp_id']; ?>-amount-sep-aa]').val().replace(/,/g, '');
+                    var oct = $('[name=<?php echo $sp['sp_id']; ?>-amount-oct-aa]').val().replace(/,/g, '');
+                    var nov = $('[name=<?php echo $sp['sp_id']; ?>-amount-nov-aa]').val().replace(/,/g, '');
+                    var dec = $('[name=<?php echo $sp['sp_id']; ?>-amount-dec-aa]').val().replace(/,/g, '');
+                    
+                    var total = Number(jan) + Number(feb)+ 
+                                Number(mar) + Number(apr)+ 
+                                Number(may) + Number(jun)+ 
+                                Number(jul) + Number(aug)+ 
+                                Number(sep) + Number(oct)+
+                                Number(nov) + Number(dec);
+                    total = total.toFixed(2)
+                                    .replace(/[^\d.]/g, "")
+                                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                    .replace(/\.(\d{2})\d+/, '.$1')
+                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    
+                    $('[name=<?php echo $sp['sp_id']; ?>-amount-total-aa]').val(total);
+                    
+                });
+
+                //OTHER RELEASES
+                $(document).on('click', '[name=newAct_<?php echo $sp['sp_id']; ?>_input_total_aa_or]', function(e) {
+
+                    var jan = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_jan_aa_or]').val().replace(/,/g, '');
+                    var feb = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_feb_aa_or]').val().replace(/,/g, '');
+                    var mar = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_mar_aa_or]').val().replace(/,/g, '');
+                    var apr = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_apr_aa_or]').val().replace(/,/g, '');
+                    var may = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_may_aa_or]').val().replace(/,/g, '');
+                    var jun = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_jun_aa_or]').val().replace(/,/g, '');
+                    var jul = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_jul_aa_or]').val().replace(/,/g, '');
+                    var aug = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_aug_aa_or]').val().replace(/,/g, '');
+                    var sep = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_sep_aa_or]').val().replace(/,/g, '');
+                    var oct = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_oct_aa_or]').val().replace(/,/g, '');
+                    var nov = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_nov_aa_or]').val().replace(/,/g, '');
+                    var dec = $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_dec_aa_or]').val().replace(/,/g, '');
+
+                    var total = Number(jan) + Number(feb)+ 
+                                Number(mar) + Number(apr)+ 
+                                Number(may) + Number(jun)+ 
+                                Number(jul) + Number(aug)+ 
+                                Number(sep) + Number(oct)+
+                                Number(nov) + Number(dec);
+                    total = total.toFixed(2)
+                                    .replace(/[^\d.]/g, "")
+                                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                    .replace(/\.(\d{2})\d+/, '.$1')
+                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    
+                    $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_total_aa_or]').val(total);
+
+                });
+
+                //SAA
+                $(document).on('click', '[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_total_aa_sa]', function(e) {
+
+                    var jan = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jan_aa_sa]').val().replace(/,/g, '');
+                    var feb = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_feb_aa_sa]').val().replace(/,/g, '');
+                    var mar = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_mar_aa_sa]').val().replace(/,/g, '');
+                    var apr = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_apr_aa_sa]').val().replace(/,/g, '');
+                    var may = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_may_aa_sa]').val().replace(/,/g, '');
+                    var jun = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jun_aa_sa]').val().replace(/,/g, '');
+                    var jul = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jul_aa_sa]').val().replace(/,/g, '');
+                    var aug = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_aug_aa_sa]').val().replace(/,/g, '');
+                    var sep = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_sep_aa_sa]').val().replace(/,/g, '');
+                    var oct = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_oct_aa_sa]').val().replace(/,/g, '');
+                    var nov = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_nov_aa_sa]').val().replace(/,/g, '');
+                    var dec = $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_dec_aa_sa]').val().replace(/,/g, '');
+
+                    var total = Number(jan) + Number(feb)+ 
+                                Number(mar) + Number(apr)+ 
+                                Number(may) + Number(jun)+ 
+                                Number(jul) + Number(aug)+ 
+                                Number(sep) + Number(oct)+
+                                Number(nov) + Number(dec);
+                    total = total.toFixed(2)
+                                    .replace(/[^\d.]/g, "")
+                                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                    .replace(/\.(\d{2})\d+/, '.$1')
+                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    
+                    $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_total_aa_sa]').val(total);
+
+                });
+
+            <?php endforeach; ?>
+        });
+    </script>
+
     <!-- Bootstrap 4 -->
     <script src="<?php echo base_url()."assets/"; ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
