@@ -558,6 +558,55 @@ class Budget_allocation_model extends CI_Model{
 
         return $query->result_array();
     }
+
+    public function update_allotment(){
+        // allotment table
+        $allotment = array(
+            'all_saa_no' => $this->input->post('SAA_number'),
+            'all_saa_desc' => $this->input->post('SAA_desc'),
+        );
+
+        $this->db_budget->where('all_id', $this->input->post('allotment_id'));
+        $this->db_budget->update('allotment', $allotment);
+
+        // allotment_amount table
+        $this->db_budget->select('*');
+        $this->db_budget->from('allotment');
+        $this->db_budget->join('allotment_amount', 'allotment.all_id = allotment_amount.amt_all_id');
+        $this->db_budget->join('sub_pap', 'sub_pap.sp_id = allotment_amount.amt_sub_pap_id');
+        $this->db_budget->where('allotment.all_id', $this->input->post('allotment_id'));
+        $query = $this->db_budget->get();
+
+        
+        //return $query->result_array();
+        
+        foreach($query->result_array() as $row){
+            $sp_id = $row['amt_sub_pap_id'];
+            $amt_id = $row['amt_id'];
+            
+            $amt = array(
+                'amt_jan' => $this->input->post($sp_id.'-amount-jan-cu'),
+                'amt_feb' => $this->input->post($sp_id.'-amount-feb-cu'),
+                'amt_mar' => $this->input->post($sp_id.'-amount-mar-cu'),
+                'amt_apr' => $this->input->post($sp_id.'-amount-apr-cu'),
+                'amt_may' => $this->input->post($sp_id.'-amount-may-cu'),
+                'amt_jun' => $this->input->post($sp_id.'-amount-jun-cu'),
+                'amt_jul' => $this->input->post($sp_id.'-amount-jul-cu'),
+                'amt_aug' => $this->input->post($sp_id.'-amount-aug-cu'),
+                'amt_sep' => $this->input->post($sp_id.'-amount-sep-cu'),
+                'amt_oct' => $this->input->post($sp_id.'-amount-oct-cu'),
+                'amt_nov' => $this->input->post($sp_id.'-amount-nov-cu'),
+                'amt_dec' => $this->input->post($sp_id.'-amount-dec-cu'),
+            );
+
+            $this->db_budget->where('amt_id', $amt_id);
+            $this->db_budget->update('allotment_amount', $amt);
+            
+        };
+        
+
+        return true;
+    }
     // ---------------------------------- END ALLOTMENT TABLE ----------------------------------
 }
 ?>

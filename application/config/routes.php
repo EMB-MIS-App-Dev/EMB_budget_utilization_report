@@ -10,6 +10,7 @@ $route['allotment'] = 'budgetcontroller/allotment';
 $route['allotment/create'] = 'budgetcontroller/allotment_create';
 $route['allotment/delete/(:num)'] = 'budgetcontroller/allotment_delete/$1';
 $route['allotment/edit/(:num)'] = 'budgetcontroller/allotment_edit/$1';
+$route['allotment/update'] = 'budgetcontroller/allotment_update';
 //END ALLOTMENT
 
 //MAIN PAP

@@ -11,6 +11,7 @@
 </div>
 
 <?php foreach($allotments as $allotment){
+    $all_id =  $allotment['all_id'];
     $region =  $allotment['all_region']; 
     $year =  $allotment['all_year']; 
 
@@ -46,7 +47,7 @@
 ?>
 
 <div class="form-group">
-<form action="<?= base_url('allotment/edit'); ?>" method="post" accept-charset="utf-8">
+<form action="<?= base_url('allotment/update'); ?>" method="post" accept-charset="utf-8">
     <div class="form-group-create">
         <!-- IF USER IS ADMIN -->
         <p><b>MONTHLY FINANCIAL PROGRAM</b></p>
@@ -54,6 +55,10 @@
         <p style="color:blue;"><i>(Update - <?php echo $category; ?>)</i></p>
         <!-- END IF USER IS ADMIN -->
         <div class="row">
+            <div class="col-sm-12" >
+                <input type="hidden" name="allotment_id" value="<?php echo $all_id; ?>">
+            </div>
+
             <div class="col-sm-2" >
                 <b>For REGION: </b>
             </div> 
@@ -94,14 +99,14 @@
                 SAA No:
                 </div> 
                 <div class='col-sm-3'>
-                <input type='number' placeholder='0000' name='SAA_number_cu' value='$saa_no'>
+                <input type='number' placeholder='0000' name='SAA_number' value='$saa_no'>
                 </div>
                 <div class='col-sm-7'></div>
                 <div class='col-sm-2' >
                     Description:
                 </div> 
                 <div class='col-sm-3'>
-                <input type='text' name='SAA_desc_cu' value='$saa_desc'>
+                <input type='text' name='SAA_desc' value='$saa_desc'>
                 </div>
                 <div class='col-sm-7'></div>
             ";
@@ -134,8 +139,10 @@
 
         foreach($allotments as $allotment){
             $sp_id = $allotment['sp_id'];
+            $amt_id = $allotment['amt_id'];
             $sp_code = $allotment['sp_code'];
             $sp_name = $allotment['sp_name'];
+            $allotment_id = $allotment['amt_all_id'];
             $sp_mp_id = $allotment['sp_mp_id'];
 
             $jan = $allotment['amt_jan'];
@@ -155,7 +162,8 @@
             if( $mp_id == $sp_mp_id){
                 echo"
                 <div class='col-sm-12' style='margin-bottom: 0px;'>
-                <input type='hidden' name='sp_id_cu' value='$sp_id'>
+                <input type='hidden' name='allotment_id' value='$allotment_id'>
+                <input type='hidden' name='amt_id' value='$amt_id'>
                     $sp_code - $sp_name
                 </div>
         
@@ -188,7 +196,9 @@
         };
     };
     ?>
-    
+    <div class='center-button'>
+        <button type='submit' class='btn btn-success' >Save Changes</button>
+    </div>
 </form>
 </div>
 

@@ -113,6 +113,16 @@
             $this->load->view('allotment/edit', $data);
             $this->load->view('templates/footer');
         }
+
+        public function allotment_update(){
+            $data['allotments'] = $this->budget_allocation_model->update_allotment();
+            
+            // echo json_encode($data['allotments']);
+
+            $this->session->set_flashdata('successmsg', 'PAP successfully updated!');
+            $url = $_SERVER['HTTP_REFERER'];
+            redirect($url);
+        }
         // ------------------------END ALLOTMENT------------------------
 
         // ------------------------MAIN PAP------------------------
