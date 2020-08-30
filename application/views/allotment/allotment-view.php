@@ -55,7 +55,7 @@
                     ?>
                     <td><?php echo strtoupper($allotment['all_class']); ?></td>
                     <td>
-                        <a href="allotment/class/<?php echo $allotment['all_id'] ?>"><i class="fa fa-edit" style="font-size:24px"></i></a> |
+                        <a href="allotment/edit/<?php echo $allotment['all_id'] ?>"><i class="fa fa-edit" style="font-size:24px"></i></a> |
                         <a onclick="return confirm('Press OK to confirm delete PAP?')" href="allotment/delete/<?php echo $allotment['all_id'] ?>"><i class="fa fa-trash" style="font-size:24px;color:red"></i></a>
                     </td>
             </tr>   

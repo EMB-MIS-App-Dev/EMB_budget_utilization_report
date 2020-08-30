@@ -103,6 +103,16 @@
             $url = $_SERVER['HTTP_REFERER'];
             redirect($url);
         }
+
+        public function allotment_edit($id){
+            $data['allotments'] = $this->budget_allocation_model->edit_allotment($id);
+            $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap();
+            $data['main_pap'] = $this->budget_allocation_model->view_main_pap();
+            // echo json_encode($data['allotments']);
+            $this->load->view('templates/header');
+            $this->load->view('allotment/edit', $data);
+            $this->load->view('templates/footer');
+        }
         // ------------------------END ALLOTMENT------------------------
 
         // ------------------------MAIN PAP------------------------

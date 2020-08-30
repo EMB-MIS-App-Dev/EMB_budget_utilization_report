@@ -547,6 +547,17 @@ class Budget_allocation_model extends CI_Model{
         $this->db_budget->delete('allotment');
         return true;
     }
+
+    public function edit_allotment($id){
+        $this->db_budget->select('*');
+        $this->db_budget->from('allotment');
+        $this->db_budget->join('allotment_amount', 'allotment.all_id = allotment_amount.amt_all_id');
+        $this->db_budget->join('sub_pap', 'sub_pap.sp_id = allotment_amount.amt_sub_pap_id');
+        $this->db_budget->where('allotment.all_id', $id);
+        $query = $this->db_budget->get();
+
+        return $query->result_array();
+    }
     // ---------------------------------- END ALLOTMENT TABLE ----------------------------------
 }
 ?>
