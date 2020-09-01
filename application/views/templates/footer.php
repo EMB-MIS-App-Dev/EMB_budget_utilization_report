@@ -246,7 +246,7 @@
                 $select_id = $( "#fund_source_ca_<?php echo $mp['mp_id']; ?> option:selected" ).val();
                 $select_name = $( "#fund_source_ca_<?php echo $mp['mp_id']; ?> option:selected" ).text();
 
-                if ($('input[name="newAct_ca_'+ $select_id +'_input_jan_ca_or"]').length){
+                if ($('input[name="newAct_'+ $select_id +'_input_jan_ca_or"]').length){
                     alert('PAP already exist!');
                 }else if($select_id === ''){
                         alert('Please select PAP!');
@@ -290,7 +290,7 @@
                     $select_id = $( "#fund_sourcesaa_ca_<?php echo $mp['mp_id']; ?> option:selected" ).val();
                     $select_name = $( "#fund_sourcesaa_ca_<?php echo $mp['mp_id']; ?> option:selected" ).text();
 
-                    if ($('input[name="newActsaa_ca_'+ $select_id +'_input_jan_ca_sa"]').length){
+                    if ($('input[name="newActsaa_'+ $select_id +'_input_jan_ca_sa"]').length){
                         alert('PAP already exist!');
                     }else if($select_id === ''){
                         alert('Please select PAP!');
@@ -397,7 +397,7 @@
                 $select_id = $( "#fund_source_aa_<?php echo $mp['mp_id']; ?> option:selected" ).val();
                 $select_name = $( "#fund_source_aa_<?php echo $mp['mp_id']; ?> option:selected" ).text();
 
-                if ($('input[name="newAct_aa_'+ $select_id +'_input_jan_aa_or"]').length){
+                if ($('input[name="newAct_'+ $select_id +'_input_jan_aa_or"]').length){
                     alert('PAP already exist!');
                 }else if($select_id === ''){
                         alert('Please select PAP!');
@@ -441,7 +441,7 @@
                     $select_id = $( "#fund_sourcesaa_aa_<?php echo $mp['mp_id']; ?> option:selected" ).val();
                     $select_name = $( "#fund_sourcesaa_aa_<?php echo $mp['mp_id']; ?> option:selected" ).text();
 
-                    if ($('input[name="newActsaa_aa_'+ $select_id +'_input_jan_aa_sa"]').length){
+                    if ($('input[name="newActsaa_'+ $select_id +'_input_jan_aa_sa"]').length){
                         alert('PAP already exist!');
                     }else if($select_id === ''){
                         alert('Please select PAP!');
