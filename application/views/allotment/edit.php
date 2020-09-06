@@ -35,6 +35,8 @@
         $funding =  'Agency Specific'; 
     }else if($allotment['all_funding'] == 'or'){
         $funding =  'Other Releases'; 
+        $or_no =  $allotment['all_saa_no']; 
+        $or_desc =  $allotment['all_saa_desc']; 
     }else if($allotment['all_funding'] == 'sa'){
         $funding =  'SAA'; 
         $saa_no =  $allotment['all_saa_no']; 
@@ -110,7 +112,24 @@
                 </div>
                 <div class='col-sm-7'></div>
             ";
-            } 
+            }else if($funding == 'Other Releases'){
+                echo"
+                    <div class='col-sm-2' >
+                    No:
+                    </div> 
+                    <div class='col-sm-3'>
+                    <input type='number' placeholder='0000' name='SAA_number' value='$or_no'>
+                    </div>
+                    <div class='col-sm-7'></div>
+                    <div class='col-sm-2' >
+                        Description:
+                    </div> 
+                    <div class='col-sm-3'>
+                    <input type='text' name='SAA_desc' value='$or_desc'>
+                    </div>
+                    <div class='col-sm-7'></div>
+                ";
+                } 
             ?>
 
             <div class="col-sm-2" >

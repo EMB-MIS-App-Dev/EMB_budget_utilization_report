@@ -155,6 +155,8 @@ class Budget_allocation_model extends CI_Model{
                 'all_category' => $this->input->post('all_category_cu'),
                 'all_type' => $this->input->post('type_cu'),
                 'all_funding' => $this->input->post('funding_cu'),
+                'all_saa_no' => $this->input->post('or_number_cu'),
+                'all_saa_desc' => $this->input->post('or_desc_cu'),
                 'all_class' => $this->input->post('class_cu'),
             );
 
@@ -300,6 +302,8 @@ class Budget_allocation_model extends CI_Model{
                 'all_category' => $this->input->post('all_category_ca'),
                 'all_type' => $this->input->post('type_ca'),
                 'all_funding' => $this->input->post('funding_ca'),
+                'all_saa_no' => $this->input->post('or_number_ca'),
+                'all_saa_desc' => $this->input->post('or_desc_ca'),
                 'all_class' => $this->input->post('class_ca'),
             );
 
@@ -445,6 +449,8 @@ class Budget_allocation_model extends CI_Model{
                 'all_category' => $this->input->post('all_category_aa'),
                 'all_type' => $this->input->post('type_aa'),
                 'all_funding' => $this->input->post('funding_aa'),
+                'all_saa_no' => $this->input->post('or_number_aa'),
+                'all_saa_desc' => $this->input->post('or_desc_aa'),
                 'all_class' => $this->input->post('class_aa'),
             );
 

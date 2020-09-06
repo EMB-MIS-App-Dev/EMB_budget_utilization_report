@@ -122,6 +122,23 @@
                             <input type='text' name='SAA_desc_cu'>
                         </div>
 
+                        <div class="col-sm-5" id="or_no_pad"></div>
+
+                        <div class="col-sm-2" id="or_no_label">
+                            No:
+                        </div> 
+                        <div class="col-sm-3" id="or_no_value">
+                            <input type='number' placeholder='0000' name='or_number_cu'>
+                        </div>
+
+                        <div class="col-sm-7" id="or_desc_pad"></div>
+                        <div class="col-sm-2" id="or_desc_label">
+                            Description: 
+                        </div> 
+                        <div class="col-sm-3" id="or_desc_value">
+                            <input type='text' name='or_desc_cu'>
+                        </div>
+
                         <div class="col-sm-4" >
                             Allotment Class:
                         </div> 
@@ -394,6 +411,23 @@
                             <input type='text' name='SAA_desc_ca'>
                         </div>
 
+                        <div class="col-sm-5" id="or_no_pad_ca"></div>
+
+                        <div class="col-sm-2" id="or_no_label_ca">
+                            No:
+                        </div> 
+                        <div class="col-sm-3" id="or_no_value_ca">
+                            <input type='number' placeholder='0000' name='or_number_ca'>
+                        </div>
+
+                        <div class="col-sm-7" id="or_desc_pad_ca"></div>
+                        <div class="col-sm-2" id="or_desc_label_ca">
+                            Description: 
+                        </div> 
+                        <div class="col-sm-3" id="or_desc_value_ca">
+                            <input type='text' name='or_desc_ca'>
+                        </div>
+
                         <div class="col-sm-4" >
                             Allotment Class:
                         </div> 
@@ -663,6 +697,23 @@
                         </div> 
                         <div class="col-sm-3" id="saa_desc_value_aa">
                             <input type='text' name='SAA_desc_aa'>
+                        </div>
+
+                        <div class="col-sm-5" id="or_no_pad_aa"></div>
+
+                        <div class="col-sm-2" id="or_no_label_aa">
+                            No:
+                        </div> 
+                        <div class="col-sm-3" id="or_no_value_aa">
+                            <input type='number' placeholder='0000' name='or_number_aa'>
+                        </div>
+
+                        <div class="col-sm-7" id="or_desc_pad_aa"></div>
+                        <div class="col-sm-2" id="or_desc_label_aa">
+                            Description: 
+                        </div> 
+                        <div class="col-sm-3" id="or_desc_value_aa">
+                            <input type='text' name='or_desc_aa'>
                         </div>
 
                         <div class="col-sm-4" >

@@ -56,6 +56,27 @@
                     $("#saa_desc_label").show();
                     $("#saa_desc_value").show();
                     $("#saa_no_pad").hide();
+
+                    $("#or_no_label").hide();
+                    $("#or_no_value").hide();
+                    $("#or_desc_pad").hide();
+                    $("#or_desc_label").hide();
+                    $("#or_desc_value").hide();
+                    $("#or_no_pad").hide();
+                }else if(optionValue === "or"){
+                    $("#or_no_label").show();
+                    $("#or_no_value").show();
+                    $("#or_desc_pad").show();
+                    $("#or_desc_label").show();
+                    $("#or_desc_value").show();
+                    $("#or_no_pad").hide();
+
+                    $("#saa_no_label").hide();
+                    $("#saa_no_value").hide();
+                    $("#saa_desc_pad").hide();
+                    $("#saa_desc_label").hide();
+                    $("#saa_desc_value").hide();
+                    $("#saa_no_pad").hide();
                 } else{
                     $("#saa_no_label").hide();
                     $("#saa_no_value").hide();
@@ -63,6 +84,13 @@
                     $("#saa_desc_label").hide();
                     $("#saa_desc_value").hide();
                     $("#saa_no_pad").show();
+
+                    $("#or_no_label").hide();
+                    $("#or_no_value").hide();
+                    $("#or_desc_pad").hide();
+                    $("#or_desc_label").hide();
+                    $("#or_desc_value").hide();
+                    $("#or_no_pad").hide();
                 }
 
                 if(optionValue === "as"){
@@ -207,6 +235,27 @@
                     $("#saa_desc_label_ca").show();
                     $("#saa_desc_value_ca").show();
                     $("#saa_no_pad_ca").hide();
+
+                    $("#or_no_label_ca").hide();
+                    $("#or_no_value_ca").hide();
+                    $("#or_desc_pad_ca").hide();
+                    $("#or_desc_label_ca").hide();
+                    $("#or_desc_value_ca").hide();
+                    $("#or_no_pad_ca").hide();
+                }else if(optionValue === "or"){
+                    $("#or_no_label_ca").show();
+                    $("#or_no_value_ca").show();
+                    $("#or_desc_pad_ca").show();
+                    $("#or_desc_label_ca").show();
+                    $("#or_desc_value_ca").show();
+                    $("#or_no_pad_ca").hide();
+
+                    $("#saa_no_label_ca").hide();
+                    $("#saa_no_value_ca").hide();
+                    $("#saa_desc_pad_ca").hide();
+                    $("#saa_desc_label_ca").hide();
+                    $("#saa_desc_value_ca").hide();
+                    $("#saa_no_pad_ca").hide();
                 } else{
                     $("#saa_no_label_ca").hide();
                     $("#saa_no_value_ca").hide();
@@ -214,6 +263,13 @@
                     $("#saa_desc_label_ca").hide();
                     $("#saa_desc_value_ca").hide();
                     $("#saa_no_pad_ca").show();
+
+                    $("#or_no_label_ca").hide();
+                    $("#or_no_value_ca").hide();
+                    $("#or_desc_pad_ca").hide();
+                    $("#or_desc_label_ca").hide();
+                    $("#or_desc_value_ca").hide();
+                    $("#or_no_pad_ca").hide();
                 }
 
                 if(optionValue === "as"){
@@ -358,6 +414,27 @@
                     $("#saa_desc_label_aa").show();
                     $("#saa_desc_value_aa").show();
                     $("#saa_no_pad_aa").hide();
+
+                    $("#or_no_label_aa").hide();
+                    $("#or_no_value_aa").hide();
+                    $("#or_desc_pad_aa").hide();
+                    $("#or_desc_label_aa").hide();
+                    $("#or_desc_value_aa").hide();
+                    $("#or_no_pad_aa").hide();
+                }else  if(optionValue === "or"){
+                    $("#or_no_label_aa").show();
+                    $("#or_no_value_aa").show();
+                    $("#or_desc_pad_aa").show();
+                    $("#or_desc_label_aa").show();
+                    $("#or_desc_value_aa").show();
+                    $("#or_no_pad_aa").hide();
+
+                    $("#saa_no_label_aa").hide();
+                    $("#saa_no_value_aa").hide();
+                    $("#saa_desc_pad_aa").hide();
+                    $("#saa_desc_label_aa").hide();
+                    $("#saa_desc_value_aa").hide();
+                    $("#saa_no_pad_aa").hide();
                 } else{
                     $("#saa_no_label_aa").hide();
                     $("#saa_no_value_aa").hide();
@@ -365,6 +442,13 @@
                     $("#saa_desc_label_aa").hide();
                     $("#saa_desc_value_aa").hide();
                     $("#saa_no_pad_aa").show();
+
+                    $("#or_no_label_aa").hide();
+                    $("#or_no_value_aa").hide();
+                    $("#or_desc_pad_aa").hide();
+                    $("#or_desc_label_aa").hide();
+                    $("#or_desc_value_aa").hide();
+                    $("#or_no_pad_aa").hide();
                 }
 
                 if(optionValue === "as"){
