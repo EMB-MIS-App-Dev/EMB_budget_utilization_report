@@ -13,6 +13,11 @@ $route['allotment/edit/(:num)'] = 'budgetcontroller/allotment_edit/$1';
 $route['allotment/update'] = 'budgetcontroller/allotment_update';
 //END ALLOTMENT
 
+//OBLIGATION
+$route['obligation'] = 'obligationcontroller/obligation';
+$route['obligation/(:num)'] = 'obligationcontroller/obligation_month/$1';
+//END OBLIGATION
+
 //MAIN PAP
 $route['mp'] = 'budgetcontroller/main_pap_viewall';
 $route['mp/create'] = 'budgetcontroller/main_pap_create';

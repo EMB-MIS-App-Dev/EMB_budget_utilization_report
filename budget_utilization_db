@@ -56,3 +56,19 @@ CREATE TABLE allotment_amount (
     FOREIGN KEY (amt_all_id) REFERENCES allotment(all_id)
 );
 
+CREATE TABLE obligations (
+    ob_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    ob_region VARCHAR(200),
+    ob_year VARCHAR(200),
+    ob_month VARCHAR(200),
+    ob_category VARCHAR(200),
+    ob_type VARCHAR(200),
+    ob_funding VARCHAR(200),
+    ob_saa_no VARCHAR(200),
+    ob_saa_desc VARCHAR(200),
+    ob_class VARCHAR(200),
+    ob_amount VARCHAR(200),
+    ob_remarks VARCHAR(200),
+    PRIMARY KEY (ob_id)    
+);
+

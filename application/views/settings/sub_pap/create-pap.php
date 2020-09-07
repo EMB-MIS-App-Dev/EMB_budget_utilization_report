@@ -9,7 +9,7 @@
            
             <div class="row">
                 <div class="col-sm-4" >
-                    <p><b>Select MFO: </b></p> 
+                    <p><b>Select Main: </b></p> 
                 </div> 
                 <div class="col-sm-8">
                     <select name="sp_mp_id">

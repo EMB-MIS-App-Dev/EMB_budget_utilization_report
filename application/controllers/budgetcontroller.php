@@ -14,6 +14,7 @@
             // echo json_encode($data['allotments']);
             $this->load->view('templates/header');
             $this->load->view('allotment/allotment-view',  $data);
+            $this->load->view('js/allotment-js');
             $this->load->view('templates/footer');
         }
 
@@ -83,6 +84,7 @@
 
                 $this->load->view('templates/header');
                 $this->load->view('allotment/create', $data);
+                $this->load->view('js/allotment-js');
                 $this->load->view('templates/footer');
             }else{
 
@@ -111,6 +113,7 @@
             // echo json_encode($data['allotments']);
             $this->load->view('templates/header');
             $this->load->view('allotment/edit', $data);
+            $this->load->view('js/allotment-js');
             $this->load->view('templates/footer');
         }
 
@@ -132,6 +135,7 @@
 
             $this->load->view('templates/header');
             $this->load->view('settings/main_pap/main-pap', $data);
+            $this->load->view('js/allotment-js');
             $this->load->view('templates/footer');
         }
 
@@ -144,6 +148,7 @@
             if($this->form_validation->run() === FALSE){
                 $this->load->view('templates/header');
                 $this->load->view('settings/main_pap/create-pap');
+                $this->load->view('js/allotment-js');
                 $this->load->view('templates/footer');
             }else{
                 $this->budget_allocation_model->add_main_pap();
@@ -158,6 +163,7 @@
             // echo json_encode($data['budgets']);
             $this->load->view('templates/header');
             $this->load->view('settings/main_pap/edit-pap', $data);
+            $this->load->view('js/allotment-js');
             $this->load->view('templates/footer');
         }
 
@@ -181,6 +187,7 @@
 
             $this->load->view('templates/header');
             $this->load->view('settings/sub_pap/sub-pap', $data);
+            $this->load->view('js/allotment-js');
             $this->load->view('templates/footer');
         }
 
@@ -195,6 +202,7 @@
             if($this->form_validation->run() === FALSE){
                 $this->load->view('templates/header');
                 $this->load->view('settings/sub_pap/create-pap', $data);
+                $this->load->view('js/allotment-js');
                 $this->load->view('templates/footer');
             }else{
                 $this->budget_allocation_model->add_sub_pap();
@@ -209,6 +217,7 @@
             // echo json_encode($data['budgets']);
             $this->load->view('templates/header');
             $this->load->view('settings/sub_pap/edit-pap', $data);
+            $this->load->view('js/allotment-js');
             $this->load->view('templates/footer');
         }
 
@@ -224,5 +233,8 @@
             redirect('sp');
         }
         // ------------------------END SUB PAP------------------------
+    
+        // ------------------------END ALLOTMENT------------------------
+        
     }
 ?>

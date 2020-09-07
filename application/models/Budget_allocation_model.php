@@ -98,6 +98,15 @@ class Budget_allocation_model extends CI_Model{
         return $query->result_array();
     }
 
+    public function view_allotment_amount($id){
+        $this->db_budget->select('*');
+        $this->db_budget->from('allotment_amount');
+        $this->db_budget->join('sub_pap', 'sub_pap.sp_id = allotment_amount.amt_sub_pap_id');
+        $this->db_budget->where('allotment_amount.amt_all_id', $id);
+        $query = $this->db_budget->get();
+        return $query->result_array();
+    }
+
     public function add_allotment(){
         
         $createbtn = $this->input->post('createbtn');
@@ -614,5 +623,6 @@ class Budget_allocation_model extends CI_Model{
         return true;
     }
     // ---------------------------------- END ALLOTMENT TABLE ----------------------------------
+
 }
 ?>
