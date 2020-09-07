@@ -98,6 +98,12 @@ class Budget_allocation_model extends CI_Model{
         return $query->result_array();
     }
 
+    public function view_allotment_one($id){
+        $this->db_budget->where('all_id', $id);
+        $query = $this->db_budget->get('allotment');
+        return $query->result_array();
+    }
+
     public function view_allotment_amount($id){
         $this->db_budget->select('*');
         $this->db_budget->from('allotment_amount');

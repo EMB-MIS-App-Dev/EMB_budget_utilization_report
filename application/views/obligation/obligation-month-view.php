@@ -8,8 +8,57 @@
     <div>
         <a class="btn btn-info create-btn" href="<?php echo base_url()."obligation"; ?>">Back</a>
     </div>
-    <?php foreach($allotments as $allotment) : ?>
-    <?php endforeach; ?>
+    <?php foreach($allotments as $allotment){
+        $region = $allotment['all_region'];
+        $year = $allotment['all_year'];
+        $category = $allotment['all_category'];
+        $type = $allotment['all_type'];
+        $funding = $allotment['all_funding'];
+            if($funding == 'or' || $funding == 'sa'){
+                $all_saa_no = $allotment['all_saa_no'];
+                $all_saa_desc = $allotment['all_saa_desc'];
+            }
+        $class = $allotment['all_class'];
+
+    }
+    ?>
+    <div class="form-group-create">
+        <p><b><?php echo 'Region '.$region ?></b></p>    
+        <p><?php echo 'For year '.$year ?></p>
+        <?php
+            if($category == 'cu'){
+                echo"<p>Current</p>";
+            }else if($category == 'ca'){
+                echo"<p>Continuing Appropriation</p>";
+            }else if($category == 'aa'){
+                echo"<p>Automatic Appropriation</p>";
+            }
+
+            if($type == 'sb'){
+                echo"<p>Specific Budget</p>";
+            }else if($type == 'sp'){
+                echo"<p>Special Purpose Fund</p>";
+            }else if($type == 'rlip'){
+                echo"<p>RLIP</p>";
+            }
+
+            if($funding == 'as'){
+                echo"<p>Agency Specific</p>";
+            }else if($funding == 'or'){
+                echo"<p>Other Releases</p>";
+                echo"<p>No: $all_saa_no</p>";
+                echo"<p>Description: $all_saa_desc</p>";
+            }else if($funding == 'sa'){
+                echo"<p>SAA</p>";
+                echo"<p>No: $all_saa_no</p>";
+                echo"<p>Description: $all_saa_desc</p>";
+            }
+        ?>
+
+        <p><?php echo strtoupper($class); ?></p>
+
+    </div>
+
 
     <table id="myTable" class="table table-striped table-bordered table-sm align">
     <!-- <table id="myTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> -->

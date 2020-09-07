@@ -18,7 +18,7 @@
         }
 
         public function obligation_month($id){
-            $data['allotments'] = $this->budget_allocation_model->view_allotment();
+            $data['allotments'] = $this->budget_allocation_model->view_allotment_one($id);
             $data['allotment_amount'] = $this->budget_allocation_model->view_allotment_amount($id);
 
             // echo json_encode($data['allotment_amount']);
