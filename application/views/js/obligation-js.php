@@ -25,3 +25,31 @@
      } );
 </script>
 
+<!-- month change -->
+<script>
+     $("#month").change(function(){
+         $(this).find("option:selected").each(function(){
+            var monthVal = $(this).attr("value");
+
+            <?php foreach($allotment_amount as $am) : ?>
+                $('#oblPre-<?php echo $am['amt_id']; ?>').val(monthVal);
+            <?php endforeach; ?>
+            
+         });
+     });
+</script>
+
+<!-- obligation for this month change -->
+<script>
+    <?php foreach($allotment_amount as $am) : ?>
+    $("#obligation-amount-<?php echo $am['amt_id']; ?>").keyup(function(){
+       
+        var all =  $('#allotment-<?php echo $am['amt_id']; ?>').val().replace(/,/g, '');
+        var oblPre =  $('#oblPre-<?php echo $am['amt_id']; ?>').val().replace(/,/g, '');
+
+        var total = Number(all) + Number(oblPre);
+        alert(total);
+
+    });
+    <?php endforeach; ?>
+</script>

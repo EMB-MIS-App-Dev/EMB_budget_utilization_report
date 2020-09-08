@@ -27,86 +27,152 @@
         <p><?php echo 'For year '.$year ?></p>
         <?php
             if($category == 'cu'){
-                echo"<p>Current</p>";
+                echo"<p style='color:blue;'><i>Current</i></p>";
             }else if($category == 'ca'){
-                echo"<p>Continuing Appropriation</p>";
+                echo"<p style='color:blue;'><i>Continuing Appropriation</i></p>";
             }else if($category == 'aa'){
-                echo"<p>Automatic Appropriation</p>";
-            }
-
-            if($type == 'sb'){
-                echo"<p>Specific Budget</p>";
-            }else if($type == 'sp'){
-                echo"<p>Special Purpose Fund</p>";
-            }else if($type == 'rlip'){
-                echo"<p>RLIP</p>";
-            }
-
-            if($funding == 'as'){
-                echo"<p>Agency Specific</p>";
-            }else if($funding == 'or'){
-                echo"<p>Other Releases</p>";
-                echo"<p>No: $all_saa_no</p>";
-                echo"<p>Description: $all_saa_desc</p>";
-            }else if($funding == 'sa'){
-                echo"<p>SAA</p>";
-                echo"<p>No: $all_saa_no</p>";
-                echo"<p>Description: $all_saa_desc</p>";
+                echo"<p style='color:blue;'><i>Automatic Appropriation</i></p>";
             }
         ?>
 
-        <p><?php echo strtoupper($class); ?></p>
+        <class class="row">
+            <div class="col-sm-2">
+                Type:
+            </div>
+            <div class="col-sm-5">
+                <?php
+                    if($type == 'sb'){
+                        echo"Specific Budget";
+                    }else if($type == 'sp'){
+                        echo"Special Purpose Fund";
+                    }else if($type == 'rlip'){
+                        echo"RLIP";
+                    }
+                ?>
+            </div>
+            <div class="col-sm-5"></div>
+
+            <div class="col-sm-2">
+                Funding: 
+            </div>
+            <div class="col-sm-5">
+                <?php
+                   if($funding == 'as'){
+                    echo"Agency Specific";
+                    }else if($funding == 'or'){
+                        echo"Other Releases";
+                        echo"<br/>No: $all_saa_no";
+                        echo"<br/>Description: $all_saa_desc";
+                    }else if($funding == 'sa'){
+                        echo"SAA";
+                        echo"<br/>No: $all_saa_no";
+                        echo"<br/>Description: $all_saa_desc";
+                    }
+                ?>
+            </div>
+            <div class="col-sm-5"></div>
+           
+        
+            <div class="col-sm-2">
+                Allotment Class:
+            </div>
+            <div class="col-sm-5">
+                <?php echo strtoupper($class); ?>
+            </div>
+            <div class="col-sm-5"></div>
+
+            <div class="col-sm-2">
+                Month:
+            </div>
+            <div class="col-sm-5">
+            <select name="month" id="month" size='1'>
+            <option value=''>SELECT</option>
+                <?php
+                for ($i = 0; $i < 12; $i++) {
+                    $time = strtotime(sprintf('%d months', $i));   
+                    $label = date('F', $time);   
+                    $value = date('n', $time);
+                    if ($value >= $i){
+                        echo "<option value='$value'>$label</option>";
+                    }
+                    
+                }
+                ?>
+            </select>
+            </div>
+            <div class="col-sm-5"></div>
+            
+        </class> 
 
     </div>
 
 
-    <table id="myTable" class="table table-striped table-bordered table-sm align">
-    <!-- <table id="myTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> -->
-    <div class="col-sm-4" >
-        <thead>
-            <tr>
-                <th scope="col">Program</th>
-                <th scope="col">Allotment</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody> 
-            <?php foreach($allotment_amount as $am){
-                $sp_name = $am['sp_name'];
-                $amt_id = $am['amt_id'];
-                
-                $jan = str_replace(",","", $am['amt_jan']);
-                $feb = str_replace(",","", $am['amt_feb']);
-                $mar = str_replace(",","", $am['amt_mar']);
-                $apr = str_replace(",","", $am['amt_apr']);
-                $may = str_replace(",","", $am['amt_may']);
-                $jun = str_replace(",","", $am['amt_jun']);
-                $jul = str_replace(",","", $am['amt_jul']);
-                $aug = str_replace(",","", $am['amt_aug']);
-                $sep = str_replace(",","", $am['amt_sep']);
-                $oct = str_replace(",","", $am['amt_oct']);
-                $nov = str_replace(",","", $am['amt_nov']);
-                $dec = str_replace(",","", $am['amt_dec']);
-                $total_all = (float)$jan + (float)$feb + (float)$mar +
-                            (float)$apr + (float)$may + (float)$jun +
-                            (float)$jul + (float)$aug + (float)$sep +
-                            (float)$oct + (float)$nov + (float)$dec;
+    <?php 
+    foreach($main_pap as $mp){
+        $mp_id = $mp['mp_id'];
+        $mp_code = $mp['mp_code'];
+        $mp_name = $mp['mp_name'];
 
-                $total_all = number_format($total_all,2);
-                echo"
-                <tr class='table-active'> 
-                    <td>$sp_name</td>
-                    <td>$total_all</td>
-                    <td>
-                        <a href='obligation/edit/$amt_id'><i class='fa fa-plus' style='font-size:24px; color:green'></i></a>
-                    </td>
-                </tr>  
-                "; 
-            } 
-            ?>
+        echo"
+        <div class='col-sm-12'>
+            <h5 style='margin-top: 20px;'>$mp_code - $mp_name</h5>
+        </div>
+
+
+        <table border=1>
+        ";
+
         
-        </tbody>
-    </table>
+        foreach($allotment_amount as $am){
+            $sp_name = $am['sp_name'];
+            $amt_id = $am['amt_id'];
+            $sp_mp_id = $am['sp_mp_id'];
+            
+            $jan = str_replace(',','', $am['amt_jan']);
+            $feb = str_replace(',','', $am['amt_feb']);
+            $mar = str_replace(',','', $am['amt_mar']);
+            $apr = str_replace(',','', $am['amt_apr']);
+            $may = str_replace(',','', $am['amt_may']);
+            $jun = str_replace(',','', $am['amt_jun']);
+            $jul = str_replace(',','', $am['amt_jul']);
+            $aug = str_replace(',','', $am['amt_aug']);
+            $sep = str_replace(',','', $am['amt_sep']);
+            $oct = str_replace(',','', $am['amt_oct']);
+            $nov = str_replace(',','', $am['amt_nov']);
+            $dec = str_replace(',','', $am['amt_dec']);
+            $total_all = (float)$jan + (float)$feb + (float)$mar +
+                        (float)$apr + (float)$may + (float)$jun +
+                        (float)$jul + (float)$aug + (float)$sep +
+                        (float)$oct + (float)$nov + (float)$dec;
+
+            $total_all = number_format($total_all,2);
+
+            if( $mp_id == $sp_mp_id){
+            
+                echo"
+                <tr>
+                    <td colspan=5><b>$sp_name</b></td>
+                </tr>
+                <tr>
+                    <td align=center>Allotment</td>
+                    <td align=center>Obligation as of the<br/>Previous Month</td>
+                    <td align=center>Obligation for<br/>This Month</td>
+                </tr>
+                <tr>
+                    <td align=center><input placeholder='0000' name='allotment-$amt_id' id='allotment-$amt_id' value='$total_all' readonly></td>
+                    <td align=center><input placeholder='0000' name='oblPre-$amt_id' id='oblPre-$amt_id' readonly></td>
+                    <td align=center><input type='number' placeholder='0000' name='obligation-amount-$amt_id' id='obligation-amount-$amt_id'></td>
+                </tr>
+                ";
+
+            }
+
+        };
+
+        echo "</table>";
+
+    };
+    ?>
    
     </div>
 <!-- /.content-wrapper -->

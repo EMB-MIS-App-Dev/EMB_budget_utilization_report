@@ -31,24 +31,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
   <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-  
-
-  <!-- month selection current month -->
-  <script>
-    $(function(){
-        var dtToday = new Date();
-        
-        var month = dtToday.getMonth() + 1;
-        var year = dtToday.getFullYear();
-        if(month < 10)
-            month = '0' + month.toString();
-        var minDate= year + '-' + month;
-        
-        $('#txtDate').attr('min', minDate);
-    });
-  </script>
-  <!-- end month selection current month -->
-
 
 </head>
 <body class="hold-transition sidebar-mini">
