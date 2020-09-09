@@ -21,8 +21,9 @@
             $data['allotments'] = $this->budget_allocation_model->view_allotment_one($id);
             $data['allotment_amount'] = $this->budget_allocation_model->view_allotment_amount($id);
             $data['main_pap'] = $this->budget_allocation_model->view_main_pap();
+            $data['obligations'] = $this->budget_obligations_model->view_obligation_allocation();
 
-            // echo json_encode($data['allotment_amount']);
+            // echo json_encode($data['obligations']);
             $this->load->view('templates/header');
             $this->load->view('obligation/obligation-month-view',  $data);
             $this->load->view('js/obligation-js');

@@ -30,9 +30,30 @@
      $("#month").change(function(){
          $(this).find("option:selected").each(function(){
             var monthVal = $(this).attr("value");
+            var oblPre = 0;
 
             <?php foreach($allotment_amount as $am) : ?>
-                $('#oblPre-<?php echo $am['amt_id']; ?>').val(monthVal);
+
+                for ($i = 1; $i < monthVal; $i++) {
+                    <?php foreach($obligations as $obligation) : ?>
+                        if(<?php echo $am['amt_id']; ?> == <?php echo $obligation['ob_amt_id']; ?>){
+                            if(<?php echo $obligation['ob_month']; ?> == $i){
+                                oblPre = oblPre + <?php echo $obligation['ob_amount']; ?>;
+                            }
+                        }
+                        
+                    <?php endforeach; ?>
+
+                }
+
+                oblPre = oblPre.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+                $('#oblPre-<?php echo $am['amt_id']; ?>').val(oblPre);
+                oblPre = 0;
             <?php endforeach; ?>
             
          });
@@ -40,7 +61,7 @@
 </script>
 
 <!-- obligation for this month change -->
-<script>
+<!-- <script>
     <?php foreach($allotment_amount as $am) : ?>
     $("#obligation-amount-<?php echo $am['amt_id']; ?>").keyup(function(){
        
@@ -48,8 +69,8 @@
         var oblPre =  $('#oblPre-<?php echo $am['amt_id']; ?>').val().replace(/,/g, '');
 
         var total = Number(all) + Number(oblPre);
-        alert(total);
+        // alert(total);
 
     });
     <?php endforeach; ?>
-</script>
+</script> -->
