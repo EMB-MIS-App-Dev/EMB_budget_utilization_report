@@ -161,11 +161,11 @@
                     <td align=center>Utilization</td>
                 </tr>
                 <tr>
-                    <td align=center><input placeholder='0000' name='allotment-$amt_id' id='allotment-$amt_id' value='$total_all' readonly></td>
-                    <td align=center><input placeholder='0000' name='oblPre-$amt_id' id='oblPre-$amt_id' readonly></td>
+                    <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='allotment-$amt_id' id='allotment-$amt_id' value='$total_all' readonly></td>
+                    <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='oblPre-$amt_id' id='oblPre-$amt_id' readonly></td>
                     <td align=center><input step='0.01' placeholder='0000' class='number' name='obligation-amount-$amt_id' id='obligation-amount-$amt_id'></td>
-                    <td align=center><input placeholder='0000' name='balAll-$amt_id' id='balAll-$amt_id' readonly></td>
-                    <td align=center><input placeholder='0000' name='uti-$amt_id' id='uti-$amt_id' readonly></td>
+                    <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='balAll-$amt_id' id='balAll-$amt_id' readonly></td>
+                    <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='uti-$amt_id' id='uti-$amt_id' readonly></td>
                 </tr>
                 ";
 
