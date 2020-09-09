@@ -25,6 +25,25 @@
      } );
 </script>
 
+<!-- thousand separator -->
+<script>
+
+$(document).on( "keyup", "input.number", function(){
+    if (event.which >= 37 && event.which <= 40) return;
+    $(this).val(function(index, value) {
+        return value
+        // Keep only digits and decimal points:
+        .replace(/[^\d.]/g, "")
+        // Remove duplicated decimal point, if one exists:
+        .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+        // Keep only two digits past the decimal point:
+        .replace(/\.(\d{2})\d+/, '.$1')
+        // Add thousands separators:
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    });
+});
+</script>
+
 <!-- month change -->
 <script>
      $("#month").change(function(){
@@ -61,16 +80,34 @@
 </script>
 
 <!-- obligation for this month change -->
-<!-- <script>
+<script>
     <?php foreach($allotment_amount as $am) : ?>
     $("#obligation-amount-<?php echo $am['amt_id']; ?>").keyup(function(){
        
         var all =  $('#allotment-<?php echo $am['amt_id']; ?>').val().replace(/,/g, '');
         var oblPre =  $('#oblPre-<?php echo $am['amt_id']; ?>').val().replace(/,/g, '');
+        var oblThis =  $('#obligation-amount-<?php echo $am['amt_id']; ?>').val().replace(/,/g, '');
 
-        var total = Number(all) + Number(oblPre);
+        var balAll = Number(all) - Number(oblPre) - Number(oblThis);
+        var uti = Number(oblPre) + Number(oblThis);
+        uti = Number(uti) / Number(all);
+
+        balAll = balAll.toFixed(2)
+                .replace(/[^\d.]/g, "")
+                .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                .replace(/\.(\d{2})\d+/, '.$1')
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        uti = uti.toFixed(2)
+                .replace(/[^\d.]/g, "")
+                .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                .replace(/\.(\d{2})\d+/, '.$1')
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        $('#balAll-<?php echo $am['amt_id']; ?>').val(balAll);
+        $('#uti-<?php echo $am['amt_id']; ?>').val(uti);
         // alert(total);
 
     });
     <?php endforeach; ?>
-</script> -->
+</script>
