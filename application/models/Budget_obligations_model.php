@@ -18,7 +18,7 @@ class Budget_obligations_model extends CI_Model{
         return $query->result_array();
     }
 
-    public function update_obligation(){
+    public function insert_obligation(){
         
         $this->db_budget->select('*');
         $this->db_budget->from('main_pap');
@@ -33,15 +33,37 @@ class Budget_obligations_model extends CI_Model{
             foreach($query->result_array() as $row){
                 $amt_id = $row['amt_id'];
                     
-                if($row1['mp_id'] == $row['sp_mp_id']){
-                    $data = array(
-                        'ob_month' => $this->input->post('monthSel'),
-                        'ob_amount' => $this->input->post('obligation-amount-'.$amt_id),
-                        'ob_amt_id' => $amt_id,
-                    );
-
-                    $this->db_budget->insert('obligations', $data);
+                $this->db_budget->select('*');
+                $this->db_budget->from('obligations');
+                $this->db_budget->where('ob_month', $this->input->post('monthSel'));
+                $this->db_budget->where('ob_amt_id', $amt_id);
+                $query2 = $this->db_budget->get();
+                $oblCnt = $query2->num_rows();
+               
+                if($oblCnt ==0){
+                    if($row1['mp_id'] == $row['sp_mp_id']){
+                        $data = array(
+                            'ob_month' => $this->input->post('monthSel'),
+                            'ob_amount' => $this->input->post('obligation-amount-'.$amt_id),
+                            'ob_amt_id' => $amt_id,
+                        );
+    
+                        $this->db_budget->insert('obligations', $data);
+                    }
+                }else{
+                    if($row1['mp_id'] == $row['sp_mp_id']){
+                        $update = array(
+                            'ob_month' => $this->input->post('monthSel'),
+                            'ob_amount' => $this->input->post('obligation-amount-'.$amt_id),
+                            'ob_amt_id' => $amt_id,
+                        );
+    
+                        $this->db_budget->where('ob_month', $this->input->post('monthSel'));
+                        $this->db_budget->where('ob_amt_id', $amt_id);
+                        $this->db_budget->update('obligations', $update);
+                    }
                 }
+                
             };
 
         };

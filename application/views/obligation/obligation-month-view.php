@@ -1,5 +1,10 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+
+    <div class='errormsg'>
+            <?php echo validation_errors(); ?>
+    </div>
+    
     <div class='successmsg'>
         <?php if($this->session->flashdata('successmsg')): ?> 
             <p><?php echo $this->session->flashdata('successmsg'); ?></p>

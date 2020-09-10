@@ -58,7 +58,8 @@ $(document).on( "keyup", "input.number", function(){
                     <?php foreach($obligations as $obligation) : ?>
                         if(<?php echo $am['amt_id']; ?> == <?php echo $obligation['ob_amt_id']; ?>){
                             if(<?php echo $obligation['ob_month']; ?> == $i){
-                                oblPre = oblPre + <?php echo $obligation['ob_amount']; ?>;
+                                var ob_amt =  <?php echo str_replace(',','',$obligation['ob_amount']); ?>;
+                                oblPre = oblPre + ob_amt;
                             }
                         }
                     <?php endforeach; ?>
@@ -82,11 +83,18 @@ $(document).on( "keyup", "input.number", function(){
                 <?php foreach($obligations as $obligation) : ?>
                     if(<?php echo $am['amt_id']; ?> == <?php echo $obligation['ob_amt_id']; ?>){
                         if(monthVal == <?php echo $obligation['ob_month']; ?>){
-                            oblAmt = <?php echo $obligation['ob_amount']; ?>;
+                            oblAmt =  <?php echo str_replace(',','',$obligation['ob_amount']); ?>;
                         }
                     }
                     
                 <?php endforeach; ?>
+
+                oblAmt = oblAmt.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
 
                 if(monthVal < n){
                     $('#obligation-amount-<?php echo $am['amt_id']; ?>').attr('readonly', true)

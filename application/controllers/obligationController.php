@@ -31,10 +31,10 @@
         }
 
         public function obligation_update(){
-            $data['obligations'] = $this->budget_obligations_model->update_obligation();
+
+            $data['obligations'] = $this->budget_obligations_model->insert_obligation();
             
             // echo json_encode($data['allotments']);
-
             $this->session->set_flashdata('successmsg', 'Obligation successfully updated!');
             $url = $_SERVER['HTTP_REFERER'];
             redirect($url);
