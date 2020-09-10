@@ -16,6 +16,7 @@ $route['allotment/update'] = 'budgetcontroller/allotment_update';
 //OBLIGATION
 $route['obligation'] = 'obligationcontroller/obligation';
 $route['obligation/(:num)'] = 'obligationcontroller/obligation_month/$1';
+$route['obligation/update'] = 'obligationcontroller/obligation_update';
 //END OBLIGATION
 
 //MAIN PAP

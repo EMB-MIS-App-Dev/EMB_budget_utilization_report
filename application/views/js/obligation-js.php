@@ -50,6 +50,7 @@ $(document).on( "keyup", "input.number", function(){
          $(this).find("option:selected").each(function(){
             var monthVal = $(this).attr("value");
             var oblPre = 0;
+            var oblAmt = 0;
 
             <?php foreach($allotment_amount as $am) : ?>
 
@@ -60,7 +61,6 @@ $(document).on( "keyup", "input.number", function(){
                                 oblPre = oblPre + <?php echo $obligation['ob_amount']; ?>;
                             }
                         }
-                        
                     <?php endforeach; ?>
 
                 }
@@ -73,6 +73,35 @@ $(document).on( "keyup", "input.number", function(){
 
                 $('#oblPre-<?php echo $am['amt_id']; ?>').val(oblPre);
                 oblPre = 0;
+            
+
+            // disable obl this month for previous
+                var d = new Date();
+                var n = d.getMonth() +1;
+                
+                <?php foreach($obligations as $obligation) : ?>
+                    if(<?php echo $am['amt_id']; ?> == <?php echo $obligation['ob_amt_id']; ?>){
+                        if(monthVal == <?php echo $obligation['ob_month']; ?>){
+                            oblAmt = <?php echo $obligation['ob_amount']; ?>;
+                        }
+                    }
+                    
+                <?php endforeach; ?>
+
+                if(monthVal < n){
+                    $('#obligation-amount-<?php echo $am['amt_id']; ?>').attr('readonly', true)
+                                                                        .css('background-color','#ECECEC')
+                                                                        .val(oblAmt);
+                    $("#obligation-amount-<?php echo $am['amt_id']; ?>").keyup();
+                }else{
+                    $('#obligation-amount-<?php echo $am['amt_id']; ?>').attr('readonly', false)
+                                                                        .css('background-color','')
+                                                                        .val(oblAmt);
+                    $("#obligation-amount-<?php echo $am['amt_id']; ?>").keyup();
+                }
+
+                oblAmt = 0;
+            
             <?php endforeach; ?>
             
          });
