@@ -20,6 +20,10 @@ $route['obligation/summary/(:num)'] = 'obligationcontroller/obligation_month_sum
 $route['obligation/update'] = 'obligationcontroller/obligation_update';
 //END OBLIGATION
 
+//DISBURSEMENTS
+$route['disbursements'] = 'disbursementscontroller/disbursements';
+//END DISBURSEMENTS
+
 //MAIN PAP
 $route['mp'] = 'budgetcontroller/main_pap_viewall';
 $route['mp/create'] = 'budgetcontroller/main_pap_create';

@@ -129,20 +129,33 @@ $(document).on( "keyup", "input.number", function(){
         var uti = Number(oblPre) + Number(oblThis);
         uti = Number(uti) / Number(all);
 
-        balAll = balAll.toFixed(2)
+
+        // cannot be higher than allotment
+        var totalObl = Number(oblThis) + Number(oblPre);
+        if (Number(all) < Number(totalObl)){
+            alert('Obligation cannot be higher than Allotment!');
+
+            $('#obligation-amount-<?php echo $am['amt_id']; ?>').val("");
+            $('#balAll-<?php echo $am['amt_id']; ?>').val("");
+            $('#uti-<?php echo $am['amt_id']; ?>').val("");
+        }else{
+            balAll = balAll.toFixed(2)
                 .replace(/[^\d.]/g, "")
                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
                 .replace(/\.(\d{2})\d+/, '.$1')
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-        uti = uti.toFixed(2)
-                .replace(/[^\d.]/g, "")
-                .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
-                .replace(/\.(\d{2})\d+/, '.$1')
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            uti = uti.toFixed(2)
+                    .replace(/[^\d.]/g, "")
+                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                    .replace(/\.(\d{2})\d+/, '.$1')
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-        $('#balAll-<?php echo $am['amt_id']; ?>').val(balAll);
-        $('#uti-<?php echo $am['amt_id']; ?>').val(uti);
+            $('#balAll-<?php echo $am['amt_id']; ?>').val(balAll);
+            $('#uti-<?php echo $am['amt_id']; ?>').val(uti);
+        }
+
+        
         // alert(total);
 
     });
