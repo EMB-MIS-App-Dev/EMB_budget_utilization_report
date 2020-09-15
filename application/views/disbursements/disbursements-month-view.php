@@ -28,7 +28,7 @@
     }
     ?>
 
-    <form action="<?= base_url('obligation/update'); ?>" method="post" accept-charset="utf-8">
+    <form action="<?= base_url('disbursements/update'); ?>" method="post" accept-charset="utf-8">
 
         <div class="form-group-create">
             <p><b><?php echo 'Region '.$region ?></b></p>    
@@ -150,25 +150,6 @@
                 $sp_mp_id = $am['sp_mp_id'];
                 $amt_all_id = $am['amt_all_id'];
                 
-                $jan = str_replace(',','', $am['amt_jan']);
-                $feb = str_replace(',','', $am['amt_feb']);
-                $mar = str_replace(',','', $am['amt_mar']);
-                $apr = str_replace(',','', $am['amt_apr']);
-                $may = str_replace(',','', $am['amt_may']);
-                $jun = str_replace(',','', $am['amt_jun']);
-                $jul = str_replace(',','', $am['amt_jul']);
-                $aug = str_replace(',','', $am['amt_aug']);
-                $sep = str_replace(',','', $am['amt_sep']);
-                $oct = str_replace(',','', $am['amt_oct']);
-                $nov = str_replace(',','', $am['amt_nov']);
-                $dec = str_replace(',','', $am['amt_dec']);
-                $total_all = (float)$jan + (float)$feb + (float)$mar +
-                            (float)$apr + (float)$may + (float)$jun +
-                            (float)$jul + (float)$aug + (float)$sep +
-                            (float)$oct + (float)$nov + (float)$dec;
-
-                $total_all = number_format($total_all,2);
-
                 if( $mp_id == $sp_mp_id){
                 
                     echo"
@@ -178,17 +159,17 @@
                         <td><input type='hidden' name='amt_all_id' value='$amt_all_id'></td>
                     </tr>
                     <tr>
-                        <td align=center>Allotment</td>
-                        <td align=center>Obligation as of the<br/>Previous Month</td>
-                        <td align=center>Obligation for<br/>This Month</td>
-                        <td align=center>Balance in<br/>Allotment</td>
+                        <td align=center>Obligations as of <br/>This Month</td>
+                        <td align=center>Disbursements as of the <br/>Previous Month</td>
+                        <td align=center>Disbursements for <br/>This Month</td>
+                        <td align=center>Unpaid Obligations</td>
                         <td align=center>Utilization</td>
                     </tr>
                     <tr>
-                        <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='allotment-$amt_id' id='allotment-$amt_id' value='$total_all' readonly></td>
-                        <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='oblPre-$amt_id' id='oblPre-$amt_id' readonly></td>
-                        <td align=center><input step='0.01' placeholder='0000' class='number' name='obligation-amount-$amt_id' id='obligation-amount-$amt_id'></td>
-                        <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='balAll-$amt_id' id='balAll-$amt_id' readonly></td>
+                        <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='obligation-this-$amt_id' id='obligation-this-$amt_id' readonly>
+                        <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='disPre-$amt_id' id='oblPre-$amt_id' readonly></td>
+                        <td align=center><input step='0.01' placeholder='0000' class='number' name='disbursement-amount-$amt_id' id='obligation-amount-$amt_id'></td>
+                        <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='unpaidObl-$amt_id' id='balAll-$amt_id' readonly></td>
                         <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='uti-$amt_id' id='uti-$amt_id' readonly></td>
                     </tr>
                     ";
@@ -202,7 +183,7 @@
         };
         ?>
         <div class='center-button'>
-            <button type='submit' name="createbtn" class='btn btn-success' >Save Obligation</button>
+            <button type='submit' name="createbtn" class='btn btn-success' >Save Disbursements</button>
         </div>
     </form>    
 </div>

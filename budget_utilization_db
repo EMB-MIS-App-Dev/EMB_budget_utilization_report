@@ -66,3 +66,12 @@ CREATE TABLE obligations (
     FOREIGN KEY (ob_amt_id) REFERENCES allotment_amount(amt_id)
 );
 
+CREATE TABLE disbursements (
+    dis_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    dis_month VARCHAR(200),
+    dis_amount VARCHAR(200),
+    dis_remarks VARCHAR(200),
+    dis_ob_id INTEGER(20),
+    PRIMARY KEY (dis_id),
+    FOREIGN KEY (dis_ob_id) REFERENCES obligations(ob_id)
+);

@@ -13,11 +13,6 @@ class Budget_obligations_model extends CI_Model{
         return $query->result_array();
     }
 
-    public function view_obligation_allocation(){
-        $query = $this->db_budget->get('obligations');
-        return $query->result_array();
-    }
-
     public function insert_obligation(){
         
         $this->db_budget->select('*');

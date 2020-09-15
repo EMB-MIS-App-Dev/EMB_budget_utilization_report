@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('budget_allocation_model', 'budget_obligations_model');
+$autoload['model'] = array('budget_allocation_model', 'budget_obligations_model', 'budget_disbursements_model');
