@@ -75,28 +75,63 @@ $(document).on( "keyup", "input.number", function(){
                 oblPre = 0;
 
 
-            // total disbursements previous month
-                // var disPre = 0;
-                // for ($i = 1; $i < monthVal; $i++) {
-                //     <?php foreach($disbursements as $disbursement) : ?>
-                //         if(<?php echo $am['amt_id']; ?> == <?php echo $disbursement['dis_amt_id']; ?>){
-                //             if(<?php echo $disbursement['dis_month']; ?> == $i){
-                //                 var dis_amt =  <?php echo str_replace(',','', $disbursement['dis_amount']); ?>;
-                //                 disPre = disPre + dis_amt;
-                //             }
-                //         }
-                //     <?php endforeach; ?>
+                // disbursements as of the prev month
+                var disPre = 0;
+                for ($i = 1; $i < monthVal; $i++) {
+                    <?php foreach($disbursements as $disbursement) : ?>
+                        if(<?php echo $am['amt_id']; ?> == <?php echo $disbursement['dis_amt_id']; ?>){
+                            if(<?php echo $disbursement['dis_month']; ?> == $i){
+                                var dis_amt =  <?php echo str_replace(',','',$disbursement['dis_amount']); ?>;
+                                disPre = disPre + dis_amt;
+                            }
+                        }
+                    <?php endforeach; ?>
 
-                // }
+                }
 
-                // disPre = disPre.toFixed(2)
-                //                 .replace(/[^\d.]/g, "")
-                //                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
-                //                 .replace(/\.(\d{2})\d+/, '.$1')
-                //                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                disPre = disPre.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-                // $('#disPre-<?php echo $am['amt_id']; ?>').val(disPre);
-                // disPre = 0;
+                $('#disPre-<?php echo $am['amt_id']; ?>').val(disPre);
+                disPre = 0;
+
+                // disable disbursement this month
+                var d = new Date();
+                var n = d.getMonth() +1;
+                var disAmt = 0;
+                
+                <?php foreach($disbursements as $disbursement) : ?>
+                    if(<?php echo $am['amt_id']; ?> == <?php echo $disbursement['dis_amt_id']; ?>){
+                        if(monthVal == <?php echo $disbursement['dis_month']; ?>){
+                            disAmt =  <?php echo str_replace(',','', $disbursement['dis_amount']); ?>;
+                        }
+                    }
+                    
+                <?php endforeach; ?>
+
+                disAmt = disAmt.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+
+                if(monthVal < n){
+                    $('#disbursement-amount-<?php echo $am['amt_id']; ?>').attr('readonly', true)
+                                                                        .css('background-color','#ECECEC')
+                                                                        .val(disAmt);
+                    $("#disbursement-amount-<?php echo $am['amt_id']; ?>").keyup();
+                }else{
+                    $('#disbursement-amount-<?php echo $am['amt_id']; ?>').attr('readonly', false)
+                                                                        .css('background-color','')
+                                                                        .val(disAmt);
+                    $("#disbursement-amount-<?php echo $am['amt_id']; ?>").keyup();
+                }
+
+                disAmt = 0;
 
 
             <?php endforeach; ?>
