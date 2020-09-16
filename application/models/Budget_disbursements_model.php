@@ -36,9 +36,15 @@ class Budget_disbursements_model extends CI_Model{
                
                 if($disCnt ==0){
                     if($row1['mp_id'] == $row['sp_mp_id']){
+                        if($this->input->post('disbursement-amount-'.$amt_id) == NULL){
+                            $thisEmp = '0.00';
+                        }else{
+                            $thisEmp = $this->input->post('disbursement-amount-'.$amt_id);
+                        }
+
                         $data = array(
                             'dis_month' => $this->input->post('monthSel'),
-                            'dis_amount' => $this->input->post('disbursement-amount-'.$amt_id),
+                            'dis_amount' => $thisEmp,
                             'dis_amt_id' => $amt_id,
                         );
     
@@ -46,9 +52,15 @@ class Budget_disbursements_model extends CI_Model{
                     }
                 }else{
                     if($row1['mp_id'] == $row['sp_mp_id']){
+                        if($this->input->post('disbursement-amount-'.$amt_id) == NULL){
+                            $thisEmp = '0.00';
+                        }else{
+                            $thisEmp = $this->input->post('disbursement-amount-'.$amt_id);
+                        }
+
                         $update = array(
                             'dis_month' => $this->input->post('monthSel'),
-                            'dis_amount' => $this->input->post('disbursement-amount-'.$amt_id),
+                            'dis_amount' => $thisEmp,
                             'dis_amt_id' => $amt_id,
                         );
     

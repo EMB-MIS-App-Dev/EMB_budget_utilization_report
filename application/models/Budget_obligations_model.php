@@ -37,9 +37,15 @@ class Budget_obligations_model extends CI_Model{
                
                 if($oblCnt ==0){
                     if($row1['mp_id'] == $row['sp_mp_id']){
+                        if($this->input->post('obligation-amount-'.$amt_id) == NULL){
+                            $thisEmp = '0.00';
+                        }else{
+                            $thisEmp = $this->input->post('obligation-amount-'.$amt_id);
+                        }
+
                         $data = array(
                             'ob_month' => $this->input->post('monthSel'),
-                            'ob_amount' => $this->input->post('obligation-amount-'.$amt_id),
+                            'ob_amount' => $thisEmp,
                             'ob_amt_id' => $amt_id,
                         );
     
@@ -47,9 +53,15 @@ class Budget_obligations_model extends CI_Model{
                     }
                 }else{
                     if($row1['mp_id'] == $row['sp_mp_id']){
+                        if($this->input->post('obligation-amount-'.$amt_id) == NULL){
+                            $thisEmp = '0.00';
+                        }else{
+                            $thisEmp = $this->input->post('obligation-amount-'.$amt_id);
+                        }
+
                         $update = array(
                             'ob_month' => $this->input->post('monthSel'),
-                            'ob_amount' => $this->input->post('obligation-amount-'.$amt_id),
+                            'ob_amount' => $thisEmp,
                             'ob_amt_id' => $amt_id,
                         );
     

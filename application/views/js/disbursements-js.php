@@ -139,3 +139,49 @@ $(document).on( "keyup", "input.number", function(){
          });
      });
 </script>
+
+<!-- disbursement for this month change -->
+<script>
+    <?php foreach($allotment_amount as $am) : ?>
+    $("#disbursement-amount-<?php echo $am['amt_id']; ?>").keyup(function(){
+       
+        var oblThis =  $('#obligation-this-<?php echo $am['amt_id']; ?>').val().replace(/,/g, '');
+        var disPre =  $('#disPre-<?php echo $am['amt_id']; ?>').val().replace(/,/g, '');
+        var disThis =  $('#disbursement-amount-<?php echo $am['amt_id']; ?>').val().replace(/,/g, '');
+
+        var unpaidObl = Number(oblThis) - Number(disPre) - Number(disThis);
+        var uti = Number(disPre) + Number(disThis);
+        uti = Number(uti) / Number(oblThis);
+
+
+        // cannot be higher than allotment
+        var totalDis = Number(disPre) + Number(disThis);
+        if (Number(oblThis) < Number(totalDis)){
+            alert('Obligation cannot be higher than Allotment!');
+
+            $('#disbursement-amount-<?php echo $am['amt_id']; ?>').val("");
+            $('#unpaidObl-<?php echo $am['amt_id']; ?>').val("");
+            $('#uti-<?php echo $am['amt_id']; ?>').val("");
+        }else{
+            unpaidObl = unpaidObl.toFixed(2)
+                .replace(/[^\d.]/g, "")
+                .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                .replace(/\.(\d{2})\d+/, '.$1')
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            uti = uti.toFixed(2)
+                    .replace(/[^\d.]/g, "")
+                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                    .replace(/\.(\d{2})\d+/, '.$1')
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            $('#unpaidObl-<?php echo $am['amt_id']; ?>').val(unpaidObl);
+            $('#uti-<?php echo $am['amt_id']; ?>').val(uti);
+        }
+
+        
+        // alert(total);
+
+    });
+    <?php endforeach; ?>
+</script>
