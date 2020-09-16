@@ -11,7 +11,7 @@
         <?php endif; ?>
     </div>
     <div>
-        <a class="btn btn-info create-btn" href="<?php echo base_url()."obligation"; ?>">Back</a>
+        <a class="btn btn-info create-btn" href="<?php echo base_url()."disbursements"; ?>">Back</a>
     </div>
     <?php foreach($allotments as $allotment){
         $region = $allotment['all_region'];
@@ -167,9 +167,9 @@
                     </tr>
                     <tr>
                         <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='obligation-this-$amt_id' id='obligation-this-$amt_id' readonly>
-                        <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='disPre-$amt_id' id='oblPre-$amt_id' readonly></td>
-                        <td align=center><input step='0.01' placeholder='0000' class='number' name='disbursement-amount-$amt_id' id='obligation-amount-$amt_id'></td>
-                        <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='unpaidObl-$amt_id' id='balAll-$amt_id' readonly></td>
+                        <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='disPre-$amt_id' id='disPre-$amt_id' readonly></td>
+                        <td align=center><input step='0.01' placeholder='0000' class='number' name='disbursement-amount-$amt_id' id='disbursement-amount-$amt_id'></td>
+                        <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='unpaidObl-$amt_id' id='unpaidObl-$amt_id' readonly></td>
                         <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='uti-$amt_id' id='uti-$amt_id' readonly></td>
                     </tr>
                     ";

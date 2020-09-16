@@ -31,5 +31,15 @@
             $this->load->view('js/disbursements-js');
             $this->load->view('templates/footer');
         }
+
+        public function disbursements_update(){
+
+            $data['disbursements'] = $this->budget_disbursements_model->insert_disbursements();
+            
+            // echo json_encode($data['allotments']);
+            $this->session->set_flashdata('successmsg', 'Disbursements successfully updated!');
+            $url = $_SERVER['HTTP_REFERER'];
+            redirect($url);
+        }
     }
 ?>

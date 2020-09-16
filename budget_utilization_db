@@ -71,7 +71,7 @@ CREATE TABLE disbursements (
     dis_month VARCHAR(200),
     dis_amount VARCHAR(200),
     dis_remarks VARCHAR(200),
-    dis_ob_id INTEGER(20),
+    dis_amt_id INTEGER(20),
     PRIMARY KEY (dis_id),
-    FOREIGN KEY (dis_ob_id) REFERENCES obligations(ob_id)
+    FOREIGN KEY (dis_amt_id) REFERENCES allotment_amount(amt_id )
 );

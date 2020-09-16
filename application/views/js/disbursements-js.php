@@ -74,35 +74,32 @@ $(document).on( "keyup", "input.number", function(){
                 $('#obligation-this-<?php echo $am['amt_id']; ?>').val(oblPre);
                 oblPre = 0;
 
-            <?php endforeach; ?>
 
-            
             // total disbursements previous month
-            // var disPre = 0;
-            // <?php foreach($obligations as $obl) : ?>
-            //     for ($i = 1; $i < monthVal; $i++) {
-            //         <?php foreach($disbursements as $dis) : ?>
-            //             if(<?php echo $obl['ob_id']; ?> == <?php echo $dis['dis_ob_id']; ?>){
-            //                 if(<?php echo $dis['dis_month']; ?> == $i){
-            //                     var dis_amt =  <?php echo str_replace(',','',$dis['ob_amount']); ?>;
-            //                     disPre = disPre + dis_amt;
-            //                 }
-            //             }
-            //         <?php endforeach; ?>
+                // var disPre = 0;
+                // for ($i = 1; $i < monthVal; $i++) {
+                //     <?php foreach($disbursements as $disbursement) : ?>
+                //         if(<?php echo $am['amt_id']; ?> == <?php echo $disbursement['dis_amt_id']; ?>){
+                //             if(<?php echo $disbursement['dis_month']; ?> == $i){
+                //                 var dis_amt =  <?php echo str_replace(',','', $disbursement['dis_amount']); ?>;
+                //                 disPre = disPre + dis_amt;
+                //             }
+                //         }
+                //     <?php endforeach; ?>
 
-            //     }
-            // <?php endforeach; ?>
+                // }
 
-            // disPre = disPre.toFixed(2)
-            //                     .replace(/[^\d.]/g, "")
-            //                     .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
-            //                     .replace(/\.(\d{2})\d+/, '.$1')
-            //                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                // disPre = disPre.toFixed(2)
+                //                 .replace(/[^\d.]/g, "")
+                //                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                //                 .replace(/\.(\d{2})\d+/, '.$1')
+                //                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-            // $('#disPre-<?php echo $am['amt_id']; ?>').val(disPre);
-            // disPre = 0;
+                // $('#disPre-<?php echo $am['amt_id']; ?>').val(disPre);
+                // disPre = 0;
 
-            
+
+            <?php endforeach; ?>
             
          });
      });

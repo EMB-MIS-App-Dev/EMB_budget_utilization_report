@@ -23,6 +23,7 @@ $route['obligation/update'] = 'obligationcontroller/obligation_update';
 //DISBURSEMENTS
 $route['disbursements'] = 'disbursementscontroller/disbursements';
 $route['disbursements/(:num)'] = 'disbursementscontroller/disbursements_month/$1';
+$route['disbursements/update'] = 'disbursementscontroller/disbursements_update';
 //END DISBURSEMENTS
 
 //MAIN PAP
