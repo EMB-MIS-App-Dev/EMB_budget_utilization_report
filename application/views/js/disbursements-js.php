@@ -157,7 +157,7 @@ $(document).on( "keyup", "input.number", function(){
         // cannot be higher than allotment
         var totalDis = Number(disPre) + Number(disThis);
         if (Number(oblThis) < Number(totalDis)){
-            alert('Obligation cannot be higher than Allotment!');
+            alert('Disbursements cannot be higher than Obligation!');
 
             $('#disbursement-amount-<?php echo $am['amt_id']; ?>').val("");
             $('#unpaidObl-<?php echo $am['amt_id']; ?>').val("");
