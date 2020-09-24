@@ -46,9 +46,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="nav-item d-none d-sm-inline-block">
         <a href="<?php echo base_url(); ?>" class="nav-link">Home</a>
       </li>
+      <?php if($user->region == "CO") : ?>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="<?php echo base_url(); ?>allotment" class="nav-link">Allotment</a>
       </li>
+      <?php endif; ?>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="<?php echo base_url(); ?>obligation" class="nav-link">Obligations</a>
       </li>
@@ -56,6 +58,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a href="<?php echo base_url(); ?>disbursements" class="nav-link">Disbursements</a>
       </li>
 
+    </ul>
+    <!-- Left navbar links -->
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item d-none d-sm-inline-block">
+          <label><?php echo $user->first_name; ?> - <?php echo $user->region; ?></label>
+      </li>
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -77,6 +85,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          
+        <?php if($user->region == "CO") : ?>
+        
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -100,6 +111,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
+        <?php endif; ?>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

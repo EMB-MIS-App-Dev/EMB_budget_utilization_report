@@ -25,22 +25,24 @@
             <!-- IF USER IS ADMIN -->
                 <select name='region' class="browser-default custom-select">
                     <option value=''>SELECT REGION</option>
+                    <option value='CO'>CO</option>
                     <option value='NCR'>NCR</option>
-                    <option value='1'>Region 1</option>
+                    <option value='R1'>Region 1</option>
                     <option value='CAR'>CAR</option>
-                    <option value='2'>Region 2</option>
-                    <option value='3'>Region 3</option>
-                    <option value='4A'>Region 4A</option>
-                    <option value='4B'>Region 4B</option>
-                    <option value='5'>Region 5</option>
-                    <option value='6'>Region 6</option>
-                    <option value='7'>Region 7</option>
-                    <option value='8'>Region 8</option>
-                    <option value='9'>Region 9</option>
-                    <option value='10'>Region 10</option>
-                    <option value='11'>Region 11</option>
-                    <option value='12'>Region 12</option>
-                    <option value='13'>Region 13</option>
+                    <option value='ARMM'>ARMM</option>
+                    <option value='R2'>Region 2</option>
+                    <option value='R3'>Region 3</option>
+                    <option value='R4A'>Region 4A</option>
+                    <option value='R4B'>Region 4B</option>
+                    <option value='R5'>Region 5</option>
+                    <option value='R6'>Region 6</option>
+                    <option value='R7'>Region 7</option>
+                    <option value='R8'>Region 8</option>
+                    <option value='R9'>Region 9</option>
+                    <option value='R10'>Region 10</option>
+                    <option value='R11'>Region 11</option>
+                    <option value='R12'>Region 12</option>
+                    <option value='R13'>Region 13</option>
                 </select>
             </div>
             <div class="col-sm-7"></div>

@@ -6,6 +6,22 @@ class Budget_allocation_model extends CI_Model{
         $this->db_budget = $this->load->database('bud_db', TRUE);
     }
 
+
+    public function get_user(){
+        $arrContextOptions=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        );  
+
+        $api = file_get_contents("https://iis.emb.gov.ph/embis/pbsapi/?token=tyid3em0WqOUhJAzqkOPuV2SjnpF5O3NE7XNVU0aGNNaXBzQ8aijWPuq2hJ.XdnSzLk6OlEFm5euwD3iZeakmA--&token_id=33955f2d1416677fc",  false, stream_context_create($arrContextOptions));
+        $user = json_decode($api);
+
+        return $user;
+    }
+
+
     // ---------------------------------- MAIN PAP TABLE ----------------------------------
     public function view_main_pap(){
         $query = $this->db_budget->get('main_pap');

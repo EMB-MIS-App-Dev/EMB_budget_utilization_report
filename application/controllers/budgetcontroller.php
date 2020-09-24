@@ -1,18 +1,22 @@
 <?php
     class Budgetcontroller extends CI_Controller{
-        public function index(){
-                
-            $this->load->view('templates/header');
+        public function home(){
+            $user['user'] = $this->budget_allocation_model->get_user();
+
+            // echo json_encode($data['user']);
+            $this->load->view('templates/header', $user);
             $this->load->view('home');
             $this->load->view('templates/footer');
         }
 
+
         // ------------------------ALLOTMENT------------------------
         public function allotment(){
             $data['allotments'] = $this->budget_allocation_model->view_allotment();
+            $user['user'] = $this->budget_allocation_model->get_user();
 
             // echo json_encode($data['allotments']);
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $user);
             $this->load->view('allotment/allotment-view',  $data);
             $this->load->view('js/allotment-js');
             $this->load->view('templates/footer');
@@ -81,8 +85,9 @@
             if($this->form_validation->run() === FALSE){
                 $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap();
                 $data['main_pap'] = $this->budget_allocation_model->view_main_pap();
+                $user['user'] = $this->budget_allocation_model->get_user();
 
-                $this->load->view('templates/header');
+                $this->load->view('templates/header', $user);
                 $this->load->view('allotment/create', $data);
                 $this->load->view('js/allotment-js');
                 $this->load->view('templates/footer');
@@ -110,8 +115,10 @@
             $data['allotments'] = $this->budget_allocation_model->edit_allotment($id);
             $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap();
             $data['main_pap'] = $this->budget_allocation_model->view_main_pap();
+            $user['user'] = $this->budget_allocation_model->get_user();
+
             // echo json_encode($data['allotments']);
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $user);
             $this->load->view('allotment/edit', $data);
             $this->load->view('js/allotment-js');
             $this->load->view('templates/footer');
@@ -132,8 +139,9 @@
         public function main_pap_viewall(){
             
             $data['main_pap'] = $this->budget_allocation_model->view_main_pap();
+            $user['user'] = $this->budget_allocation_model->get_user();
 
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $user);
             $this->load->view('settings/main_pap/main-pap', $data);
             $this->load->view('js/allotment-js');
             $this->load->view('templates/footer');
@@ -146,7 +154,9 @@
                     'required');
 
             if($this->form_validation->run() === FALSE){
-                $this->load->view('templates/header');
+                $user['user'] = $this->budget_allocation_model->get_user();
+
+                $this->load->view('templates/header', $user);
                 $this->load->view('settings/main_pap/create-pap');
                 $this->load->view('js/allotment-js');
                 $this->load->view('templates/footer');
@@ -159,9 +169,10 @@
 
         public function main_pap_edit($id){
             $data['main_pap'] = $this->budget_allocation_model->view_main_pap_one($id);
+            $user['user'] = $this->budget_allocation_model->get_user();
 
             // echo json_encode($data['budgets']);
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $user);
             $this->load->view('settings/main_pap/edit-pap', $data);
             $this->load->view('js/allotment-js');
             $this->load->view('templates/footer');
@@ -184,8 +195,9 @@
         public function sub_pap_viewall(){
             
             $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap();
+            $user['user'] = $this->budget_allocation_model->get_user();
 
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $user);
             $this->load->view('settings/sub_pap/sub-pap', $data);
             $this->load->view('js/allotment-js');
             $this->load->view('templates/footer');
@@ -200,7 +212,9 @@
             $data['main_pap'] = $this->budget_allocation_model->view_main_pap();
 
             if($this->form_validation->run() === FALSE){
-                $this->load->view('templates/header');
+                $user['user'] = $this->budget_allocation_model->get_user();
+
+                $this->load->view('templates/header', $user);
                 $this->load->view('settings/sub_pap/create-pap', $data);
                 $this->load->view('js/allotment-js');
                 $this->load->view('templates/footer');
@@ -213,9 +227,10 @@
 
         public function sub_pap_edit($id){
             $data['sub_pap'] = $this->budget_allocation_model->view_sub_pap_one($id);
+            $user['user'] = $this->budget_allocation_model->get_user();
 
             // echo json_encode($data['budgets']);
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $user);
             $this->load->view('settings/sub_pap/edit-pap', $data);
             $this->load->view('js/allotment-js');
             $this->load->view('templates/footer');

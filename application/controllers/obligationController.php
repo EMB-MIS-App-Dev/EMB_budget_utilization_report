@@ -9,9 +9,10 @@
     // ------------------------OBLIGATION------------------------
         public function obligation(){
             $data['allotments'] = $this->budget_allocation_model->view_allotment();
+            $user['user'] = $this->budget_allocation_model->get_user();
 
             //echo json_encode($data['allotment_amount']);
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $user);
             $this->load->view('obligation/obligation-view',  $data);
             $this->load->view('js/obligation-js');
             $this->load->view('templates/footer');
@@ -23,8 +24,10 @@
             $data['main_pap'] = $this->budget_allocation_model->view_main_pap();
             $data['obligations'] = $this->budget_obligations_model->view_obligation();
 
+            $user['user'] = $this->budget_allocation_model->get_user();
+
             // echo json_encode($data['obligations']);
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $user);
             $this->load->view('obligation/obligation-month-view',  $data);
             $this->load->view('js/obligation-js');
             $this->load->view('templates/footer');

@@ -82,8 +82,39 @@ table {
         <td><b>Allotment Class : </b></td>
         <td><?php echo strtoupper($class); ?></td>
     </tr>
+
+    <tr>
+    <td><b>Month:</b></td>
+    <td><select name="monthSel" id="month" size='1'>
+    <option value=''>SELECT</option>
+        <!-- <?php
+        for ($i = 0; $i < 12; $i++) {
+            $time = strtotime(sprintf('%d months', $i));   
+            $label = date('F', $time);   
+            $value = date('n', $time);
+            if ($value >= $i){
+                echo "<option value='$value'>$label</option>";
+            }
+            
+        }
+        ?> -->
+
+        <option value='1'>January</option>
+        <option value='2'>February</option>
+        <option value='3'>March</option>
+        <option value='4'>April</option>
+        <option value='5'>May</option>
+        <option value='6'>June</option>
+        <option value='7'>July</option>
+        <option value='8'>August</option>
+        <option value='9'>September</option>
+        <option value='10'>October</option>
+        <option value='11'>November</option>
+        <option value='12'>December</option>
+    </select></td>
+    </tr>
     </table>
-    
+
 
     <?php 
         foreach($main_pap as $mp){
@@ -136,15 +167,13 @@ table {
                     </tr>
                     <tr>
                         <td align=center>Allotment</td>
-                        <td align=center>Obligation as of the<br/>Previous Month</td>
-                        <td align=center>Obligation for<br/>This Month</td>
+                        <td align=center>Obligation as of<br/>This Month</td>
                         <td align=center>Balance in<br/>Allotment</td>
                         <td align=center>Utilization</td>
                     </tr>
                     <tr>
                         <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='allotment-$amt_id' id='allotment-$amt_id' value='$total_all' readonly></td>
-                        <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='oblPre-$amt_id' id='oblPre-$amt_id' readonly></td>
-                        <td align=center><input step='0.01' placeholder='UNDER MAINTENANCE' class='number' name='obligation-amount-$amt_id' id='obligation-amount-$amt_id'></td>
+                        <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='oblThis-$amt_id' id='oblThis-$amt_id' readonly></td>
                         <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='balAll-$amt_id' id='balAll-$amt_id' readonly></td>
                         <td align=center><input style='background-color:#ECECEC' placeholder='0000' name='uti-$amt_id' id='uti-$amt_id' readonly></td>
                     </tr>
