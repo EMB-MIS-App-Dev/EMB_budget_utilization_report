@@ -44,7 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo base_url(); ?>" class="nav-link">Home</a>
+        <a href="<?php echo base_url(); ?>home" class="nav-link">Home</a>
       </li>
       <?php if($user->region == "CO") : ?>
       <li class="nav-item d-none d-sm-inline-block">
@@ -78,7 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="<?php echo base_url(); ?>" class="nav-link" class="d-block">Budget Utilization Report</a>
+          <a href="<?php echo base_url(); ?>home" class="nav-link" class="d-block">Budget Utilization Report</a>
         </div>
       </div>
 
@@ -86,9 +86,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
-        <?php if($user->region == "CO") : ?>
         
           <li class="nav-item has-treeview menu-open">
+            <?php if($user->region == "CO") : ?>
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -109,9 +109,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Programs</p>
                 </a>
               </li>
+            <?php endif; ?>
+              <li class="nav-item">
+                <a href="<?php echo base_url(); ?>reports" class="nav-link">
+                  <i class="nav-icon fas fa-chart-bar"></i>
+                  <p>
+                    Reports
+                  </p>
+                </a>
+              </li>
             </ul>
           </li>
-        <?php endif; ?>
+        
 
         </ul>
       </nav>

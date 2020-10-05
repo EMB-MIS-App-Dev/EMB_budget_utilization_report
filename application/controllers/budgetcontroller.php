@@ -1,5 +1,16 @@
 <?php
     class Budgetcontroller extends CI_Controller{
+        public function get_token(){
+            $_SESSION['token'] = $_GET['token'];
+            $_SESSION['token_id'] = $_GET['token_id'];
+            
+            $user['user'] = $this->budget_allocation_model->get_user();
+            
+            $this->load->view('templates/header', $user);
+            $this->load->view('home');
+            $this->load->view('templates/footer');
+        }
+        
         public function home(){
             $user['user'] = $this->budget_allocation_model->get_user();
 

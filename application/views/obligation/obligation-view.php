@@ -55,7 +55,6 @@
                         <td><?php echo strtoupper($allotment['all_class']); ?></td>
                         <td>
                             <a href="obligation/<?php echo $allotment['all_id'] ?>"><i class="fa fa-plus" style="font-size:24px; color:green"></i></a>
-                            <a href="obligation/summary/<?php echo $allotment['all_id'] ?>" target="_blank"><i class="fa fa-list-alt" style="font-size:24px; margin-left: 1em;"></i></a>
                         </td>
                     </tr>   
                 <?php endif; ?>

@@ -1,9 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$route['default_controller'] = 'budgetcontroller/home';
+$route['default_controller'] = 'budgetcontroller/get_token';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['home'] = 'budgetcontroller/home';
 
 //ALLOTMENT
 $route['allotment'] = 'budgetcontroller/allotment';
@@ -16,7 +18,6 @@ $route['allotment/update'] = 'budgetcontroller/allotment_update';
 //OBLIGATION
 $route['obligation'] = 'obligationcontroller/obligation';
 $route['obligation/(:num)'] = 'obligationcontroller/obligation_month/$1';
-$route['obligation/summary/(:num)'] = 'obligationcontroller/obligation_month_summary/$1';
 $route['obligation/update'] = 'obligationcontroller/obligation_update';
 //END OBLIGATION
 
@@ -41,3 +42,7 @@ $route['sp/edit/(:num)'] = 'budgetcontroller/sub_pap_edit/$1';
 $route['sp/update'] = 'budgetcontroller/sub_pap_update';
 $route['sp/delete/(:num)'] = 'budgetcontroller/sub_pap_delete/$1';
 //END SUB PAP
+
+//REPORTS
+$route['reports'] = 'reportscontroller/reports_view';
+//END REPORTS
