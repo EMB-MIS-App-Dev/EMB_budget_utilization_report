@@ -579,6 +579,33 @@ class Budget_allocation_model extends CI_Model{
     }
 
     public function delete_allotment($id){
+        $this->db_budget->select('*');
+        $this->db_budget->from('allotment_amount');
+        $this->db_budget->join('disbursements', 'allotment_amount.amt_id = disbursements.dis_amt_id');
+
+        $query = $this->db_budget->get();
+
+        foreach($query->result_array() as $row){
+            $amt_id = $row['amt_id'];
+
+            $this->db_budget->where('dis_amt_id', $amt_id);
+            $this->db_budget->delete('disbursements');
+        }
+
+        $this->db_budget->select('*');
+        $this->db_budget->from('allotment_amount');
+        $this->db_budget->join('obligations', 'allotment_amount.amt_id = obligations.ob_amt_id');
+
+        $query1 = $this->db_budget->get();
+
+        foreach($query1->result_array() as $row1){
+            $amt_id = $row1['amt_id'];
+
+            $this->db_budget->where('ob_amt_id', $amt_id);
+            $this->db_budget->delete('obligations');
+        }
+
+        
         $this->db_budget->where('amt_all_id', $id);
         $this->db_budget->delete('allotment_amount');
 
