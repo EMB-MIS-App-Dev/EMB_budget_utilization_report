@@ -14,7 +14,8 @@
 
             // echo json_encode($data['allotments']);
             $this->load->view('templates/header', $user);
-            $this->load->view('reports/reports-view', $user);
+            $this->load->view('reports/reports-view');
+            $this->load->view('js/reports-js');
             $this->load->view('templates/footer');
         }
         

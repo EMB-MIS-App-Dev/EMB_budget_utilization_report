@@ -1,8 +1,8 @@
 <?php
     class Budgetcontroller extends CI_Controller{
         public function get_token(){
-            $_SESSION['token'] = $_GET['token'];
-            $_SESSION['token_id'] = $_GET['token_id'];
+            // $_SESSION['token'] = $_GET['token'];
+            // $_SESSION['token_id'] = $_GET['token_id'];
             
             $user['user'] = $this->budget_allocation_model->get_user();
             

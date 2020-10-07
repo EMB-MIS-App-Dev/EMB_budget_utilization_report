@@ -104,7 +104,7 @@
             <div class="col-sm-4"></div>
 
             <div class="col-sm-4">
-            <button name="generate" class='btn btn-primary' >Generate Report</button>
+            <button name="generate" id="generatebtn" class='btn btn-primary' >Generate Report</button>
             </div>
 
             <div class="col-sm-1">Class: </div>
@@ -120,4 +120,6 @@
             <div class="col-sm-4"></div>
         </div>
     </div>
+
+    <div id="reportDisp"></div>
 </div>
