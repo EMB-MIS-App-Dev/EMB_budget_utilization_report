@@ -11,10 +11,11 @@
 
         public function reports_view(){
             $user['user'] = $this->budget_allocation_model->get_user();
+            $data['allotment_amt_all'] = $this->budget_allocation_model->allotment_report();
 
-            // echo json_encode($data['allotments']);
+            // echo json_encode($data['allotment_amt_all']);
             $this->load->view('templates/header', $user);
-            $this->load->view('reports/reports-view');
+            $this->load->view('reports/reports-view', $data);
             $this->load->view('js/reports-js');
             $this->load->view('templates/footer');
         }

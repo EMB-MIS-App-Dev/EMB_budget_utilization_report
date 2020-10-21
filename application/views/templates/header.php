@@ -87,7 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
         
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <?php if($user->region == "CO") : ?>
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -110,15 +110,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
             <?php endif; ?>
-              <li class="nav-item">
-                <a href="<?php echo base_url(); ?>reports" class="nav-link">
-                  <i class="nav-icon fas fa-chart-bar"></i>
-                  <p>
-                    Reports
-                  </p>
-                </a>
-              </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url(); ?>reports" class="nav-link">
+              <i class="nav-icon fas fa-chart-bar"></i>
+              <p>
+                Reports
+              </p>
+            </a>
           </li>
         
 

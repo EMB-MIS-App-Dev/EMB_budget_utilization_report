@@ -13,10 +13,11 @@ class Budget_allocation_model extends CI_Model{
                 "verify_peer"=>false,
                 "verify_peer_name"=>false,
             ),
-        );  
+        );
 
         // $api = file_get_contents("https://iis.emb.gov.ph/embis/pbsapi/?token=". $_SESSION['token'] ."&token_id=". $_SESSION['token_id'] ."",  false, stream_context_create($arrContextOptions));
-        $api = file_get_contents("https://iis.emb.gov.ph/embis/pbsapi/?token=Slt5oFqjEKMCZUQ5QBCvUxsNMuCn2riyxnOuTOpuwmFlFQ5UGxvHxIaRV3bNLJlaBIoS3HwQG8d8b.XKxLTcKA--&token_id=33955f2d1416677fc",  false, stream_context_create($arrContextOptions));
+        $token = '~nZwP86qpvmummJIDIgvBEQ5YMsqjE9yxK.idedSE4WzUpA7lRq5H96.~AuStI.MbfzHPd2zKC1E7jO9dRqiTw--';
+        $api = file_get_contents("https://iis.emb.gov.ph/embis/pbsapi/?token=$token&token_id=33955f2d1416677fc",  false, stream_context_create($arrContextOptions));
         
         $user = json_decode($api);
 
@@ -675,5 +676,15 @@ class Budget_allocation_model extends CI_Model{
     }
     // ---------------------------------- END ALLOTMENT TABLE ----------------------------------
 
+    // ---------------------------------- ALLOTMENT REPORT ----------------------------------
+    public function allotment_report(){
+        $this->db_budget->select('*');
+        $this->db_budget->from('allotment_amount');
+        $this->db_budget->join('allotment', 'allotment.all_id = allotment_amount.amt_all_id');
+        $this->db_budget->join('sub_pap', 'sub_pap.sp_id = allotment_amount.amt_sub_pap_id');
+        $query = $this->db_budget->get();
+        return $query->result_array();
+    }
+    // ---------------------------------- END ALLOTMENT REPORT ----------------------------------
 }
 ?>
