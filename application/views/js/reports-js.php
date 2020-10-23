@@ -13,8 +13,9 @@ $("#generatebtn").click(function(){
         alert('Please select Month range.');
     }else{
 
-        var co_tarOblThis = 0;
         var co_tarOblThis_total = 0;
+        var co_actOblThis_total = 0;
+        var co_totalAll = 0;
 
         <?php foreach($allotment_amt_all as $aa) : ?>
         // //   $aa['mp_id'];
@@ -24,7 +25,8 @@ $("#generatebtn").click(function(){
                     if($("[name='class']").val() == "<?php echo $aa['all_class']; ?>"){
                         if("<?php echo $aa['all_region']; ?>" == "CO"){
 
-                            var month = [Number(<?php echo $aa['amt_jan']; ?>), 
+                            // Target Obligation as of this Month
+                            var monthAll = [Number(<?php echo $aa['amt_jan']; ?>), 
                                         Number(<?php echo $aa['amt_feb']; ?>),
                                         Number(<?php echo $aa['amt_mar']; ?>),
                                         Number(<?php echo $aa['amt_apr']; ?>),
@@ -42,13 +44,39 @@ $("#generatebtn").click(function(){
                             var to = Number($("[name='month_to']").val())-1;
                             
                             for (var i = from; i <= to; i++) {
-                                co_tarOblThis_total += Number(month[i]);   
+                                co_tarOblThis_total += Number(monthAll[i]);   
                             }
+
+                            //Total
+                            for (var i = 0; i <= 11; i++) {
+                                co_totalAll += Number(monthAll[i]);   
+                            }
+                             
+
+                            // Actual Obligation as of this Month
+                            <?php foreach($obligation as $ob) : ?>
+                                if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ob['ob_amt_id']; ?>"){
+
+                                    var from = Number($("[name='month_from']").val());
+                                    var to = Number($("[name='month_to']").val());
+                                    
+                                    var myMonth = <?php echo $ob['ob_month']; ?>;
+
+                                    if (myMonth >= from && myMonth <= to){
+                                        co_actOblThis_total += Number(<?php echo $ob['ob_amount']; ?>);
+                                    }
+                                }
+                            <?php endforeach; ?>
                         }
                     }
                 }   
             }
         <?php endforeach; ?>
+
+        co_totalAll = (co_tarOblThis_total/co_totalAll) * 100;
+        co_totalAll = Math.floor(co_totalAll); 
+
+
 
         co_tarOblThis_total = co_tarOblThis_total.toFixed(2)
                     .replace(/[^\d.]/g, "")
@@ -56,7 +84,14 @@ $("#generatebtn").click(function(){
                     .replace(/\.(\d{2})\d+/, '.$1')
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
+        co_actOblThis_total = co_actOblThis_total.toFixed(2)
+                    .replace(/[^\d.]/g, "")
+                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                    .replace(/\.(\d{2})\d+/, '.$1')
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
+        
+        
         var $input = $(
         "<div style='text-align:center'>"+
             "<h5>"+
@@ -104,8 +139,8 @@ $("#generatebtn").click(function(){
             "<tr>"+
                 "<td>CO</td>"+
                 "<td>"+co_tarOblThis_total+"</td>"+
-                "<td>0</td>"+
-                "<td>0</td>"+
+                "<td>"+co_actOblThis_total+"</td>"+
+                "<td>"+co_totalAll+"%</td>"+
                 "<td>0</td>"+
                 "<td>0</td>"+
                 "<td>0</td>"+

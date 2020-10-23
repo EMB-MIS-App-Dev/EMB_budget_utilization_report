@@ -11,7 +11,10 @@
 
         public function reports_view(){
             $user['user'] = $this->budget_allocation_model->get_user();
+
             $data['allotment_amt_all'] = $this->budget_allocation_model->allotment_report();
+            $data['obligation'] = $this->budget_obligations_model->view_obligation();
+            
 
             // echo json_encode($data['allotment_amt_all']);
             $this->load->view('templates/header', $user);
