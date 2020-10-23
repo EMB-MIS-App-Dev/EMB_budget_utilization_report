@@ -85,5 +85,15 @@
         </div>
     </div>
 
-    <div id="reportDisp"></div>
+    <div id="reportDispHeader" style="display: none;"></div>
+    <table id='reportDisp' border=1 style="display: none;">
+        <tr>
+            <th>Region</th>
+            <th>Target Obligation as of this Month</th>
+            <th>Actual Obligation as of this Month</th>
+            <th>Target</th>
+            <th>Accomplishment</th>
+            <th>Under Accomplishment</th>
+        </tr>
+    </table>
 </div>
