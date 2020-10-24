@@ -7,6 +7,7 @@
                 <select name='report' class="browser-default custom-select">
                     <option value=''>SELECT</option>
                     <option value='fp'>Fianancial Performance</option>
+                    <option value='ut'>Utilization</option>
                 </select>
             </div>
 
@@ -86,14 +87,6 @@
     </div>
 
     <div id="reportDispHeader" style="display: none;"></div>
-    <table id='reportDisp' border=1 style="display: none;">
-        <tr>
-            <th>Region</th>
-            <th>Target Obligation as of this Month</th>
-            <th>Actual Obligation as of this Month</th>
-            <th>Target</th>
-            <th>Accomplishment</th>
-            <th>Under Accomplishment</th>
-        </tr>
+    <table id='reportDisp' style="display: none;" border=1>
     </table>
 </div>
