@@ -12,7 +12,7 @@ $("#generatebtn").click(function(){
     }else if($("[name='month_from']").val() == "" || $("[name='month_to']").val() == ""){
         alert('Please select Month range.');
     }else{
-
+        // ------------------- FINANCIAL PERFORMANCE REPORT -------------------
         if($( "[name='report'] option:selected" ).val() == "fp"){
             var $inputH = $(
                     "<div style='text-align:center'>"+
@@ -150,6 +150,7 @@ $("#generatebtn").click(function(){
                     
 
             }
+        // ------------------- UTILIZATION REPORT -------------------
         }else if($( "[name='report'] option:selected" ).val() == "ut"){
             var $inputH = $(
                     "<div style='text-align:center'>"+

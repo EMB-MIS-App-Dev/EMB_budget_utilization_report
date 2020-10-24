@@ -86,40 +86,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
-        
-          <li class="nav-item has-treeview">
-            <?php if($user->region == "CO") : ?>
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Settings
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?php echo base_url(); ?>mp" class="nav-link" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Main</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url(); ?>sp" class="nav-link" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Programs</p>
-                </a>
-              </li>
-            <?php endif; ?>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="<?php echo base_url(); ?>reports" class="nav-link">
-              <i class="nav-icon fas fa-chart-bar"></i>
-              <p>
-                Reports
-              </p>
-            </a>
-          </li>
+          <?php if($user->region == "CO") : ?>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Settings
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?php echo base_url(); ?>mp" class="nav-link" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Main</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo base_url(); ?>sp" class="nav-link" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Programs</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="<?php echo base_url(); ?>reports" class="nav-link">
+                <i class="nav-icon fas fa-chart-bar"></i>
+                <p>
+                  Reports
+                </p>
+              </a>
+            </li>
+          
+          <?php endif; ?>
         
 
         </ul>
