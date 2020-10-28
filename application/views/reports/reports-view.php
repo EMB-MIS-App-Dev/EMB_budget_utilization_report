@@ -78,10 +78,13 @@
             <div class="col-sm-4"></div>
 
             <div class="col-sm-4">
-            <button name="generate" id="generatebtn" class='btn btn-primary' >Generate Report</button>
+                <button name="generate" id="generatebtn" class='btn btn-primary' >Generate Report</button>
+            </div>
+            <div class="col-sm-4">
+                <button id="btnExport" onclick="fnExcelReport();" class='btn btn-success'>Export Report</button>
             </div>
             
-            <div class="col-sm-8"></div>
+            <div class="col-sm-4"></div>
 
         </div>
     </div>
