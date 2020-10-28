@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/EMB_PROJECTS/budget_utilization_report_v3';
+// $config['base_url'] = 'https://122.3.242.36/bur/';
 
 /*
 |--------------------------------------------------------------------------
