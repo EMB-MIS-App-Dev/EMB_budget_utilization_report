@@ -16,7 +16,7 @@ class Budget_allocation_model extends CI_Model{
         );
 
         // $api = file_get_contents("https://iis.emb.gov.ph/embis/pbsapi/?token=". $_SESSION['token'] ."&token_id=". $_SESSION['token_id'] ."",  false, stream_context_create($arrContextOptions));
-        $token = 'hpXtgW5UQ~a8TzjIFJIRWcKdtDsgfKgpBrODS9RejpBN62KI.68J.JLikXVqa~4HJnabBj9fe.Ly66wBjbYytg--';
+        $token = '7AG7qZWl.izAyq6yRLyEDUlOrACA0TxREAiGELXoCoey2zYp4QGr0yTpSMey6H72lA2xQejJ3Q1r3YGAqDIAcQ--';
         $api = file_get_contents("https://iis.emb.gov.ph/embis/pbsapi/?token=$token&token_id=33955f2d1416677fc",  false, stream_context_create($arrContextOptions));
         
         $user = json_decode($api);

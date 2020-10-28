@@ -86,7 +86,9 @@
         </div>
     </div>
 
-    <div id="reportDispHeader" style="display: none;"></div>
-    <table id='reportDisp' style="display: none;" border=1>
+    <div class="reportDispHeader" style="display: none;"></div>
+    <table id="myTable" style="display: none; text-align:center;" class="table table-striped table-bordered table-sm align reportDisp">
+    </tbody>
     </table>
+
 </div>
