@@ -67,18 +67,18 @@ $("#generatebtn").click(function(){
                                 if("<?php echo $aa['all_region']; ?>" == region){
 
                                     // Target Obligation as of this Month
-                                    var month = [Number(<?php echo $aa['amt_jan']; ?>), 
-                                                Number(<?php echo $aa['amt_feb']; ?>),
-                                                Number(<?php echo $aa['amt_mar']; ?>),
-                                                Number(<?php echo $aa['amt_apr']; ?>),
-                                                Number(<?php echo $aa['amt_may']; ?>),
-                                                Number(<?php echo $aa['amt_jun']; ?>),
-                                                Number(<?php echo $aa['amt_jul']; ?>),
-                                                Number(<?php echo $aa['amt_aug']; ?>),
-                                                Number(<?php echo $aa['amt_sep']; ?>),
-                                                Number(<?php echo $aa['amt_oct']; ?>),
-                                                Number(<?php echo $aa['amt_nov']; ?>),
-                                                Number(<?php echo $aa['amt_dec']; ?>)
+                                    var month = [Number(<?php echo str_replace(",","",$aa['amt_jan']); ?>), 
+                                                Number(<?php echo str_replace(",","",$aa['amt_feb']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_mar']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_apr']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_may']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_jun']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_jul']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_aug']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_sep']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_oct']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_nov']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_dec']); ?>)
                                                 ];
 
                                     var from = Number($("[name='month_from']").val())-1;
@@ -206,18 +206,18 @@ $("#generatebtn").click(function(){
                                 if("<?php echo $aa['all_region']; ?>" == region){
 
                                     // Target Obligation as of this Month
-                                    var month = [Number(<?php echo $aa['amt_jan']; ?>), 
-                                                Number(<?php echo $aa['amt_feb']; ?>),
-                                                Number(<?php echo $aa['amt_mar']; ?>),
-                                                Number(<?php echo $aa['amt_apr']; ?>),
-                                                Number(<?php echo $aa['amt_may']; ?>),
-                                                Number(<?php echo $aa['amt_jun']; ?>),
-                                                Number(<?php echo $aa['amt_jul']; ?>),
-                                                Number(<?php echo $aa['amt_aug']; ?>),
-                                                Number(<?php echo $aa['amt_sep']; ?>),
-                                                Number(<?php echo $aa['amt_oct']; ?>),
-                                                Number(<?php echo $aa['amt_nov']; ?>),
-                                                Number(<?php echo $aa['amt_dec']; ?>)
+                                    var month = [Number(<?php echo str_replace(",","",$aa['amt_jan']); ?>), 
+                                                Number(<?php echo str_replace(",","",$aa['amt_feb']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_mar']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_apr']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_may']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_jun']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_jul']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_aug']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_sep']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_oct']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_nov']); ?>),
+                                                Number(<?php echo str_replace(",","",$aa['amt_dec']); ?>)
                                                 ];
 
                                     //Target
