@@ -31,7 +31,14 @@
     <form action="<?= base_url('obligation/update'); ?>" method="post" accept-charset="utf-8">
 
         <div class="form-group-create">
-            <p><b><?php echo 'Region '.$region ?></b></p>    
+            <!-- <p><b><?php echo 'Region '.$region ?></b></p>   -->
+            <?php
+                if($region == 'CO'){
+                    echo"<p><b>Central Office</b></p>";
+                }else{
+                    echo"<p><b>$region Office</b></p>";
+                }
+            ?>  
             <p><?php echo 'For year '.$year ?></p>
             <?php
                 if($category == 'cu'){

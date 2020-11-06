@@ -104,7 +104,7 @@ $("#generatebtn").click(function(){
                                             var myMonth = <?php echo $ob['ob_month']; ?>;
 
                                             if (myMonth >= from && myMonth <= to){
-                                                actOblThis_total += Number(<?php echo $ob['ob_amount']; ?>);
+                                                actOblThis_total += Number(<?php echo str_replace(",","",$ob['ob_amount']); ?>);
                                             }
                                         }
                                     <?php endforeach; ?>
@@ -236,7 +236,7 @@ $("#generatebtn").click(function(){
                                             var myMonth = <?php echo $ob['ob_month']; ?>;
 
                                             if (myMonth >= from && myMonth <= to){
-                                                actOblThis_total += Number(<?php echo $ob['ob_amount']; ?>);
+                                                actOblThis_total += Number(<?php echo str_replace(",","",$ob['ob_amount']); ?>);
                                             }
                                         }
                                     <?php endforeach; ?>
