@@ -28,12 +28,12 @@ $("#generatebtn").click(function(){
             var $inputTH = $(
                 "<thead>"+
                 "<tr>"+
-                    "<th>Region</th>"+
+                    "<th>Region Office</th>"+
                     "<th>Target Obligation as of this Month</th>"+
                     "<th>Actual Obligation as of this Month</th>"+
                     "<th>Target</th>"+
                     "<th>Accomplishment</th>"+
-                    "<th>Under Accomplishment</th>"+
+                    "<th>Actual Disbursements as of this Month</th>"+
                 "</tr>"+
                 "</thead>"+
                 "<tbody>"
@@ -51,13 +51,13 @@ $("#generatebtn").click(function(){
                 var actOblThis_total = region+'_actOblThis_total';
                 var target = region+'_target';
                 var accom = region+'_accom';
-                var under_accom = region+'_under_accom';
+                var actDisThis_total = region+'_actDisThis_total';
 
                 tarOblThis_total = 0;
                 actOblThis_total = 0;
                 target = 0;
                 accom = 0;
-                under_accom = 0;
+                actDisThis_total = 0;
 
                 <?php foreach($allotment_amt_all as $aa) : ?>
                     if ($("[name='category']").val() == "<?php echo $aa['all_category']; ?>"){
@@ -108,6 +108,21 @@ $("#generatebtn").click(function(){
                                             }
                                         }
                                     <?php endforeach; ?>
+
+                                    // Actual Disbursements as of this Month
+                                    <?php foreach($disbursements as $ds) : ?>
+                                        if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ds['dis_amt_id']; ?>"){
+
+                                            var from = Number($("[name='month_from']").val());
+                                            var to = Number($("[name='month_to']").val());
+                                            
+                                            var myMonth = <?php echo $ds['dis_month']; ?>;
+
+                                            if (myMonth >= from && myMonth <= to){
+                                                actDisThis_total += Number(<?php echo str_replace(",","",$ds['dis_amount']); ?>);
+                                            }
+                                        }
+                                    <?php endforeach; ?>
                                 }
                             }
                         }   
@@ -122,10 +137,6 @@ $("#generatebtn").click(function(){
                 accom = (actOblThis_total/tarOblThis_total) * 100;
                 accom = Math.floor(accom); 
 
-                //Under Accomplishment
-                under_accom = (100-accom);
-                under_accom = Math.floor(under_accom); 
-
                 tarOblThis_total = tarOblThis_total.toFixed(2)
                             .replace(/[^\d.]/g, "")
                             .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
@@ -133,6 +144,12 @@ $("#generatebtn").click(function(){
                             .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
                 actOblThis_total = actOblThis_total.toFixed(2)
+                            .replace(/[^\d.]/g, "")
+                            .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                            .replace(/\.(\d{2})\d+/, '.$1')
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+                actDisThis_total = actDisThis_total.toFixed(2)
                             .replace(/[^\d.]/g, "")
                             .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
                             .replace(/\.(\d{2})\d+/, '.$1')
@@ -145,7 +162,7 @@ $("#generatebtn").click(function(){
                             "<td>"+actOblThis_total+"</td>"+
                             "<td>"+target+"%</td>"+
                             "<td>"+accom+"%</td>"+
-                            "<td>"+under_accom+"%</td>"+
+                            "<td>"+actDisThis_total+"</td>"+
                         "</tr>"
                 );
             
@@ -167,12 +184,12 @@ $("#generatebtn").click(function(){
             var $inputTH = $(
                 "<thead>"+
                 "<tr>"+
-                    "<th>Region</th>"+
+                    "<th>Region Office</th>"+
                     "<th>Total Allotment</th>"+
                     "<th>Actual Obligation as of this Month</th>"+
                     "<th>Balance in Allotment</th>"+
                     "<th>% Utilization</th>"+
-                    "<th>% Unutilized</th>"+
+                    "<th>Actual Disbursements as of this Month</th>"+
                 "</tr>"+
                 "</thead>"+
                 "<tbody>"
@@ -190,13 +207,13 @@ $("#generatebtn").click(function(){
                 var actOblThis_total = region+'_actOblThis_total';
                 var balanceAll = region+'_balanceAll';
                 var utilization = region+'_utilization';
-                var unutilized = region+'_unutilized';
+                var actDisThis_total = region+'_actDisThis_total';
 
                 totalAll = 0;
                 actOblThis_total = 0;
                 balanceAll = 0;
                 utilization = 0;
-                unutilized = 0;
+                actDisThis_total = 0;
 
                 <?php foreach($allotment_amt_all as $aa) : ?>
                     if ($("[name='category']").val() == "<?php echo $aa['all_category']; ?>"){
@@ -240,6 +257,21 @@ $("#generatebtn").click(function(){
                                             }
                                         }
                                     <?php endforeach; ?>
+
+                                    // Actual Disbursements as of this Month
+                                    <?php foreach($disbursements as $ds) : ?>
+                                        if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ds['dis_amt_id']; ?>"){
+
+                                            var from = Number($("[name='month_from']").val());
+                                            var to = Number($("[name='month_to']").val());
+                                            
+                                            var myMonth = <?php echo $ds['dis_month']; ?>;
+
+                                            if (myMonth >= from && myMonth <= to){
+                                                actDisThis_total += Number(<?php echo str_replace(",","",$ds['dis_amount']); ?>);
+                                            }
+                                        }
+                                    <?php endforeach; ?>
                                 }
                             }
                         }   
@@ -252,10 +284,6 @@ $("#generatebtn").click(function(){
                 // utilization
                 utilization = (actOblThis_total/totalAll) * 100;
                 utilization = Math.floor(utilization); 
-
-                // unutilized
-                unutilized = (100-utilization);
-                unutilized = Math.floor(unutilized); 
 
                 totalAll = totalAll.toFixed(2)
                             .replace(/[^\d.]/g, "")
@@ -274,6 +302,12 @@ $("#generatebtn").click(function(){
                             .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
                             .replace(/\.(\d{2})\d+/, '.$1')
                             .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+                actDisThis_total = actDisThis_total.toFixed(2)
+                            .replace(/[^\d.]/g, "")
+                            .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                            .replace(/\.(\d{2})\d+/, '.$1')
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 
                 var $input = $(
                         "<tr>"+
@@ -282,7 +316,7 @@ $("#generatebtn").click(function(){
                             "<td>"+actOblThis_total+"</td>"+
                             "<td>"+balanceAll+"</td>"+
                             "<td>"+utilization+"%</td>"+
-                            "<td>"+unutilized+"%</td>"+
+                            "<td>"+actDisThis_total+"</td>"+
                         "</tr>"
                 );
             

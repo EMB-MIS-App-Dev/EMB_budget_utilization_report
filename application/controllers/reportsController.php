@@ -14,6 +14,7 @@
 
             $data['allotment_amt_all'] = $this->budget_allocation_model->allotment_report();
             $data['obligation'] = $this->budget_obligations_model->view_obligation();
+            $data['disbursements'] = $this->budget_disbursements_model->view_disbursements();
             
 
             // echo json_encode($data['allotment_amt_all']);

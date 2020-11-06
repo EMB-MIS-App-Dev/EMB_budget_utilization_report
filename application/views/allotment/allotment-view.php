@@ -14,7 +14,7 @@
     <div class="col-sm-4" >
         <thead>
             <tr>
-                <th scope="col">Region</th>
+                <th scope="col">Region Office</th>
                 <th scope="col">Year</th>
                 <th scope="col">Category</th>
                 <th scope="col">Type</th>
