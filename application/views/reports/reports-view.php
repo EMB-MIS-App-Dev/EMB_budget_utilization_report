@@ -20,6 +20,7 @@
                     <option value='cu'>Current</option>
                     <option value='ca'>Continuing Appropriation</option>
                     <option value='aa'>Automatic Appropriation</option>
+                    <option value='cunca'>Current + Continuing</option>
                 </select>
             </div>
             
