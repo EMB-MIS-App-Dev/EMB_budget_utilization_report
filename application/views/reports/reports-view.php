@@ -31,6 +31,8 @@
                     <option value='ps'>PS</option>
                     <option value='mo'>MOOE</option>
                     <option value='co'>CO</option>
+                    <option value='psnmonco'>PS + MO + CO</option>
+                    <option value='monco'>MO + CO</option>
                 </select>
             </div>
 

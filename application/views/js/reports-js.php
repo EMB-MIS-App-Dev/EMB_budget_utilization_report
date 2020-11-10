@@ -124,6 +124,133 @@ $("#generatebtn").click(function(){
                                         }
                                     <?php endforeach; ?>
                                 }
+                            }else if ($("[name='class']").val() == "psnmonco"){
+                                if("<?php echo $aa['all_class']; ?>" == "ps" || "<?php echo $aa['all_class']; ?>" == "mo" || "<?php echo $aa['all_class']; ?>" == "co"){
+                                    if("<?php echo $aa['all_region']; ?>" == region){
+
+                                        // Target Obligation as of this Month
+                                        var month = [Number(<?php echo str_replace(",","",$aa['amt_jan']); ?>), 
+                                                    Number(<?php echo str_replace(",","",$aa['amt_feb']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_mar']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_apr']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_may']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_jun']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_jul']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_aug']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_sep']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_oct']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_nov']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_dec']); ?>)
+                                                    ];
+
+                                        var from = Number($("[name='month_from']").val())-1;
+                                        var to = Number($("[name='month_to']").val())-1;
+
+                                        for (var i = from; i <= to; i++) {
+                                            tarOblThis_total += Number(month[i]);   
+                                        }
+
+                                        //Target
+                                        for (var i = 0; i <= 11; i++) {
+                                            target += Number(month[i]);   
+                                        }
+
+
+                                        // Actual Obligation as of this Month
+                                        <?php foreach($obligation as $ob) : ?>
+                                            if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ob['ob_amt_id']; ?>"){
+
+                                                var from = Number($("[name='month_from']").val());
+                                                var to = Number($("[name='month_to']").val());
+                                                
+                                                var myMonth = <?php echo $ob['ob_month']; ?>;
+
+                                                if (myMonth >= from && myMonth <= to){
+                                                    actOblThis_total += Number(<?php echo str_replace(",","",$ob['ob_amount']); ?>);
+                                                }
+                                            }
+                                        <?php endforeach; ?>
+
+                                        // Actual Disbursements as of this Month
+                                        <?php foreach($disbursements as $ds) : ?>
+                                            if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ds['dis_amt_id']; ?>"){
+
+                                                var from = Number($("[name='month_from']").val());
+                                                var to = Number($("[name='month_to']").val());
+                                                
+                                                var myMonth = <?php echo $ds['dis_month']; ?>;
+
+                                                if (myMonth >= from && myMonth <= to){
+                                                    actDisThis_total += Number(<?php echo str_replace(",","",$ds['dis_amount']); ?>);
+                                                }
+                                            }
+                                        <?php endforeach; ?>
+                                    }
+                                }
+                            
+                            }else if ($("[name='class']").val() == "monco"){
+                                if("<?php echo $aa['all_class']; ?>" == "mo" || "<?php echo $aa['all_class']; ?>" == "co"){
+                                    if("<?php echo $aa['all_region']; ?>" == region){
+
+                                        // Target Obligation as of this Month
+                                        var month = [Number(<?php echo str_replace(",","",$aa['amt_jan']); ?>), 
+                                                    Number(<?php echo str_replace(",","",$aa['amt_feb']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_mar']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_apr']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_may']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_jun']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_jul']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_aug']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_sep']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_oct']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_nov']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_dec']); ?>)
+                                                    ];
+
+                                        var from = Number($("[name='month_from']").val())-1;
+                                        var to = Number($("[name='month_to']").val())-1;
+
+                                        for (var i = from; i <= to; i++) {
+                                            tarOblThis_total += Number(month[i]);   
+                                        }
+
+                                        //Target
+                                        for (var i = 0; i <= 11; i++) {
+                                            target += Number(month[i]);   
+                                        }
+
+
+                                        // Actual Obligation as of this Month
+                                        <?php foreach($obligation as $ob) : ?>
+                                            if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ob['ob_amt_id']; ?>"){
+
+                                                var from = Number($("[name='month_from']").val());
+                                                var to = Number($("[name='month_to']").val());
+                                                
+                                                var myMonth = <?php echo $ob['ob_month']; ?>;
+
+                                                if (myMonth >= from && myMonth <= to){
+                                                    actOblThis_total += Number(<?php echo str_replace(",","",$ob['ob_amount']); ?>);
+                                                }
+                                            }
+                                        <?php endforeach; ?>
+
+                                        // Actual Disbursements as of this Month
+                                        <?php foreach($disbursements as $ds) : ?>
+                                            if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ds['dis_amt_id']; ?>"){
+
+                                                var from = Number($("[name='month_from']").val());
+                                                var to = Number($("[name='month_to']").val());
+                                                
+                                                var myMonth = <?php echo $ds['dis_month']; ?>;
+
+                                                if (myMonth >= from && myMonth <= to){
+                                                    actDisThis_total += Number(<?php echo str_replace(",","",$ds['dis_amount']); ?>);
+                                                }
+                                            }
+                                        <?php endforeach; ?>
+                                    }
+                                }
                             }
                         }   
                     }else if ($("[name='category']").val() == "cunca"){
@@ -190,6 +317,133 @@ $("#generatebtn").click(function(){
                                                 }
                                             }
                                         <?php endforeach; ?>
+                                    }
+                                }else if ($("[name='class']").val() == "psnmonco"){
+                                    if("<?php echo $aa['all_class']; ?>" == "ps" || "<?php echo $aa['all_class']; ?>" == "mo" || "<?php echo $aa['all_class']; ?>" == "co"){
+                                        if("<?php echo $aa['all_region']; ?>" == region){
+
+                                            // Target Obligation as of this Month
+                                            var month = [Number(<?php echo str_replace(",","",$aa['amt_jan']); ?>), 
+                                                        Number(<?php echo str_replace(",","",$aa['amt_feb']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_mar']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_apr']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_may']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_jun']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_jul']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_aug']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_sep']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_oct']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_nov']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_dec']); ?>)
+                                                        ];
+
+                                            var from = Number($("[name='month_from']").val())-1;
+                                            var to = Number($("[name='month_to']").val())-1;
+
+                                            for (var i = from; i <= to; i++) {
+                                                tarOblThis_total += Number(month[i]);   
+                                            }
+
+                                            //Target
+                                            for (var i = 0; i <= 11; i++) {
+                                                target += Number(month[i]);   
+                                            }
+
+
+                                            // Actual Obligation as of this Month
+                                            <?php foreach($obligation as $ob) : ?>
+                                                if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ob['ob_amt_id']; ?>"){
+
+                                                    var from = Number($("[name='month_from']").val());
+                                                    var to = Number($("[name='month_to']").val());
+                                                    
+                                                    var myMonth = <?php echo $ob['ob_month']; ?>;
+
+                                                    if (myMonth >= from && myMonth <= to){
+                                                        actOblThis_total += Number(<?php echo str_replace(",","",$ob['ob_amount']); ?>);
+                                                    }
+                                                }
+                                            <?php endforeach; ?>
+
+                                            // Actual Disbursements as of this Month
+                                            <?php foreach($disbursements as $ds) : ?>
+                                                if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ds['dis_amt_id']; ?>"){
+
+                                                    var from = Number($("[name='month_from']").val());
+                                                    var to = Number($("[name='month_to']").val());
+                                                    
+                                                    var myMonth = <?php echo $ds['dis_month']; ?>;
+
+                                                    if (myMonth >= from && myMonth <= to){
+                                                        actDisThis_total += Number(<?php echo str_replace(",","",$ds['dis_amount']); ?>);
+                                                    }
+                                                }
+                                            <?php endforeach; ?>
+                                        }
+                                    }
+                                
+                                }else if ($("[name='class']").val() == "monco"){
+                                    if("<?php echo $aa['all_class']; ?>" == "mo" || "<?php echo $aa['all_class']; ?>" == "co"){
+                                        if("<?php echo $aa['all_region']; ?>" == region){
+
+                                            // Target Obligation as of this Month
+                                            var month = [Number(<?php echo str_replace(",","",$aa['amt_jan']); ?>), 
+                                                        Number(<?php echo str_replace(",","",$aa['amt_feb']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_mar']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_apr']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_may']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_jun']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_jul']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_aug']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_sep']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_oct']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_nov']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_dec']); ?>)
+                                                        ];
+
+                                            var from = Number($("[name='month_from']").val())-1;
+                                            var to = Number($("[name='month_to']").val())-1;
+
+                                            for (var i = from; i <= to; i++) {
+                                                tarOblThis_total += Number(month[i]);   
+                                            }
+
+                                            //Target
+                                            for (var i = 0; i <= 11; i++) {
+                                                target += Number(month[i]);   
+                                            }
+
+
+                                            // Actual Obligation as of this Month
+                                            <?php foreach($obligation as $ob) : ?>
+                                                if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ob['ob_amt_id']; ?>"){
+
+                                                    var from = Number($("[name='month_from']").val());
+                                                    var to = Number($("[name='month_to']").val());
+                                                    
+                                                    var myMonth = <?php echo $ob['ob_month']; ?>;
+
+                                                    if (myMonth >= from && myMonth <= to){
+                                                        actOblThis_total += Number(<?php echo str_replace(",","",$ob['ob_amount']); ?>);
+                                                    }
+                                                }
+                                            <?php endforeach; ?>
+
+                                            // Actual Disbursements as of this Month
+                                            <?php foreach($disbursements as $ds) : ?>
+                                                if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ds['dis_amt_id']; ?>"){
+
+                                                    var from = Number($("[name='month_from']").val());
+                                                    var to = Number($("[name='month_to']").val());
+                                                    
+                                                    var myMonth = <?php echo $ds['dis_month']; ?>;
+
+                                                    if (myMonth >= from && myMonth <= to){
+                                                        actDisThis_total += Number(<?php echo str_replace(",","",$ds['dis_amount']); ?>);
+                                                    }
+                                                }
+                                            <?php endforeach; ?>
+                                        }
                                     }
                                 }
                             }
@@ -341,6 +595,118 @@ $("#generatebtn").click(function(){
                                         }
                                     <?php endforeach; ?>
                                 }
+                            }else if ($("[name='class']").val() == "psnmonco"){
+                                if("<?php echo $aa['all_class']; ?>" == "ps" || "<?php echo $aa['all_class']; ?>" == "mo" || "<?php echo $aa['all_class']; ?>" == "co"){
+                                    if("<?php echo $aa['all_region']; ?>" == region){
+
+                                        // Target Obligation as of this Month
+                                        var month = [Number(<?php echo str_replace(",","",$aa['amt_jan']); ?>), 
+                                                    Number(<?php echo str_replace(",","",$aa['amt_feb']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_mar']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_apr']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_may']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_jun']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_jul']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_aug']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_sep']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_oct']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_nov']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_dec']); ?>)
+                                                    ];
+
+                                        //Target
+                                        for (var i = 0; i <= 11; i++) {
+                                            totalAll += Number(month[i]);   
+                                        }
+
+
+                                        // Actual Obligation as of this Month
+                                        <?php foreach($obligation as $ob) : ?>
+                                            if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ob['ob_amt_id']; ?>"){
+
+                                                var from = Number($("[name='month_from']").val());
+                                                var to = Number($("[name='month_to']").val());
+                                                
+                                                var myMonth = <?php echo $ob['ob_month']; ?>;
+
+                                                if (myMonth >= from && myMonth <= to){
+                                                    actOblThis_total += Number(<?php echo str_replace(",","",$ob['ob_amount']); ?>);
+                                                }
+                                            }
+                                        <?php endforeach; ?>
+
+                                        // Actual Disbursements as of this Month
+                                        <?php foreach($disbursements as $ds) : ?>
+                                            if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ds['dis_amt_id']; ?>"){
+
+                                                var from = Number($("[name='month_from']").val());
+                                                var to = Number($("[name='month_to']").val());
+                                                
+                                                var myMonth = <?php echo $ds['dis_month']; ?>;
+
+                                                if (myMonth >= from && myMonth <= to){
+                                                    actDisThis_total += Number(<?php echo str_replace(",","",$ds['dis_amount']); ?>);
+                                                }
+                                            }
+                                        <?php endforeach; ?>
+                                    }
+                                }
+                            }else if ($("[name='class']").val() == "monco"){
+                                if("<?php echo $aa['all_class']; ?>" == "mo" || "<?php echo $aa['all_class']; ?>" == "co"){
+                                    if("<?php echo $aa['all_region']; ?>" == region){
+
+                                        // Target Obligation as of this Month
+                                        var month = [Number(<?php echo str_replace(",","",$aa['amt_jan']); ?>), 
+                                                    Number(<?php echo str_replace(",","",$aa['amt_feb']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_mar']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_apr']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_may']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_jun']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_jul']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_aug']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_sep']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_oct']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_nov']); ?>),
+                                                    Number(<?php echo str_replace(",","",$aa['amt_dec']); ?>)
+                                                    ];
+
+                                        //Target
+                                        for (var i = 0; i <= 11; i++) {
+                                            totalAll += Number(month[i]);   
+                                        }
+
+
+                                        // Actual Obligation as of this Month
+                                        <?php foreach($obligation as $ob) : ?>
+                                            if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ob['ob_amt_id']; ?>"){
+
+                                                var from = Number($("[name='month_from']").val());
+                                                var to = Number($("[name='month_to']").val());
+                                                
+                                                var myMonth = <?php echo $ob['ob_month']; ?>;
+
+                                                if (myMonth >= from && myMonth <= to){
+                                                    actOblThis_total += Number(<?php echo str_replace(",","",$ob['ob_amount']); ?>);
+                                                }
+                                            }
+                                        <?php endforeach; ?>
+
+                                        // Actual Disbursements as of this Month
+                                        <?php foreach($disbursements as $ds) : ?>
+                                            if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ds['dis_amt_id']; ?>"){
+
+                                                var from = Number($("[name='month_from']").val());
+                                                var to = Number($("[name='month_to']").val());
+                                                
+                                                var myMonth = <?php echo $ds['dis_month']; ?>;
+
+                                                if (myMonth >= from && myMonth <= to){
+                                                    actDisThis_total += Number(<?php echo str_replace(",","",$ds['dis_amount']); ?>);
+                                                }
+                                            }
+                                        <?php endforeach; ?>
+                                    }
+                                }
                             }
                         }   
                     }else if ($("[name='category']").val() == "cunca"){
@@ -400,6 +766,118 @@ $("#generatebtn").click(function(){
                                                 }
                                             }
                                         <?php endforeach; ?>
+                                    }
+                                }else if ($("[name='class']").val() == "psnmonco"){
+                                    if("<?php echo $aa['all_class']; ?>" == "ps" || "<?php echo $aa['all_class']; ?>" == "mo" || "<?php echo $aa['all_class']; ?>" == "co"){
+                                        if("<?php echo $aa['all_region']; ?>" == region){
+
+                                            // Target Obligation as of this Month
+                                            var month = [Number(<?php echo str_replace(",","",$aa['amt_jan']); ?>), 
+                                                        Number(<?php echo str_replace(",","",$aa['amt_feb']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_mar']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_apr']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_may']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_jun']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_jul']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_aug']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_sep']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_oct']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_nov']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_dec']); ?>)
+                                                        ];
+
+                                            //Target
+                                            for (var i = 0; i <= 11; i++) {
+                                                totalAll += Number(month[i]);   
+                                            }
+
+
+                                            // Actual Obligation as of this Month
+                                            <?php foreach($obligation as $ob) : ?>
+                                                if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ob['ob_amt_id']; ?>"){
+
+                                                    var from = Number($("[name='month_from']").val());
+                                                    var to = Number($("[name='month_to']").val());
+                                                    
+                                                    var myMonth = <?php echo $ob['ob_month']; ?>;
+
+                                                    if (myMonth >= from && myMonth <= to){
+                                                        actOblThis_total += Number(<?php echo str_replace(",","",$ob['ob_amount']); ?>);
+                                                    }
+                                                }
+                                            <?php endforeach; ?>
+
+                                            // Actual Disbursements as of this Month
+                                            <?php foreach($disbursements as $ds) : ?>
+                                                if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ds['dis_amt_id']; ?>"){
+
+                                                    var from = Number($("[name='month_from']").val());
+                                                    var to = Number($("[name='month_to']").val());
+                                                    
+                                                    var myMonth = <?php echo $ds['dis_month']; ?>;
+
+                                                    if (myMonth >= from && myMonth <= to){
+                                                        actDisThis_total += Number(<?php echo str_replace(",","",$ds['dis_amount']); ?>);
+                                                    }
+                                                }
+                                            <?php endforeach; ?>
+                                        }
+                                    }
+                                }else if ($("[name='class']").val() == "monco"){
+                                    if("<?php echo $aa['all_class']; ?>" == "mo" || "<?php echo $aa['all_class']; ?>" == "co"){
+                                        if("<?php echo $aa['all_region']; ?>" == region){
+
+                                            // Target Obligation as of this Month
+                                            var month = [Number(<?php echo str_replace(",","",$aa['amt_jan']); ?>), 
+                                                        Number(<?php echo str_replace(",","",$aa['amt_feb']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_mar']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_apr']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_may']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_jun']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_jul']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_aug']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_sep']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_oct']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_nov']); ?>),
+                                                        Number(<?php echo str_replace(",","",$aa['amt_dec']); ?>)
+                                                        ];
+
+                                            //Target
+                                            for (var i = 0; i <= 11; i++) {
+                                                totalAll += Number(month[i]);   
+                                            }
+
+
+                                            // Actual Obligation as of this Month
+                                            <?php foreach($obligation as $ob) : ?>
+                                                if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ob['ob_amt_id']; ?>"){
+
+                                                    var from = Number($("[name='month_from']").val());
+                                                    var to = Number($("[name='month_to']").val());
+                                                    
+                                                    var myMonth = <?php echo $ob['ob_month']; ?>;
+
+                                                    if (myMonth >= from && myMonth <= to){
+                                                        actOblThis_total += Number(<?php echo str_replace(",","",$ob['ob_amount']); ?>);
+                                                    }
+                                                }
+                                            <?php endforeach; ?>
+
+                                            // Actual Disbursements as of this Month
+                                            <?php foreach($disbursements as $ds) : ?>
+                                                if("<?php echo $aa['amt_id']; ?>" == "<?php echo $ds['dis_amt_id']; ?>"){
+
+                                                    var from = Number($("[name='month_from']").val());
+                                                    var to = Number($("[name='month_to']").val());
+                                                    
+                                                    var myMonth = <?php echo $ds['dis_month']; ?>;
+
+                                                    if (myMonth >= from && myMonth <= to){
+                                                        actDisThis_total += Number(<?php echo str_replace(",","",$ds['dis_amount']); ?>);
+                                                    }
+                                                }
+                                            <?php endforeach; ?>
+                                        }
                                     }
                                 }
                             } 
