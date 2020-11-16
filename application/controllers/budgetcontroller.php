@@ -4,6 +4,8 @@
             // $_SESSION['token'] = $_GET['token'];
             // $_SESSION['token_id'] = $_GET['token_id'];
             
+            $_SESSION['user'] = $this->budget_allocation_model->get_user()->first_name;
+
             $user['user'] = $this->budget_allocation_model->get_user();
             
             $this->load->view('templates/header', $user);
@@ -18,6 +20,8 @@
             $this->load->view('templates/header', $user);
             $this->load->view('home');
             $this->load->view('templates/footer');
+            
+
         }
 
 

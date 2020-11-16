@@ -16,7 +16,7 @@ class Budget_allocation_model extends CI_Model{
         );
 
         // $api = file_get_contents("https://iis.emb.gov.ph/embis/pbsapi/?token=". $_SESSION['token'] ."&token_id=". $_SESSION['token_id'] ."",  false, stream_context_create($arrContextOptions));
-        $token = 'yS6NuEQAaDysNG0iKrThnHA3DnrzILHbMQt71IrwnqE4EGWrMmZFao~2KqOlJvVMb9lBmTmNQ5nQXhiaBpkYdA--';
+        $token = 'AW0TyLdAFClNSDyh6Xt7O1mN5GFsL1Kw40kWUkPB6VEpIN9TYg~FTttra9YtugEsBhZ1iubokRgWe7PBGASTQA--';
         $api = file_get_contents("https://iis.emb.gov.ph/embis/pbsapi/?token=$token&token_id=33955f2d1416677fc",  false, stream_context_create($arrContextOptions));
         
         $user = json_decode($api);
@@ -149,6 +149,16 @@ class Budget_allocation_model extends CI_Model{
 
             $this->db_budget->insert('allotment', $allotment);
             $allotment_id = $this->db_budget->insert_id();
+
+            // insert logs
+            $logs = array(
+                'log_action' => 'create allotment',
+                'log_user' => $_SESSION['user'],
+                'log_remarks' => 'allotment id',
+                'log_data' =>  $allotment_id,
+            );
+
+            $this->db_budget->insert('logs', $logs);
         
             // allotment_amount table
             $this->db_budget->select('*');
@@ -196,6 +206,17 @@ class Budget_allocation_model extends CI_Model{
 
             $this->db_budget->insert('allotment', $allotment);
             $allotment_id = $this->db_budget->insert_id();
+
+             // insert logs
+             $logs = array(
+                'log_action' => 'create allotment',
+                'log_user' => $_SESSION['user'],
+                'log_remarks' => 'allotment id',
+                'log_data' =>  $allotment_id,
+            );
+
+            $this->db_budget->insert('logs', $logs);
+            
         
             // allotment_amount table
             $this->db_budget->select('*');
@@ -246,6 +267,16 @@ class Budget_allocation_model extends CI_Model{
 
             $this->db_budget->insert('allotment', $allotment);
             $allotment_id = $this->db_budget->insert_id();
+
+             // insert logs
+             $logs = array(
+                'log_action' => 'create allotment',
+                'log_user' => $_SESSION['user'],
+                'log_remarks' => 'allotment id',
+                'log_data' =>  $allotment_id,
+            );
+
+            $this->db_budget->insert('logs', $logs);
         
             // allotment_amount table
             $this->db_budget->select('*');
@@ -296,6 +327,16 @@ class Budget_allocation_model extends CI_Model{
 
             $this->db_budget->insert('allotment', $allotment);
             $allotment_id = $this->db_budget->insert_id();
+
+             // insert logs
+             $logs = array(
+                'log_action' => 'create allotment',
+                'log_user' => $_SESSION['user'],
+                'log_remarks' => 'allotment id',
+                'log_data' =>  $allotment_id,
+            );
+
+            $this->db_budget->insert('logs', $logs);
         
             // allotment_amount table
             $this->db_budget->select('*');
@@ -343,6 +384,16 @@ class Budget_allocation_model extends CI_Model{
 
             $this->db_budget->insert('allotment', $allotment);
             $allotment_id = $this->db_budget->insert_id();
+
+             // insert logs
+             $logs = array(
+                'log_action' => 'create allotment',
+                'log_user' => $_SESSION['user'],
+                'log_remarks' => 'allotment id',
+                'log_data' =>  $allotment_id,
+            );
+
+            $this->db_budget->insert('logs', $logs);
         
             // allotment_amount table
             $this->db_budget->select('*');
@@ -393,6 +444,16 @@ class Budget_allocation_model extends CI_Model{
 
             $this->db_budget->insert('allotment', $allotment);
             $allotment_id = $this->db_budget->insert_id();
+
+             // insert logs
+             $logs = array(
+                'log_action' => 'create allotment',
+                'log_user' => $_SESSION['user'],
+                'log_remarks' => 'allotment id',
+                'log_data' =>  $allotment_id,
+            );
+
+            $this->db_budget->insert('logs', $logs);
         
             // allotment_amount table
             $this->db_budget->select('*');
@@ -443,6 +504,16 @@ class Budget_allocation_model extends CI_Model{
 
             $this->db_budget->insert('allotment', $allotment);
             $allotment_id = $this->db_budget->insert_id();
+
+             // insert logs
+             $logs = array(
+                'log_action' => 'create allotment',
+                'log_user' => $_SESSION['user'],
+                'log_remarks' => 'allotment id',
+                'log_data' =>  $allotment_id,
+            );
+
+            $this->db_budget->insert('logs', $logs);
         
             // allotment_amount table
             $this->db_budget->select('*');
@@ -490,6 +561,16 @@ class Budget_allocation_model extends CI_Model{
 
             $this->db_budget->insert('allotment', $allotment);
             $allotment_id = $this->db_budget->insert_id();
+
+             // insert logs
+             $logs = array(
+                'log_action' => 'create allotment',
+                'log_user' => $_SESSION['user'],
+                'log_remarks' => 'allotment id',
+                'log_data' =>  $allotment_id,
+            );
+
+            $this->db_budget->insert('logs', $logs);
         
             // allotment_amount table
             $this->db_budget->select('*');
@@ -540,6 +621,16 @@ class Budget_allocation_model extends CI_Model{
 
             $this->db_budget->insert('allotment', $allotment);
             $allotment_id = $this->db_budget->insert_id();
+
+             // insert logs
+             $logs = array(
+                'log_action' => 'create allotment',
+                'log_user' => $_SESSION['user'],
+                'log_remarks' => 'allotment id',
+                'log_data' =>  $allotment_id,
+            );
+
+            $this->db_budget->insert('logs', $logs);
         
             // allotment_amount table
             $this->db_budget->select('*');
@@ -635,6 +726,16 @@ class Budget_allocation_model extends CI_Model{
 
         $this->db_budget->where('all_id', $this->input->post('allotment_id'));
         $this->db_budget->update('allotment', $allotment);
+
+         // insert logs
+            $logs = array(
+                'log_action' => 'edit allotment',
+                'log_user' => $_SESSION['user'],
+                'log_remarks' => 'allotment id',
+                'log_data' =>  $this->input->post('allotment_id'),
+            );
+
+            $this->db_budget->insert('logs', $logs);
 
         // allotment_amount table
         $this->db_budget->select('*');

@@ -75,3 +75,13 @@ CREATE TABLE disbursements (
     PRIMARY KEY (dis_id),
     FOREIGN KEY (dis_amt_id) REFERENCES allotment_amount(amt_id )
 );
+
+CREATE TABLE logs (
+    log_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    log_action VARCHAR(200),
+    log_user VARCHAR(200),
+    log_remarks VARCHAR(200),
+    log_data VARCHAR(200),
+    log_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (log_id)
+);
