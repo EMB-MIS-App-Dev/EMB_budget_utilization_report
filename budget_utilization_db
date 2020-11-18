@@ -80,8 +80,11 @@ CREATE TABLE logs (
     log_id INTEGER(20) AUTO_INCREMENT NOT NULL,
     log_action VARCHAR(200),
     log_user VARCHAR(200),
+    log_region VARCHAR(200),
     log_remarks VARCHAR(200),
     log_data VARCHAR(200),
+    log_month VARCHAR(200),
+    log_year VARCHAR(200),
     log_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (log_id)
 );

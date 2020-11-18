@@ -16,7 +16,7 @@ class Budget_allocation_model extends CI_Model{
         );
 
         // $api = file_get_contents("https://iis.emb.gov.ph/embis/pbsapi/?token=". $_SESSION['token'] ."&token_id=". $_SESSION['token_id'] ."",  false, stream_context_create($arrContextOptions));
-        $token = 'AW0TyLdAFClNSDyh6Xt7O1mN5GFsL1Kw40kWUkPB6VEpIN9TYg~FTttra9YtugEsBhZ1iubokRgWe7PBGASTQA--';
+        $token = 'dSVVQyYQpPDJBuf2a8W9A6Kg9pmXHVG4nfpU7K.YdNloaj16LsA9eyLUubAL9FGT9qEM2Kw.59.y2jc47gMdjA--';
         $api = file_get_contents("https://iis.emb.gov.ph/embis/pbsapi/?token=$token&token_id=33955f2d1416677fc",  false, stream_context_create($arrContextOptions));
         
         $user = json_decode($api);
@@ -154,6 +154,8 @@ class Budget_allocation_model extends CI_Model{
             $logs = array(
                 'log_action' => 'create allotment',
                 'log_user' => $_SESSION['user'],
+                'log_region' => $_SESSION['region'],
+                'log_year' => $this->input->post('year'),
                 'log_remarks' => 'allotment id',
                 'log_data' =>  $allotment_id,
             );
@@ -211,6 +213,8 @@ class Budget_allocation_model extends CI_Model{
              $logs = array(
                 'log_action' => 'create allotment',
                 'log_user' => $_SESSION['user'],
+                'log_region' => $_SESSION['region'],
+                'log_year' => $this->input->post('year'),
                 'log_remarks' => 'allotment id',
                 'log_data' =>  $allotment_id,
             );
@@ -272,6 +276,8 @@ class Budget_allocation_model extends CI_Model{
              $logs = array(
                 'log_action' => 'create allotment',
                 'log_user' => $_SESSION['user'],
+                'log_region' => $_SESSION['region'],
+                'log_year' => $this->input->post('year'),
                 'log_remarks' => 'allotment id',
                 'log_data' =>  $allotment_id,
             );
@@ -332,6 +338,8 @@ class Budget_allocation_model extends CI_Model{
              $logs = array(
                 'log_action' => 'create allotment',
                 'log_user' => $_SESSION['user'],
+                'log_region' => $_SESSION['region'],
+                'log_year' => $this->input->post('year'),
                 'log_remarks' => 'allotment id',
                 'log_data' =>  $allotment_id,
             );
@@ -389,6 +397,8 @@ class Budget_allocation_model extends CI_Model{
              $logs = array(
                 'log_action' => 'create allotment',
                 'log_user' => $_SESSION['user'],
+                'log_region' => $_SESSION['region'],
+                'log_year' => $this->input->post('year'),
                 'log_remarks' => 'allotment id',
                 'log_data' =>  $allotment_id,
             );
@@ -449,6 +459,8 @@ class Budget_allocation_model extends CI_Model{
              $logs = array(
                 'log_action' => 'create allotment',
                 'log_user' => $_SESSION['user'],
+                'log_region' => $_SESSION['region'],
+                'log_year' => $this->input->post('year'),
                 'log_remarks' => 'allotment id',
                 'log_data' =>  $allotment_id,
             );
@@ -509,6 +521,8 @@ class Budget_allocation_model extends CI_Model{
              $logs = array(
                 'log_action' => 'create allotment',
                 'log_user' => $_SESSION['user'],
+                'log_region' => $_SESSION['region'],
+                'log_year' => $this->input->post('year'),
                 'log_remarks' => 'allotment id',
                 'log_data' =>  $allotment_id,
             );
@@ -566,6 +580,8 @@ class Budget_allocation_model extends CI_Model{
              $logs = array(
                 'log_action' => 'create allotment',
                 'log_user' => $_SESSION['user'],
+                'log_region' => $_SESSION['region'],
+                'log_year' => $this->input->post('year'),
                 'log_remarks' => 'allotment id',
                 'log_data' =>  $allotment_id,
             );
@@ -626,6 +642,8 @@ class Budget_allocation_model extends CI_Model{
              $logs = array(
                 'log_action' => 'create allotment',
                 'log_user' => $_SESSION['user'],
+                'log_region' => $_SESSION['region'],
+                'log_year' => $this->input->post('year'),
                 'log_remarks' => 'allotment id',
                 'log_data' =>  $allotment_id,
             );
@@ -703,6 +721,19 @@ class Budget_allocation_model extends CI_Model{
 
         $this->db_budget->where('all_id', $id);
         $this->db_budget->delete('allotment');
+
+
+        // insert logs
+        $logs = array(
+            'log_action' => 'delete allotment',
+            'log_user' => $_SESSION['user'],
+            'log_region' => $_SESSION['region'],
+            'log_remarks' => 'allotment id',
+            'log_data' =>  $id,
+        );
+
+        $this->db_budget->insert('logs', $logs);
+
         return true;
     }
 
@@ -726,16 +757,6 @@ class Budget_allocation_model extends CI_Model{
 
         $this->db_budget->where('all_id', $this->input->post('allotment_id'));
         $this->db_budget->update('allotment', $allotment);
-
-         // insert logs
-            $logs = array(
-                'log_action' => 'edit allotment',
-                'log_user' => $_SESSION['user'],
-                'log_remarks' => 'allotment id',
-                'log_data' =>  $this->input->post('allotment_id'),
-            );
-
-            $this->db_budget->insert('logs', $logs);
 
         // allotment_amount table
         $this->db_budget->select('*');
@@ -772,6 +793,17 @@ class Budget_allocation_model extends CI_Model{
             
         };
         
+        // insert logs
+        $logs = array(
+            'log_action' => 'edit allotment',
+            'log_user' => $_SESSION['user'],
+            'log_region' => $_SESSION['region'],
+            'log_year' => $this->input->post('year'),
+            'log_remarks' => 'allotment id',
+            'log_data' =>  $this->input->post('allotment_id'),
+        );
+
+        $this->db_budget->insert('logs', $logs);
 
         return true;
     }

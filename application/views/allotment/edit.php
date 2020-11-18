@@ -59,6 +59,7 @@
         <div class="row">
             <div class="col-sm-12" >
                 <input type="hidden" name="allotment_id" value="<?php echo $all_id; ?>">
+                <input type="hidden" name="year" value="<?php echo $year; ?>">
             </div>
 
             <div class="col-sm-2" >

@@ -5,6 +5,7 @@
             // $_SESSION['token_id'] = $_GET['token_id'];
             
             $_SESSION['user'] = $this->budget_allocation_model->get_user()->first_name;
+            $_SESSION['region'] = $this->budget_allocation_model->get_user()->region;
 
             $user['user'] = $this->budget_allocation_model->get_user();
             
