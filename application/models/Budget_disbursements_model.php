@@ -73,6 +73,23 @@ class Budget_disbursements_model extends CI_Model{
             };
 
         };
+
+
+        // insert logs
+        $logs = array(
+            'log_action' => 'create disbursements',
+            'log_user' => $_SESSION['user'],
+            'log_region' => $_SESSION['region'],
+            'log_month' => $this->input->post('monthSel'),
+            'log_year' => $this->input->post('year'),
+            'log_remarks' => 'allotment id',
+            'log_data' =>  $this->input->post('all_id'),
+        );
+
+        $this->db_budget->insert('logs', $logs);
+
+        return true;
+
     }
 
     

@@ -14,6 +14,7 @@
         <a class="btn btn-info create-btn" href="<?php echo base_url()."disbursements"; ?>">Back</a>
     </div>
     <?php foreach($allotments as $allotment){
+        $all_id = $allotment['all_id'];
         $region = $allotment['all_region'];
         $year = $allotment['all_year'];
         $category = $allotment['all_category'];
@@ -157,6 +158,8 @@
                         <td colspan=5><b>$sp_name</b></td>
                         <td><input type='hidden' name='amt_id' value='$amt_id'></td>
                         <td><input type='hidden' name='amt_all_id' value='$amt_all_id'></td>
+                        <td><input type='hidden' name='year' value='$year'></td>
+                        <td><input type='hidden' name='all_id' value='$all_id'></td>
                     </tr>
                     <tr>
                         <td align=center>Obligations as of <br/>This Month</td>
