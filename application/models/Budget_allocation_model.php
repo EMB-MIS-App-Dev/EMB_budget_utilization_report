@@ -26,6 +26,12 @@ class Budget_allocation_model extends CI_Model{
 
 
     // ---------------------------------- MAIN PAP TABLE ----------------------------------
+    public function view_logs(){
+        $query = $this->db_budget->get('logs');
+        return $query->result_array();
+    }
+
+    // ---------------------------------- MAIN PAP TABLE ----------------------------------
     public function view_main_pap(){
         $query = $this->db_budget->get('main_pap');
         return $query->result_array();

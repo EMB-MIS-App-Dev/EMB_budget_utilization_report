@@ -23,6 +23,19 @@
             $this->load->view('js/reports-js');
             $this->load->view('templates/footer');
         }
+
+        public function logs_view(){
+            $user['user'] = $this->budget_allocation_model->get_user();
+
+            $data['logs'] = $this->budget_allocation_model->view_logs();
+            
+
+            // echo json_encode($data['logs']);
+            $this->load->view('templates/header', $user);
+            $this->load->view('reports/logs-view', $data);
+            $this->load->view('js/logs-js');
+            $this->load->view('templates/footer');
+        }
         
     }
 ?>

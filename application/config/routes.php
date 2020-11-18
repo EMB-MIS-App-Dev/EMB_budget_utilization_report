@@ -46,3 +46,7 @@ $route['sp/delete/(:num)'] = 'budgetcontroller/sub_pap_delete/$1';
 //REPORTS
 $route['reports'] = 'reportscontroller/reports_view';
 //END REPORTS
+
+//LOGS
+$route['logs'] = 'reportscontroller/logs_view';
+//END LOGS

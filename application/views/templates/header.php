@@ -121,6 +121,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url(); ?>logs" class="nav-link">
+                <i class="nav-icon fas fa-list"></i>
+                <p>
+                  Logs
+                </p>
+              </a>
+            </li>
           
           <?php endif; ?>
         
