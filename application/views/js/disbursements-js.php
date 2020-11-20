@@ -120,8 +120,14 @@ $(document).on( "keyup", "input.number", function(){
 
 
                 if(monthVal < n){
-                    $('#disbursement-amount-<?php echo $am['amt_id']; ?>').attr('readonly', true)
-                                                                        .css('background-color','#ECECEC')
+                    // TEMPORARY DISABLE PREVIOUS MONTH
+                    // $('#disbursement-amount-<?php echo $am['amt_id']; ?>').attr('readonly', true)
+                    //                                                     .css('background-color','#ECECEC')
+                    //                                                     .val(disAmt);
+                    // $("#disbursement-amount-<?php echo $am['amt_id']; ?>").keyup();
+
+                    $('#disbursement-amount-<?php echo $am['amt_id']; ?>').attr('readonly', false)
+                                                                        .css('background-color','')
                                                                         .val(disAmt);
                     $("#disbursement-amount-<?php echo $am['amt_id']; ?>").keyup();
                 }else{

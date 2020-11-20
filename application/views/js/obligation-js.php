@@ -97,9 +97,16 @@ $(document).on( "keyup", "input.number", function(){
 
 
                 if(monthVal < n){
-                    $('#obligation-amount-<?php echo $am['amt_id']; ?>').attr('readonly', true)
-                                                                        .css('background-color','#ECECEC')
+                    // TEMPORARY DISABLE PREVIOUS MONTH
+                    // $('#obligation-amount-<?php echo $am['amt_id']; ?>').attr('readonly', true)
+                    //                                                     .css('background-color','#ECECEC')
+                    //                                                     .val(oblAmt);
+
+                    $('#obligation-amount-<?php echo $am['amt_id']; ?>').attr('readonly', false)
+                                                                        .css('background-color','')
                                                                         .val(oblAmt);
+
+
                     $("#obligation-amount-<?php echo $am['amt_id']; ?>").keyup();
                 }else{
                     $('#obligation-amount-<?php echo $am['amt_id']; ?>').attr('readonly', false)
