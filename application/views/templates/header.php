@@ -34,6 +34,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
   <script src="<?php echo base_url()."assets/"; ?>plugins/datatables/jquery.tablesorter.js"></script>
 
+  <!-- Table to CSV JQ -->
+  <script src="<?php echo base_url()."assets/"; ?>js/table2csv.js" type="text/javascript"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
