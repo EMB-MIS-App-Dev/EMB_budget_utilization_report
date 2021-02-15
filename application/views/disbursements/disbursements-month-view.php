@@ -93,7 +93,7 @@
                     Month:
                 </div>
                 <div class="col-sm-5">
-                <select name="monthSel" id="month" size='1'>
+                <select name="monthSel" id="month" size='1' required>
                 <option value=''>SELECT</option>
                     <!-- <?php
                     for ($i = 0; $i < 12; $i++) {
