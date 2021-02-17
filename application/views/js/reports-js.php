@@ -14,19 +14,43 @@ $("#generatebtn").click(function(){
     }else{
         // ------------------- FINANCIAL PERFORMANCE REPORT -------------------
         if($( "[name='report'] option:selected" ).val() == "fp"){
-            var $inputH = $(
-                    "<div style='text-align:center'>"+
-                        "<h5>"+
-                            "Spending Performance<br>" + $( "[name='category'] option:selected" ).text()+
-                        "</h5>"+
-                        "<p>as of "+ $( "[name='month_to'] option:selected" ).text()+" "+$( "[name='year']" ).val()+"</p>"+
-                    "</div>"
-            );
+            // var $inputH = $(
+            //         "<div style='text-align:center'>"+
+            //             "<h5>"+
+            //                 "Spending Performance<br>" + $( "[name='category'] option:selected" ).text()+
+            //             "</h5>"+
+            //             "<p>as of "+ $( "[name='month_to'] option:selected" ).text()+" "+$( "[name='year']" ).val()+"</p>"+
+            //         "</div>"
+            // );
 
-            $('.reportDispHeader').empty().show().append($inputH);
+            // $('.reportDispHeader').empty().show().append($inputH);
             
             var $inputTH = $(
                 "<thead>"+
+                "<tr>"+
+                    "<th>Report:</th>"+
+                    "<th>Spending Performance</th>"+
+                    "<th></th>"+
+                    "<th>Class:</th>"+
+                    "<th>"+$( "[name='class'] option:selected" ).text()+"</th>"+
+                    "<th></th>"+
+                "</tr>"+
+                "<tr>"+
+                    "<th>Category:</th>"+
+                    "<th>"+$( "[name='category'] option:selected" ).text()+"</th>"+
+                    "<th></th>"+
+                    "<th>Date:</th>"+
+                    "<th>"+$( "[name='month_from'] option:selected" ).text()+" - "+$( "[name='month_to'] option:selected" ).text()+", "+$( "[name='year']" ).val()+"</th>"+
+                    "<th></th>"+
+                "</tr>"+
+                "<tr>"+
+                    "<th></th>"+
+                    "<th></th>"+
+                    "<th></th>"+
+                    "<th></th>"+
+                    "<th></th>"+
+                    "<th></th>"+
+                "</tr>"+
                 "<tr>"+
                     "<th>Region Office</th>"+
                     "<th>Target Obligation as of this Month</th>"+
@@ -492,19 +516,43 @@ $("#generatebtn").click(function(){
             }
         // ------------------- UTILIZATION REPORT -------------------
         }else if($( "[name='report'] option:selected" ).val() == "ut"){
-            var $inputH = $(
-                    "<div style='text-align:center'>"+
-                        "<h5>"+
-                            "Budget Utilization Rate<br>" + $( "[name='category'] option:selected" ).text()+
-                        "</h5>"+
-                        "<p>as of "+ $( "[name='month_to'] option:selected" ).text()+" "+$( "[name='year']" ).val()+"</p>"+
-                    "</div>"
-            );
+            // var $inputH = $(
+            //         "<div style='text-align:center'>"+
+            //             "<h5>"+
+            //                 "Budget Utilization Rate<br>" + $( "[name='category'] option:selected" ).text()+
+            //             "</h5>"+
+            //             "<p>as of "+ $( "[name='month_to'] option:selected" ).text()+" "+$( "[name='year']" ).val()+"</p>"+
+            //         "</div>"
+            // );
 
-            $('.reportDispHeader').empty().show().append($inputH);
+            // $('.reportDispHeader').empty().show().append($inputH);
             
             var $inputTH = $(
                 "<thead>"+
+                "<tr>"+
+                    "<th>Report:</th>"+
+                    "<th>Budget Utilization Rate</th>"+
+                    "<th></th>"+
+                    "<th>Class:</th>"+
+                    "<th>"+$( "[name='class'] option:selected" ).text()+"</th>"+
+                    "<th></th>"+
+                "</tr>"+
+                "<tr>"+
+                    "<th>Category:</th>"+
+                    "<th>"+$( "[name='category'] option:selected" ).text()+"</th>"+
+                    "<th></th>"+
+                    "<th>Date:</th>"+
+                    "<th>"+$( "[name='month_from'] option:selected" ).text()+" - "+$( "[name='month_to'] option:selected" ).text()+", "+$( "[name='year']" ).val()+"</th>"+
+                    "<th></th>"+
+                "</tr>"+
+                "<tr>"+
+                    "<th></th>"+
+                    "<th></th>"+
+                    "<th></th>"+
+                    "<th></th>"+
+                    "<th></th>"+
+                    "<th></th>"+
+                "</tr>"+
                 "<tr>"+
                     "<th>Region Office</th>"+
                     "<th>Total Allotment</th>"+
