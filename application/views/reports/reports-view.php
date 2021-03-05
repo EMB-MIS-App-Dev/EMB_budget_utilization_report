@@ -6,7 +6,7 @@
             <div class="col-sm-3">
                 <select name='report' class="browser-default custom-select">
                     <option value=''>SELECT</option>
-                    <option value='fp'>Fianancial Performance</option>
+                    <option value='fp'>Financial Performance</option>
                     <option value='ut'>Utilization</option>
                 </select>
             </div>
