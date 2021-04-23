@@ -86,15 +86,16 @@
 
                 <!-- <div class="col-sm-4">
                     <button name="generate" id="generatebtn" class='btn btn-primary' >Generate Report</button>
-                </div>
-                <div class="col-sm-4">
-                    <button id="btnExport" onclick="fnExcelReport();" class='btn btn-success'>Export Report</button>
                 </div> -->
+                
                 
                 <!-- <div class="col-sm-4"></div> -->
 
-                <div class="center-button">
+                <div class="col-sm-4">
                     <button type="submit" class="btn btn-primary">Generate</button>
+                </div>
+                <div class="col-sm-4">
+                    <a id="btnExport" onclick="fnExcelReport();" class='btn btn-success'>Export Report</a>
                 </div>
 
             </div>
@@ -917,3 +918,12 @@
     </div>
 
 </div>
+
+<script>
+function fnExcelReport()
+{
+    $("#myTable").table2csv({  
+        filename: 'Reports.csv'  
+    }); 
+}
+</script>
