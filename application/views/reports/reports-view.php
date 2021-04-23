@@ -105,8 +105,18 @@
             <thead>
                 <tr>
                     <th>Report:</th>
-                    <th>Spending Performance</th>
-                    <th></th>
+                    <?php
+                    if(isset($details['report'])){
+                        if($details['report'] == 'fp'){
+                            $report = "Financial Performance";
+                        }elseif($details['report'] == 'ut'){
+                            $report = 'Utilization';
+                        }
+                        
+                    }
+                   
+                    ?>
+                    <th colspan='2'><?php echo isset($report) ? $report : '' ?></th>
                     <th>Class:</th>
                     <?php
                     if(isset($details['class'])){
@@ -122,8 +132,7 @@
                     }
                    
                     ?>
-                    <th><?php echo isset($class) ? $class : '' ?></th>
-                    <th></th>
+                    <th colspan='2'><?php echo isset($class) ? $class : '' ?></th>
                 </tr>
                 <tr>
                     <th>Category:</th>
@@ -142,8 +151,7 @@
                     }
                 
                     ?>
-                    <th><?php echo isset($cat) ? $cat : '' ?></th>
-                    <th></th>
+                    <th colspan='2'><?php echo isset($cat) ? $cat : '' ?></th>
                     <th>Date:</th>
                     <?php
                     if(isset($details['month_from'])){
@@ -158,8 +166,8 @@
                     }
                    
                     ?>
-                    <th colspan=2><?php echo isset($monthFrom) ? $monthFrom : '' ?> - <?php echo isset($monthTo) ? $monthTo : '' ?>, <?php echo isset($details['year']) ? $details['year'] : '' ?></th>
-                    <th></th>
+                    <th colspan='2'><?php echo isset($monthFrom) ? $monthFrom : '' ?> - <?php echo isset($monthTo) ? $monthTo : '' ?>, <?php echo isset($details['year']) ? $details['year'] : '' ?></th>
+                    
                 </tr>
                 <tr>
                     <?php
@@ -180,6 +188,7 @@
                             <th scope='col'>Actual Obligation as of this Month</th>
                             <th scope='col'>Balance in Allotment</th>
                             <th scope='col'>Utilization</th>
+                            <th scope='col'>Disbursement Rate</th>
                             <th scope='col'>Actual Disbursements as of this Month</th>
                             "; 
                         }
@@ -210,6 +219,7 @@
                     $balanceAll = 0;
                     $actDisThis_total_ut = 0;
                     $utilization = 0;
+                    $disRate = 0;
                 
                     foreach($allotment_amt_all as $aa){
                         //Financial Performance
@@ -877,8 +887,14 @@
                     //UT
                     }elseif($details['report'] ==  "ut"){
 
-                         //utilization
-                         if($actOblThis_total_ut > 0 && $totalAll >0){
+                        //Disbursement Rate
+                        if($actDisThis_total_ut > 0 && $actOblThis_total_ut >0){
+                            $disRate = ($actDisThis_total_ut/$actOblThis_total_ut) * 100;
+                        }
+                        $disRate = intval($disRate);
+
+                        //utilization
+                        if($actOblThis_total_ut > 0 && $totalAll >0){
                             $utilization = ($actOblThis_total_ut/$totalAll) * 100;
                         }
                         $utilization = intval($utilization);
@@ -900,6 +916,7 @@
                             <td>$actOblThis_total_ut</td>
                             <td>$balanceAll</td>
                             <td>$utilization%</td>
+                            <td>$disRate%</td>
                             <td>$actDisThis_total_ut</td>
                         </tr>
                         
