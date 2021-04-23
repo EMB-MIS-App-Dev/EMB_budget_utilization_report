@@ -843,7 +843,7 @@
                     }
 
                    //SP
-                   if($details['report'] ==  "sp"){
+                   if($details['report'] ==  "fp"){
                         //Target
                         if($tarOblThis_total > 0 && $target >0){
                             $target = ($tarOblThis_total/$target) * 100;
