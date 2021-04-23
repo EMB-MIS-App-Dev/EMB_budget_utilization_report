@@ -188,8 +188,8 @@
                             <th scope='col'>Actual Obligation as of this Month</th>
                             <th scope='col'>Balance in Allotment</th>
                             <th scope='col'>Utilization</th>
-                            <th scope='col'>Disbursement Rate</th>
                             <th scope='col'>Actual Disbursements as of this Month</th>
+                            <th scope='col'>Disbursement Rate</th>
                             "; 
                         }
                     }
@@ -916,8 +916,8 @@
                             <td>$actOblThis_total_ut</td>
                             <td>$balanceAll</td>
                             <td>$utilization%</td>
-                            <td>$disRate%</td>
                             <td>$actDisThis_total_ut</td>
+                            <td>$disRate%</td>
                         </tr>
                         
                     ";
