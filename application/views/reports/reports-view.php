@@ -114,9 +114,9 @@
                         }
                         
                     }
-                   
+                
                     ?>
-                    <th colspan='2'><?php echo isset($report) ? $report : '' ?></th>
+                    <th ><?php echo isset($report) ? $report : '' ?></th>
                     <th>Class:</th>
                     <?php
                     if(isset($details['class'])){
@@ -130,9 +130,18 @@
                         }
                         
                     }
-                   
+                
                     ?>
-                    <th colspan='2'><?php echo isset($class) ? $class : '' ?></th>
+                    <th ><?php echo isset($class) ? $class : '' ?></th>
+                    <th></th>
+                    <th></th>
+                    <?php
+                    if(isset($details['report'])){
+                        if($details['report']== "ut"){
+                            echo"<th></th>";
+                        }
+                    }
+                    ?>
                 </tr>
                 <tr>
                     <th>Category:</th>
@@ -151,7 +160,7 @@
                     }
                 
                     ?>
-                    <th colspan='2'><?php echo isset($cat) ? $cat : '' ?></th>
+                    <th ><?php echo isset($cat) ? $cat : '' ?></th>
                     <th>Date:</th>
                     <?php
                     if(isset($details['month_from'])){
@@ -164,10 +173,18 @@
                         $dateObjto   = DateTime::createFromFormat('!m', $monthNumto);
                         $monthTo = $dateObjto->format('F');
                     }
-                   
+                
                     ?>
-                    <th colspan='2'><?php echo isset($monthFrom) ? $monthFrom : '' ?> - <?php echo isset($monthTo) ? $monthTo : '' ?>, <?php echo isset($details['year']) ? $details['year'] : '' ?></th>
-                    
+                    <th ><?php echo isset($monthFrom) ? $monthFrom : '' ?> - <?php echo isset($monthTo) ? $monthTo : '' ?>, <?php echo isset($details['year']) ? $details['year'] : '' ?></th>
+                    <th></th>
+                    <th></th>
+                    <?php
+                    if(isset($details['report'])){
+                        if($details['report']== "ut"){
+                            echo"<th></th>";
+                        }
+                    }
+                    ?>
                 </tr>
                 <tr>
                     <?php
