@@ -584,9 +584,82 @@
      
  <!-- total computation -->
  <script>
-     $(document).ready(function(){
+     $(window).on("load", function(){
+        var totalgrand = 0;
 
          <?php foreach($sub_pap as $sp) : ?>
+
+            //load total on window load
+            $.ready.then(function(){
+                // CURRENT 
+                //AGENCY SPECIFIC
+                $('[name=<?php echo $sp['sp_id']; ?>-amount-total-cu]').click();
+                //OTHER RELEASES            
+                $('name=newAct_<?php echo $sp['sp_id']; ?>_input_total_cu_or').click();
+                //SAA
+                 $('name=newActsaa_<?php echo $sp['sp_id']; ?>_input_total_cu_sa').click();
+
+                // CONTINUING
+                //AGENCY SPECIFIC
+                $('[name=<?php echo $sp['sp_id']; ?>-amount-total-ca]').click();
+                //OTHER RELEASES
+                $('name=newAct_<?php echo $sp['sp_id']; ?>_input_total_ca_or').click();
+                //SAA
+                $('name=newActsaa_<?php echo $sp['sp_id']; ?>_input_total_ca_sa').click();
+
+                // AUTOMATIC AGENCY SPECIFIC
+                //AGENCY SPECIFIC
+                $('[name=<?php echo $sp['sp_id']; ?>-amount-total-aa]').click();
+                //OTHER RELEASES
+                $('name=newAct_<?php echo $sp['sp_id']; ?>_input_total_aa_or').click();
+                //SAA
+                $('name=newAct_<?php echo $sp['sp_id']; ?>_input_total_aa_sa').click();
+            });
+
+            //load total on keypress
+            // CURRENT 
+            //AGENCY SPECIFIC
+            $('[name=<?php echo $sp['sp_id']; ?>-amount-jan-cu], [name=<?php echo $sp['sp_id']; ?>-amount-feb-cu], [name=<?php echo $sp['sp_id']; ?>-amount-mar-cu], [name=<?php echo $sp['sp_id']; ?>-amount-apr-cu], [name=<?php echo $sp['sp_id']; ?>-amount-may-cu], [name=<?php echo $sp['sp_id']; ?>-amount-jun-cu], [name=<?php echo $sp['sp_id']; ?>-amount-jul-cu], [name=<?php echo $sp['sp_id']; ?>-amount-aug-cu], [name=<?php echo $sp['sp_id']; ?>-amount-sep-cu], [name=<?php echo $sp['sp_id']; ?>-amount-oct-cu], [name=<?php echo $sp['sp_id']; ?>-amount-nov-cu], [name=<?php echo $sp['sp_id']; ?>-amount-dec-cu]').keyup(function(){
+                totalgrand = 0;
+                $('[name=<?php echo $sp['sp_id']; ?>-amount-total-cu]').click();
+            });
+            //OTHER RELEASES
+            $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_jan_cu_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_feb_cu_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_mar_cu_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_apr_cu_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_may_cu_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_jun_cu_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_jul_cu_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_aug_cu_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_sep_cu_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_oct_cu_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_nov_cu_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_dec_cu_or]').keyup(function(){
+                $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_total_cu_or]').click();
+            });
+            //SAA
+            $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jan_cu_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_feb_cu_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_mar_cu_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_apr_cu_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_may_cu_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jun_cu_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jul_cu_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_aug_cu_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_sep_cu_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_oct_cu_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_nov_cu_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_dec_cu_sa]').keyup(function(){
+                $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_total_cu_sa]').click();
+            });
+
+            // CONTINUING
+            //AGENCY SPECIFIC
+            $('[name=<?php echo $sp['sp_id']; ?>-amount-jan-ca], [name=<?php echo $sp['sp_id']; ?>-amount-feb-ca], [name=<?php echo $sp['sp_id']; ?>-amount-mar-ca], [name=<?php echo $sp['sp_id']; ?>-amount-apr-ca], [name=<?php echo $sp['sp_id']; ?>-amount-may-ca], [name=<?php echo $sp['sp_id']; ?>-amount-jun-ca], [name=<?php echo $sp['sp_id']; ?>-amount-jul-ca], [name=<?php echo $sp['sp_id']; ?>-amount-aug-ca], [name=<?php echo $sp['sp_id']; ?>-amount-sep-ca], [name=<?php echo $sp['sp_id']; ?>-amount-oct-ca], [name=<?php echo $sp['sp_id']; ?>-amount-nov-ca], [name=<?php echo $sp['sp_id']; ?>-amount-dec-ca]').keyup(function(){
+                $('[name=<?php echo $sp['sp_id']; ?>-amount-total-ca]').click();
+            });
+            //OTHER RELEASES
+            $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_jan_ca_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_feb_ca_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_mar_ca_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_apr_ca_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_may_ca_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_jun_ca_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_jul_ca_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_aug_ca_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_sep_ca_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_oct_ca_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_nov_ca_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_dec_ca_or]').keyup(function(){
+                $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_total_ca_or]').click();
+            });
+            //SAA
+            $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jan_ca_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_feb_ca_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_mar_ca_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_apr_ca_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_may_ca_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jun_ca_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jul_ca_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_aug_ca_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_sep_ca_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_oct_ca_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_nov_ca_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_dec_ca_sa]').keyup(function(){
+                $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_total_ca_sa]').click();
+            });
+
+            // AUTOMATIC AGENCY SPECIFIC
+            //AGENCY SPECIFIC
+            $('[name=<?php echo $sp['sp_id']; ?>-amount-jan-aa], [name=<?php echo $sp['sp_id']; ?>-amount-feb-aa], [name=<?php echo $sp['sp_id']; ?>-amount-mar-aa], [name=<?php echo $sp['sp_id']; ?>-amount-apr-aa], [name=<?php echo $sp['sp_id']; ?>-amount-may-aa], [name=<?php echo $sp['sp_id']; ?>-amount-jun-aa], [name=<?php echo $sp['sp_id']; ?>-amount-jul-aa], [name=<?php echo $sp['sp_id']; ?>-amount-aug-aa], [name=<?php echo $sp['sp_id']; ?>-amount-sep-aa], [name=<?php echo $sp['sp_id']; ?>-amount-oct-aa], [name=<?php echo $sp['sp_id']; ?>-amount-nov-aa], [name=<?php echo $sp['sp_id']; ?>-amount-dec-aa]').keyup(function(){
+                $('[name=<?php echo $sp['sp_id']; ?>-amount-total-aa]').click();
+            });
+            //OTHER RELEASES
+            $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_jan_aa_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_feb_aa_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_mar_aa_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_apr_aa_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_may_aa_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_jun_aa_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_jul_aa_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_aug_aa_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_sep_aa_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_oct_aa_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_nov_aa_or], [name=newAct_<?php echo $sp['sp_id']; ?>_input_dec_aa_or]').keyup(function(){
+                $('[name=newAct_<?php echo $sp['sp_id']; ?>_input_total_aa_or]').click();
+            });
+            //SAA
+            $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jan_aa_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_feb_aa_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_mar_aa_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_apr_aa_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_may_aa_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jun_aa_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_jul_aa_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_aug_aa_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_sep_aa_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_oct_aa_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_nov_aa_sa], [name=newActsaa_<?php echo $sp['sp_id']; ?>_input_dec_aa_sa]').keyup(function(){
+                $('[name=newActsaa_<?php echo $sp['sp_id']; ?>_input_total_aa_sa]').click();
+            });
+
 
              // CURRENT 
              //AGENCY SPECIFIC
@@ -610,6 +683,19 @@
                              Number(jul) + Number(aug)+ 
                              Number(sep) + Number(oct)+
                              Number(nov) + Number(dec);
+
+                //grandtotal
+                totalgrand += parseFloat(total);
+
+                console.log(totalgrand)
+
+                var totalgrandtotal = totalgrand.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                $('#grandtotal').text(totalgrandtotal);
+
                  total = total.toFixed(2)
                                  .replace(/[^\d.]/g, "")
                                  .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
@@ -617,7 +703,7 @@
                                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                  
                  $('[name=<?php echo $sp['sp_id']; ?>-amount-total-cu]').val(total);
-                 
+
              });
 
              //OTHER RELEASES
@@ -642,6 +728,16 @@
                              Number(jul) + Number(aug)+ 
                              Number(sep) + Number(oct)+
                              Number(nov) + Number(dec);
+
+                //grandtotal
+                totalgrand += parseFloat(total);
+                var totalgrandtotal = totalgrand.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                $('#grandtotal').text(totalgrandtotal);
+
                  total = total.toFixed(2)
                                  .replace(/[^\d.]/g, "")
                                  .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
@@ -674,6 +770,16 @@
                              Number(jul) + Number(aug)+ 
                              Number(sep) + Number(oct)+
                              Number(nov) + Number(dec);
+
+                             //grandtotal
+                totalgrand += parseFloat(total);
+                var totalgrandtotal = totalgrand.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                $('#grandtotal').text(totalgrandtotal);
+
                  total = total.toFixed(2)
                                  .replace(/[^\d.]/g, "")
                                  .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
@@ -706,6 +812,16 @@
                              Number(jul) + Number(aug)+ 
                              Number(sep) + Number(oct)+
                              Number(nov) + Number(dec);
+
+                             //grandtotal
+                totalgrand += parseFloat(total);
+                var totalgrandtotal = totalgrand.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                $('#grandtotal').text(totalgrandtotal);
+
                  total = total.toFixed(2)
                                  .replace(/[^\d.]/g, "")
                                  .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
@@ -738,6 +854,16 @@
                              Number(jul) + Number(aug)+ 
                              Number(sep) + Number(oct)+
                              Number(nov) + Number(dec);
+
+                             //grandtotal
+                totalgrand += parseFloat(total);
+                var totalgrandtotal = totalgrand.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                $('#grandtotal').text(totalgrandtotal);
+
                  total = total.toFixed(2)
                                  .replace(/[^\d.]/g, "")
                                  .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
@@ -770,6 +896,16 @@
                              Number(jul) + Number(aug)+ 
                              Number(sep) + Number(oct)+
                              Number(nov) + Number(dec);
+
+                             //grandtotal
+                totalgrand += parseFloat(total);
+                var totalgrandtotal = totalgrand.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                $('#grandtotal').text(totalgrandtotal);
+
                  total = total.toFixed(2)
                                  .replace(/[^\d.]/g, "")
                                  .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
@@ -802,6 +938,16 @@
                              Number(jul) + Number(aug)+ 
                              Number(sep) + Number(oct)+
                              Number(nov) + Number(dec);
+
+                             //grandtotal
+                totalgrand += parseFloat(total);
+                var totalgrandtotal = totalgrand.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                $('#grandtotal').text(totalgrandtotal);
+
                  total = total.toFixed(2)
                                  .replace(/[^\d.]/g, "")
                                  .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
@@ -834,6 +980,16 @@
                              Number(jul) + Number(aug)+ 
                              Number(sep) + Number(oct)+
                              Number(nov) + Number(dec);
+
+                             //grandtotal
+                totalgrand += parseFloat(total);
+                var totalgrandtotal = totalgrand.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                $('#grandtotal').text(totalgrandtotal);
+
                  total = total.toFixed(2)
                                  .replace(/[^\d.]/g, "")
                                  .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
@@ -866,6 +1022,17 @@
                              Number(jul) + Number(aug)+ 
                              Number(sep) + Number(oct)+
                              Number(nov) + Number(dec);
+
+                             //grandtotal
+                totalgrand += parseFloat(total);
+                var totalgrandtotal = totalgrand.toFixed(2)
+                                 .replace(/[^\d.]/g, "")
+                                 .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                                 .replace(/\.(\d{2})\d+/, '.$1')
+                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                $('#grandtotal').text(totalgrandtotal);
+
+                
                  total = total.toFixed(2)
                                  .replace(/[^\d.]/g, "")
                                  .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')

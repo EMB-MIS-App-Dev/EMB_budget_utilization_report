@@ -140,6 +140,14 @@
                 <?php echo $class; ?>
             </div>
             <div class="col-sm-7"></div>
+
+            <div class="col-sm-2" >
+                <B>Grand Total:</B>
+            </div> 
+            <div class="col-sm-3">
+               <b><p id=grandtotal></p></b>
+            </div>
+            <div class="col-sm-7"><p style="color:blue; text-align:left"><i>(click save to update value)</i></p></div>
         </div>
     </div>
 
